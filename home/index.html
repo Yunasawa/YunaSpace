@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unity Developer Portfolio // ARCHIVE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #05070a;
+            --accent: #bb86fc;
+            --accent-glow: rgba(187, 134, 252, 0.4);
+            --text: #ffffff;
+            --muted: rgba(255, 255, 255, 0.5);
+            --card-bg: rgba(15, 20, 28, 0.7);
+            --border: rgba(255, 255, 255, 0.1);
+            --panel: rgba(15, 20, 28, 0.8);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            cursor: crosshair;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+            /* Scanline/Grid Background Effect */
+            body::before {
+                content: "";
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+                background-size: 50px 50px;
+                mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+                z-index: -1;
+                opacity: 0.3;
+            }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+            nav.scrolled {
+                height: 60px;
+                border-bottom: 1px solid var(--accent);
+            }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--text);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+            .nav-logo span {
+                color: var(--accent);
+            }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+            .nav-links a {
+                color: var(--muted);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: 0.3s;
+            }
+
+                .nav-links a:hover {
+                    color: var(--accent);
+                    text-shadow: 0 0 10px var(--accent-glow);
+                }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            background: linear-gradient(rgba(5, 7, 10, 0.7), rgba(5, 7, 10, 0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+            .hero h1 {
+                font-size: clamp(2.5rem, 8vw, 5rem);
+                font-weight: 900;
+                text-transform: uppercase;
+                line-height: 0.9;
+                letter-spacing: -2px;
+                margin-bottom: 20px;
+                background: linear-gradient(180deg, #fff 0%, var(--muted) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .hero span {
+                color: var(--accent);
+                -webkit-text-fill-color: var(--accent);
+                font-style: italic;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                color: var(--muted);
+                margin-bottom: 40px;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+                font-family: monospace;
+            }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #000;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 0 30px var(--accent);
+            }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--border);
+            margin-left: 10px;
+        }
+
+            .btn-secondary:hover {
+                border-color: var(--accent);
+                background: rgba(187, 134, 252, 0.05);
+            }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 120px 10%;
+            max-width: 1300px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease-out;
+        }
+
+            section.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+            h2::before {
+                content: "ARCHIVE_";
+                display: block;
+                font-size: 0.7rem;
+                font-family: monospace;
+                color: var(--accent);
+                letter-spacing: 3px;
+            }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+        }
+
+            .skill-card:hover {
+                border-color: var(--accent);
+                transform: translateY(-5px);
+            }
+
+            .skill-card h3 {
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+        /* ===== PROJECTS GRID ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            position: relative;
+            height: 400px;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .project-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.4;
+            transition: transform 0.8s ease, opacity 0.5s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(187, 134, 252, 0.2);
+        }
+
+            .project-card:hover .project-bg {
+                transform: scale(1.1);
+                opacity: 0.6;
+            }
+
+        .project-info {
+            position: absolute;
+            inset: 0;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background: linear-gradient(to bottom, transparent 0%, rgba(5, 7, 10, 0.98) 95%);
+            z-index: 2;
+        }
+
+            .project-info h3 {
+                font-size: 1.8rem;
+                font-weight: 800;
+                margin-bottom: 10px;
+                text-transform: uppercase;
+            }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-right: 8px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Accent corner for cards */
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 30px;
+            height: 30px;
+            border-top: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+            opacity: 0;
+            transition: 0.3s;
+            z-index: 3;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+            transform: translate(-5px, 5px);
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            text-align: center;
+        }
+
+        .email-box {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 25px 50px;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            font-weight: 800;
+            background: var(--card-bg);
+            color: var(--text);
+            text-decoration: none;
+            transition: 0.4s;
+            font-family: monospace;
+        }
+
+            .email-box:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+                box-shadow: 0 0 30px var(--accent-glow);
+                transform: scale(1.05);
+            }
+
+        footer {
+            text-align: center;
+            padding: 60px;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            section {
+                padding: 80px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <div class="nav-logo">UNITY<span>DEV</span>_</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero visible" id="home">
+        <div class="hero-content">
+            <div style="font-family: monospace; color: var(--accent); font-size: 0.8rem; margin-bottom: 15px;">
+                <i class="fas fa-circle" style="font-size: 8px; animation: pulse 2s infinite;"></i> SYSTEM_STABLE // PORTFOLIO_V2
+            </div>
+            <h1>Building Immersive<br><span>Game Worlds</span>_</h1>
+            <p>High-performance gameplay systems and architectural excellence for modern engines.</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Archive</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3 style="color: var(--accent); margin-bottom: 20px;"><i class="fas fa-layer-group"></i> Engine</h3>
+                <ul style="list-style: none; color: var(--muted); font-size: 0.9rem;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-chevron-right" style="font-size: 0.7rem; color: var(--accent);"></i> Unity 3D/2D Expert</li>
+                    <li><i class="fas fa-chevron-right" style="font-size: 0.7rem; color: var(--accent);"></i> HLSL & Shader Graph</li>
+                </ul>
+            </div>
+            <div class="skill-card">
+                <h3 style="color: var(--accent); margin-bottom: 20px;"><i class="fas fa-code"></i> Programming</h3>
+                <ul style="list-style: none; color: var(--muted); font-size: 0.9rem;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-chevron-right" style="font-size: 0.7rem; color: var(--accent);"></i> Advanced C#</li>
+                    <li><i class="fas fa-chevron-right" style="font-size: 0.7rem; color: var(--accent);"></i> Design Patterns</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Typical Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-bg" style="background-image: url('https://images.unsplash.com/photo-1614726365633-5c207b1a6552?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-info">
+                    <span style="font-family: monospace; color: var(--accent); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 10px;">DEPLOYMENT // 01</span>
+                    <h3>Voxel Terrain Engine</h3>
+                    <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 20px;">Procedural world generation using Compute Shaders.</p>
+                    <div class="project-tags">
+                        <span class="tag">GPU</span>
+                        <span class="tag">C#</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-bg" style="background-image: url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800');"></div>
+                <div class="project-info">
+                    <span style="font-family: monospace; color: var(--accent); font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 10px;">DEPLOYMENT // 02</span>
+                    <h3>Action-RPG Framework</h3>
+                    <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 20px;">Modular architecture for scalable gameplay.</p>
+                    <div class="project-tags">
+                        <span class="tag">UNITY</span>
+                        <span class="tag">CORE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p style="font-family: monospace; color: var(--muted);">INITIALIZING SECURE COMMUNICATION CHANNEL...</p>
+        <a href="mailto:your.email@example.com" class="email-box">your.email@example.com</a>
+    </section>
+
+    <footer>
+        <p>© 2026 Your Name // Professional Unity Developer // All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Scroll Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(s => observer.observe(s));
+
+        // Nav Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
+        // Parallax effect on hero for that terminal feel
+        document.addEventListener('mousemove', (e) => {
+            const heroContent = document.querySelector('.hero-content');
+            if(heroContent) {
+                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+                heroContent.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
