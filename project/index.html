@@ -21,7 +21,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            cursor: crosshair;
         }
 
         /* VIEW TOGGLE GROUPED AS TABS */
@@ -202,7 +201,7 @@
         .container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 60px 5%;
+            padding: 100px 5% 60px 5%;
         }
 
         .header-box {
@@ -302,7 +301,7 @@
             border-radius: 24px;
             overflow: hidden;
             background: #000;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
@@ -430,8 +429,92 @@
             }
         }
     </style>
+    <style>
+        .navigator {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 70px;
+            background: rgba(5, 7, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10%;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+            .navigator.scrolled {
+                height: 60px;
+                border-bottom: 1px solid var(--accent);
+            }
+
+        .nav-logo {
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--text);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+            .nav-logo span {
+                color: var(--accent);
+            }
+
+        .logo-img {
+            height: 32px; /* Adjust size to match your nav height */
+            width: 32px; /* Keep it square */
+            object-fit: contain;
+            filter: drop-shadow(0 0 10px rgba(187, 134, 252, 0.5));
+            margin-bottom: -7.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+            .nav-links > * > .selected {
+                color: var(--accent);
+            }
+
+            .nav-links a {
+                color: var(--muted);
+                font-size: 0.7rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                transition: 0.3s;
+                text-decoration: none;
+            }
+
+                .nav-links a:hover {
+                    color: var(--accent);
+                    text-shadow: 0 0 30px var(--accent);
+                }
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+    </style>
 </head>
 <body>
+    <nav id="navbar" class="navigator">
+        <div class="nav-logo">
+            <img src="../home/sources/logo.png" class="logo-img">
+            YUNA<span>SAWA</span>_
+        </div>
+        <ul class="nav-links">
+            <li><a href="/home/">Home</a></li>
+            <li><a class="selected"">Project</a></li>
+            <li><a href="#articles">Article</a></li>
+        </ul>
+    </nav>
 
     <div class="container">
         <header class="header-box">
@@ -445,14 +528,14 @@
         <nav class="toolbar">
             <div class="search-wrapper">
                 <i class="fas fa-search" style="color: var(--accent); margin-right: 10px;"></i>
-                <input type="text" id="searchInput" placeholder="QUERY DATABASE..." onkeyup="handleSearch()">
+                <input type="text" id="searchInput" placeholder="Search..." onkeyup="handleSearch()">
             </div>
 
             <div class="tabs">
-                <button class="tab active" onclick="filterType('all', this)">Archive</button>
-                <button class="tab" onclick="filterType('games', this)">Games</button>
-                <button class="tab" onclick="filterType('tools', this)">Tools</button>
-                <button class="tab" onclick="filterType('libs', this)">Libs</button>
+                <button class="tab active" onclick="filterType('all', this)">All</button>
+                <button class="tab" onclick="filterType('games', this)">Game</button>
+                <button class="tab" onclick="filterType('tools', this)">Tool</button>
+                <button class="tab" onclick="filterType('libs', this)">Library</button>
             </div>
 
             <div class="view-toggle-group">
@@ -467,17 +550,48 @@
 
         <main class="project-grid" id="projectGrid">
 
-            <div class="card" data-type="games" data-name="Project Neon">
-                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=1200');"></div>
+            <a href="test/" class="card-link">
+                <div class="card" data-type="games" data-name="Project Neon">
+                    <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=1200');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <span class="card-category">Deployment // 01</span>
+                        <h3 class="card-title">PROJECT NEON</h3>
+                        <p class="card-description">A high-fidelity Unity 6 action experience utilizing custom SRP and ray-traced global illumination.</p>
+                        <div class="tech-tags">
+                            <span class="tag">Unity 6</span>
+                            <span class="tag">HLSL</span>
+                            <span class="tag">C#</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <div class="card" data-type="tools" data-name="Graph Baker">
+                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200');"></div>
                 <div class="card-overlay"></div>
                 <div class="card-content">
-                    <span class="card-category">Deployment // 01</span>
-                    <h3 class="card-title">PROJECT NEON</h3>
-                    <p class="card-description">A high-fidelity Unity 6 action experience utilizing custom SRP and ray-traced global illumination.</p>
+                    <span class="card-category">Utility // 02</span>
+                    <h3 class="card-title">GRAPH BAKER</h3>
+                    <p class="card-description">Automated pipeline tool for converting complex node-based shaders into high-performance textures.</p>
                     <div class="tech-tags">
-                        <span class="tag">Unity 6</span>
-                        <span class="tag">HLSL</span>
-                        <span class="tag">C#</span>
+                        <span class="tag">Editor API</span>
+                        <span class="tag">Compute</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-type="libs" data-name="NetSync Pro">
+                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200');"></div>
+                <div class="card-overlay"></div>
+                <div class="card-content">
+                    <span class="card-category">Architecture // 03</span>
+                    <h3 class="card-title">NETSYNC PRO</h3>
+                    <p class="card-description">Low-latency UDP networking architecture designed for deterministic state synchronization.</p>
+                    <div class="tech-tags">
+                        <span class="tag">.NET 8</span>
+                        <span class="tag">Socket</span>
+                        <span class="tag">UDP</span>
                     </div>
                 </div>
             </div>
@@ -515,6 +629,11 @@
     </div>
 
     <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+        });
+
         function filterType(type, btn) {
             const cards = document.querySelectorAll('.card');
             const tabs = document.querySelectorAll('.tab');
@@ -527,7 +646,7 @@
                 card.style.transform = 'translateY(20px)';
 
                 setTimeout(() => {
-                    if(type === 'all' || card.dataset.type === type) {
+                    if (type === 'all' || card.dataset.type === type) {
                         card.classList.remove('hidden');
                         setTimeout(() => {
                             card.style.opacity = '1';
@@ -540,52 +659,52 @@
             });
         }
 
-function toggleView(viewType) {
-    const grid = document.getElementById('projectGrid');
-    const gridBtn = document.getElementById('gridBtn');
-    const listBtn = document.getElementById('listBtn');
+        function toggleView(viewType) {
+            const grid = document.getElementById('projectGrid');
+            const gridBtn = document.getElementById('gridBtn');
+            const listBtn = document.getElementById('listBtn');
 
-    // Add temporary class to disable transitions during layout change
-    grid.classList.add('switching');
+            // Add temporary class to disable transitions during layout change
+            grid.classList.add('switching');
 
-    if (viewType === 'list') {
-        grid.classList.add('list-mode');
-        listBtn.classList.add('active');
-        gridBtn.classList.remove('active');
-    } else {
-        grid.classList.remove('list-mode');
-        gridBtn.classList.add('active');
-        listBtn.classList.remove('active');
-    }
+            if (viewType === 'list') {
+                grid.classList.add('list-mode');
+                listBtn.classList.add('active');
+                gridBtn.classList.remove('active');
+            } else {
+                grid.classList.remove('list-mode');
+                gridBtn.classList.add('active');
+                listBtn.classList.remove('active');
+            }
 
-    // Force a reflow then remove the class to allow hover animations again
-    void grid.offsetWidth;
-    grid.classList.remove('switching');
-}
-
-function filterType(type, btn) {
-    const cards = document.querySelectorAll('.card');
-    const tabs = document.querySelectorAll('.tab');
-
-    tabs.forEach(t => t.classList.remove('active'));
-    btn.classList.add('active');
-
-    cards.forEach(card => {
-        // Use Visibility instead of display:none during transition to prevent jump
-        // or just apply the hidden class directly
-        if(type === 'all' || card.dataset.type === type) {
-            card.classList.remove('hidden');
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        } else {
-            card.classList.add('hidden');
+            // Force a reflow then remove the class to allow hover animations again
+            void grid.offsetWidth;
+            grid.classList.remove('switching');
         }
-    });
 
-    // Note: If your page was jumping, it was likely due to the "300ms timeout"
-    // removing all elements from the DOM, making the body height 0.
-    // By removing the timeout or using a min-height on the container, we fix it.
-}
+        function filterType(type, btn) {
+            const cards = document.querySelectorAll('.card');
+            const tabs = document.querySelectorAll('.tab');
+
+            tabs.forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+
+            cards.forEach(card => {
+                // Use Visibility instead of display:none during transition to prevent jump
+                // or just apply the hidden class directly
+                if (type === 'all' || card.dataset.type === type) {
+                    card.classList.remove('hidden');
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            // Note: If your page was jumping, it was likely due to the "300ms timeout"
+            // removing all elements from the DOM, making the body height 0.
+            // By removing the timeout or using a min-height on the container, we fix it.
+        }
 
         function handleSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase();
@@ -598,7 +717,7 @@ function filterType(type, btn) {
 
         document.addEventListener('mousemove', (e) => {
             const header = document.querySelector('.header-box');
-            if(header) {
+            if (header) {
                 const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
                 const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
                 header.style.transform = `translate(${moveX}px, ${moveY}px)`;
