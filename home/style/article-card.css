@@ -1,0 +1,68 @@
+.articles-slider-container {
+    width: 100%;
+    overflow: hidden; /* Keeps horizontal items hidden */
+    /* ADD THESE: Create 'breathing room' for the shadow */
+    padding: 40px 20px;
+    margin: -40px -20px;
+}
+
+.articles-wrapper {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    gap: 20px;
+    /* Optional: ensures items stay aligned during the transition */
+    align-items: center;
+}
+
+.article-card {
+    /* (100% / 4) minus the gaps */
+    min-width: calc(25% - 15px);
+    height: 350px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    transition: 0.3s;
+}
+
+    .article-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-10px); /* Increased slightly for better look */
+        box-shadow: 0 0 30px var(--accent-glow); /* Using the glow variable for a softer feel */
+        z-index: 10; /* Ensures the shadow sits on top of neighboring cards */
+    }
+
+
+.article-content {
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(5, 7, 10, 0.95));
+}
+
+    .article-content h4 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        margin-bottom: 8px;
+        line-height: 1.3;
+        /* Keep text from touching the edges */
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Limits title to 2 lines */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+/* Mobile adjustments: Show 1 or 2 instead of 4 */
+@media (max-width: 1024px) {
+    .article-card {
+        min-width: calc(50% - 10px);
+    }
+}
+
+@media (max-width: 600px) {
+    .article-card {
+        min-width: 100%;
+    }
+}

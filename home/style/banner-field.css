@@ -1,0 +1,47 @@
+.banner-field {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 5%;
+    position: relative;
+    background: linear-gradient(rgba(5, 7, 10, 0.7), rgba(5, 7, 10, 0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=2000');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--border);
+}
+
+    .banner-field h1 {
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        line-height: 0.9;
+        letter-spacing: -2px;
+        margin-bottom: 20px;
+        background: linear-gradient(180deg, #fff 0%, var(--muted) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .banner-field span {
+        color: var(--accent);
+        -webkit-text-fill-color: var(--accent);
+        font-style: italic;
+    }
+
+    .banner-field p {
+        font-size: 1.1rem;
+        color: var(--muted);
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: monospace;
+    }
+
+.banner-button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}

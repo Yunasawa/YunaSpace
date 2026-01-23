@@ -1,0 +1,63 @@
+.contact {
+    text-align: center;
+}
+
+.email-box {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 25px 50px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-weight: 800;
+    background: var(--card-bg);
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.4s;
+    font-family: monospace;
+}
+
+    .email-box:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 30px var(--accent-glow);
+        transform: scale(1.05);
+    }
+/* Container to hold both buttons */
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Space between Email and GitHub */
+    margin-top: 30px;
+    flex-wrap: wrap; /* Stacks them on mobile */
+}
+
+/* Base style for the GitHub button to match the email-box */
+.github-contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px; /* Square padding for a circular look or adjust for pill */
+    width: 80px; /* Fixed width to keep it circular */
+    height: 80px;
+    border: 1px solid var(--border);
+    border-radius: 50%; /* Makes it a circle */
+    font-size: 1.8rem;
+    background: var(--panel); /* Using your variable from previous steps */
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+    .github-contact-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        box-shadow: 0 0 30px var(--accent-glow);
+        transform: scale(1.1) rotate(5deg); /* Added a slight tilt for character */
+    }
+
+/* Adjusting your existing .email-box slightly for better alignment */
+.email-box {
+    margin-top: 0 !important; /* Remove top margin since container handles it */
+}

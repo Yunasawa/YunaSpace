@@ -1,0 +1,34 @@
+{
+    "articles": [
+        {
+            "title": "Draw Call Batching in URP",
+            "tag": "Optimization",
+            "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=400"
+        },
+        {
+            "title": "Memory Management Patterns",
+            "tag": "C#",
+            "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=400"
+        },
+        {
+            "title": "HLSL Noise Functions 101",
+            "tag": "Shaders",
+            "image": "https://images.unsplash.com/photo-1618401471353-b98aadebc25a?auto=format&fit=crop&q=80&w=400"
+        },
+        {
+            "title": "ScriptableObject Workflows",
+            "tag": "Architecture",
+            "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=400"
+        },
+        {
+            "title": "Entity Component System",
+            "tag": "Unity",
+            "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=400"
+        },
+        {
+            "title": "Extending the Inspector",
+            "tag": "Editor",
+            "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&q=80&w=400"
+        }
+    ]
+}

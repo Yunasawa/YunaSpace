@@ -1,0 +1,81 @@
+{
+    "title": "Technical Expertise",
+    "categories": [
+        {
+            "title": "Engine & Architecture",
+            "description": "Engine-level systems, performance-oriented architecture, and scalable workflows in Unity.",
+            "skills": [
+                "Engine architecture & system design",
+                "Data-driven design (ScriptableObjects, modular pipelines)",
+                "OOP, SOLID, design patterns",
+                "Async systems, task-based workflows",
+                "Multi-threading & Job System"
+            ]
+        },
+        {
+            "title": "Programming Foundations",
+            "description": "Strong programming fundamentals supporting complex systems.",
+            "skills": [
+                "C#, C/C++",
+                "Generics & type-safe design",
+                "Async / Tasks",
+                "Multithreading concepts",
+                "Design patterns"
+            ]
+        },
+        {
+            "title": "Tooling & Editor Development",
+            "description": "Custom editor tools designed for fast iteration and clarity.",
+            "skills": [
+                "Custom inspectors & property drawers",
+                "Editor utilities & workflows",
+                "Game data designing tools",
+                "Debug visualization tools"
+            ],
+            "nested": [
+                {
+                    "title": "UI Systems",
+                    "skills": [
+                        "UI Toolkit (Editor & Runtime)",
+                        "IMGUI (debug & tools)",
+                        "UGUI (runtime UI)"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Rendering & Graphics Programming",
+            "description": "GPU-driven rendering, compute shaders, and low-level graphics APIs.",
+            "skills": [
+                "GPU instancing & indirect rendering",
+                "Compute shaders (culling, generation, processing)",
+                "Procedural mesh generation",
+                "LOD systems",
+                "Graphics API usage (CommandBuffer, DrawMeshInstanced*)",
+                "Noise functions (Perlin, FBM, Voronoi, Cellular)"
+            ]
+        },
+        {
+            "title": "Shader & Effects",
+            "description": "Custom graphic shaders, particle systems and VFXs.",
+            "skills": [
+                "ShaderLab, HLSL/CG",
+                "Shader Graph",
+                "Blit & fullscreen passes",
+                "Post-processing & render features",
+                "Lighting, shadows, fog, sky & atmosphere"
+            ]
+        },
+        {
+            "title": "Performance & Optimization",
+            "description": "Profiling-driven optimization across CPU, GPU, and memory.",
+            "skills": [
+                "Unity Profiler & Frame Debugger",
+                "Burst compiler & Job System optimization",
+                "Draw call reduction",
+                "GPU vs CPU trade-off decisions",
+                "Memory-aware data layouts"
+            ]
+        }
+    ]
+}

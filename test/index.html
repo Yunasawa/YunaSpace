@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Dynamic JSON Tabs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #0f1115;
+            color: #eaeaea;
+            margin: 0;
+            padding: 24px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .tab {
+            padding: 8px 14px;
+            background: #1a1d24;
+            border-radius: 6px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+            .tab.active {
+                background: #3b82f6;
+            }
+
+        .content {
+            background: #1a1d24;
+            border-radius: 8px;
+            padding: 16px;
+            min-height: 120px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="tabs" id="tabs"></div>
+    <div class="content" id="content">Select a tab</div>
+
+    <script>
+        const TAB_CONFIG = [
+            { title: "Overview", file: "overview.json" },
+            { title: "Showcase", file: "showcase.json" },
+            { title: "Feature", file: "feature.json" },
+            { title: "Optimization", file: "optimization.json" }
+        ];
+
+        const tabsEl = document.getElementById("tabs");
+        const contentEl = document.getElementById("content");
+
+        async function fileExists(file) {
+            try {
+                const res = await fetch(file, { method: "HEAD" });
+                return res.ok;
+            } catch {
+                return false;
+            }
+        }
+
+        async function loadJSON(file) {
+            const res = await fetch(file);
+            return res.json();
+        }
+
+        function activateTab(tabEl, file) {
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            tabEl.classList.add("active");
+
+            contentEl.textContent = "Loading...";
+
+            loadJSON(file)
+                .then(data => {
+                    contentEl.textContent = JSON.stringify(data, null, 2);
+                })
+                .catch(() => {
+                    contentEl.textContent = "Failed to load JSON.";
+                });
+        }
+
+        async function init() {
+            for (const tab of TAB_CONFIG) {
+                if (await fileExists(tab.file)) {
+                    const tabEl = document.createElement("div");
+                    tabEl.className = "tab";
+                    tabEl.textContent = tab.title;
+
+                    tabEl.onclick = () => activateTab(tabEl, tab.file);
+                    tabsEl.appendChild(tabEl);
+                }
+            }
+
+            // Auto-select first tab
+            const firstTab = document.querySelector(".tab");
+            if (firstTab) firstTab.click();
+            else contentEl.textContent = "No JSON files found.";
+        }
+
+        init();
+    </script>
+
+</body>
+</html>
