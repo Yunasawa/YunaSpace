@@ -1,0 +1,163 @@
+{
+    "feature": [
+        {
+            "accent": "#00f2ff",
+            "label": "ENVIRONMENT MODULE",
+            "title": "Vozel Engine: Application",
+            "description": "The Application is a standalone world-building environment focused on authoring voxel content, terrain logic, biomes, and maps.",
+            "features": [
+                {
+                    "title": "Terrain Editor",
+                    "description": "A flexible terrain authoring system built on layered procedural logic and spline-based control.",
+                    "items": [
+                        {
+                            "title": "Spline Editor",
+                            "description": "Draw and edit terrain paths (rivers, roads, cliffs); Adjustable width, falloff, and influence."
+                        },
+                        {
+                            "title": "Noise Stack System",
+                            "description": "Supports up to 5 independent noise layers; Per-noise enable/disable toggle; Adjustable frequency, amplitude, and persistence."
+                        },
+                        {
+                            "title": "Custom Noise Functions",
+                            "description": "Plug-in custom noise algorithms; Combine noise layers using blend modes."
+                        },
+                        {
+                            "title": "Height & Slope Control",
+                            "description": "Height clamps and masks; Slope-based terrain shaping."
+                        },
+                        {
+                            "title": "Live Terrain Preview",
+                            "description": "Real-time terrain updates during editing."
+                        }
+                    ]
+                },
+                {
+                    "title": "Biome Editor",
+                    "description": "A modular biome system allowing unique terrain logic and environment configuration per biome.",
+                    "items": [
+                        {
+                            "title": "Biome-Specific Terrain Rules",
+                            "description": "Custom noise stack per biome; Independent height and slope behavior."
+                        },
+                        {
+                            "title": "Terrain Blending",
+                            "description": "Smooth transitions between biomes; Configurable blend radius and weight."
+                        },
+                        {
+                            "title": "Biome Variants",
+                            "description": "Multiple sub-variants per biome; Randomized selection rules."
+                        },
+                        {
+                            "title": "Environment Settings",
+                            "description": "Select voxel types for each biome; Biome environment parameters."
+                        },
+                        {
+                            "title": "Biome Preview Mode",
+                            "description": "Visualize biome distribution and blending."
+                        }
+                    ]
+                },
+                {
+                    "title": "Voxel Mesh & Texture Management",
+                    "groups": [
+                        {
+                            "label": "Mesh Editor",
+                            "items": [
+                                {
+                                    "title": "Custom Voxel Creation",
+                                    "description": "Define vertices, faces, normals; Support for non-cube shapes."
+                                },
+                                {
+                                    "title": "Per-Face Configuration",
+                                    "description": "Independent face settings."
+                                },
+                                {
+                                    "title": "Texture Painting",
+                                    "description": "Paint directly onto mesh surfaces; UV editing per face."
+                                },
+                                {
+                                    "title": "Reusable Assets",
+                                    "description": "Save and reuse custom voxel meshes."
+                                }
+                            ]
+                        },
+                        {
+                            "label": "Texture Editor",
+                            "items": [
+                                {
+                                    "title": "Texture Painter",
+                                    "description": "Paint textures directly onto voxels."
+                                },
+                                {
+                                    "title": "Atlas Editor",
+                                    "description": "Create and manage texture atlases; Grid-based layout."
+                                },
+                                {
+                                    "title": "Indexing",
+                                    "description": "Optimized for voxel rendering."
+                                },
+                                {
+                                    "title": "Validation",
+                                    "description": "Real-time preview; Atlas consistency checks."
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Voxel Data & Construction",
+                    "items": [
+                        {
+                            "title": "Voxel Editor",
+                            "description": "Configuration of physical and visual properties; Per-voxel texture assignment; Frame-based animated textures with speed control; Metadata tags and custom parameters."
+                        },
+                        {
+                            "title": "Construction Editor",
+                            "description": "Modular building system; Assemble multi-voxel structures; Snap, alignment, rotation, and pivot controls; Reusable construction assets."
+                        },
+                        {
+                            "title": "Map Editor",
+                            "description": "High-level composition; Manual voxel terrain drawing; Place prebuilt constructions; Layered editing (terrain, structure, detail); Export to FBX and custom formats."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "accent": "#50ffab",
+            "label": "INTEGRATION MODULE",
+            "title": "Vozel Engine: Unity Plugin",
+            "description": "The Unity Plugin bridges the editor application with runtime and editor workflows inside Unity.",
+            "features": [
+                {
+                    "title": "Settings & World Generation",
+                    "items": [
+                        {
+                            "title": "Settings File Importer",
+                            "description": "Pipeline for terrain, biome, voxel, and texture settings; Map file import into Unity objects; Automatic asset generation (Materials, Meshes, Data assets)."
+                        },
+                        {
+                            "title": "Procedural World Generator",
+                            "description": "Seed-based world creation; Biome-driven generation; Chunk-based structure; Deterministic results; Runtime loading support; Scalable world size."
+                        }
+                    ]
+                },
+                {
+                    "title": "Rendering & Performance",
+                    "items": [
+                        {
+                            "description": "Optimized voxel mesh generation with face culling."
+                        },
+                        {
+                            "description": "GPU-friendly data layout; Texture atlas and texture array support."
+                        },
+                        {
+                            "description": "Compatible with Unity URP; Designed for instanced rendering pipelines."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

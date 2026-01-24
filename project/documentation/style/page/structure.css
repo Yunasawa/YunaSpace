@@ -64,7 +64,7 @@
 
 .folder-node {
     height: 25px;
-    color: var(--accent);
+    color: #dabbff;
     font-weight: bold;
     font-size: 0.9rem;
 }

@@ -52,3 +52,7 @@
         background: var(--accent);
         box-shadow: 0 0 20px var(--accent-glow);
     }
+
+.nav-icon {
+    margin: 0 5px 0 0;
+}

@@ -164,26 +164,6 @@
 
     <div class="content-container">
 
-        <section id="structure" class="page-section">
-            <h1>Project<br>Structure</h1>
-            <div class="card">
-                <ul class="tree">
-                    <li>
-                        <div class="folder"><i class="fas fa-folder-open"></i> Assets</div>
-                        <ul class="tree">
-                            <li>
-                                <div class="folder"><i class="fas fa-folder"></i> Core</div>
-                                <ul class="tree">
-                                    <li class="file"><i class="fas fa-file-code"></i> VoxelEngine.cs</li>
-                                    <li class="file"><i class="fas fa-file-code"></i> ChunkProvider.cs</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
         <section id="tech" class="page-section">
             <h1>Core Tech<br>& Algorithms</h1>
             <div class="card">

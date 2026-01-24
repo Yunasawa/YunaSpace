@@ -3,8 +3,6 @@ async function loadAndBuildProjectTree() {
     const pluginContainer = document.getElementById('project-plugin-container');
     container.innerHTML = '<div class="file-node" style="padding: 20px; opacity: 0.5;">Loading system structure...</div>';
 
-    console.log(PAGE_JSON_BASE + "structure.json");
-
     try {
         const response = await fetch(PAGE_JSON_BASE + "structure.json");
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
