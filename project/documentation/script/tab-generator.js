@@ -1,4 +1,4 @@
-const PAGE_JSON_BASE = `../project/record/${type}/${project}/documentation/`;
+const PAGE_JSON_BASE = `../record/${type}/${project}/documentation/`;
 
 console.log(PAGE_JSON_BASE);
 
