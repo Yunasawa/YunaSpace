@@ -8,26 +8,6 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Mono">
 
     <style>
-       
-
-        /* Textarea Code Viewers */
-        .code-view {
-            width: 100%;
-            background: #020408;
-            color: #e6edf3;
-            border: 1px solid var(--accent);
-            border-radius: 4px;
-            padding: 12px 14px;
-            font-family: 'Roboto Mono', Consolas, monospace;
-            font-size: 14px;
-            line-height: 1.4;
-            resize: none;
-            overflow: hidden;
-            outline: none;
-            box-sizing: border-box;
-            display: block;
-        }
-
         /* Tree Hierarchy - Old Style */
         .tree {
             list-style: none;

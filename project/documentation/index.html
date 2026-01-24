@@ -6,22 +6,7 @@
     <title>YunaSpace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/test.css">
-    <link rel="stylesheet" href="style/graphic//global-color.css">
-    <link rel="stylesheet" href="style/global-style.css">
-    <link rel="stylesheet" href="style/tool-bar.css">
-    <link rel="stylesheet" href="style/side-bar.css">
-    <link rel="stylesheet" href="style/content-container.css">
-    <link rel="stylesheet" href="style/content/content-box.css">
-    <link rel="stylesheet" href="style/content/content-item.css">
-    <link rel="stylesheet" href="style/content/content-button.css">
-    <link rel="stylesheet" href="style/content/content-list.css">
-    <link rel="stylesheet" href="style/content/content-element.css">
-    <link rel="stylesheet" href="style/page/overview.css">
-    <link rel="stylesheet" href="style/page/structure.css">
-    <link rel="stylesheet" href="style/page/feature.css">
-
-    <style>
-    </style>
+    <link rel="stylesheet" href="style/import.css">
 </head>
 <body>
     <header class="toolbar">
@@ -108,6 +93,17 @@
             </div>
         </section>
 
+        <section id="algorithm" class="page-section">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
+                <div>
+                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> ALGORITHM_</p>
+                    <h1>ALGORITHM ARCHITECTURE</h1>
+                </div>
+            </div>
+
+            <div id="algorithm-content"></div>
+        </section>
+
     </div>
 
     <script src="script/tab-navigator.js"></script>
@@ -116,5 +112,28 @@
     <script src="script/content/structure-generator.js"></script>
     <script src="script/content/feature-generator.js"></script>
     <script src="script/test.js"></script>
+
+    <script>
+        function copyCode(id) {
+            const text = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(text);
+            // Visual feedback
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "COPIED!";
+            setTimeout(() => btn.innerText = originalText, 2000);
+        }
+
+        fetch(PAGE_JSON_BASE + "algorithm.html")
+            .then(res => res.text())
+            .then(html => {
+                const container = document.querySelector("#algorithm-content");
+                container.innerHTML = html;
+            })
+            .catch(err => {
+                console.error("Failed to load algorithm HTML:", err);
+            });
+
+    </script>
 </body>
 </html>

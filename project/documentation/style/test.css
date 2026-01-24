@@ -1,1 +1,173 @@
-﻿
+﻿/* Utility Bar for Code Blocks */
+.code-utility-bar {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 15px;
+    margin-top: 20px;
+    border-radius: 4px 4px 0 0;
+}
+
+.code-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Expanded/Collapsed States */
+.code-wrapper {
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 400px; /* Default height */
+}
+
+    .code-wrapper.collapsed {
+        max-height: 0;
+    }
+
+    .code-wrapper.expanded {
+        max-height: 2000px;
+    }
+
+/* Logic Palette */
+.accent-blue {
+    --current-color: #00a3ff;
+    --glow: rgba(0, 163, 255, 0.4);
+}
+
+/* Code Terminal Style */
+.code-terminal {
+    background: #05050a;
+    border: 1px solid rgba(0, 163, 255, 0.3);
+    border-radius: 4px;
+    padding: 20px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
+}
+
+    .code-terminal::before {
+        content: "● ● ●";
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: rgba(0, 163, 255, 0.5);
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+
+.code-view-modern {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #a5d6ff;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--current-color) transparent;
+}
+
+/* Syntax Highlighting Sim (using opacity) */
+.code-keyword {
+    color: #ff7b72;
+    font-weight: bold;
+}
+
+.code-func {
+    color: #d2a8ff;
+}
+
+.code-comment {
+    color: #8b949e;
+    font-style: italic;
+}
+
+/* Fantastic Code Display */
+.code-display {
+    background: rgba(5, 7, 10, 1);
+    padding: 25px;
+    margin: 0;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #d1d1d1;
+    white-space: pre; /* Keeps code formatting */
+    overflow-x: auto; /* Horizontal scroll only if line is too long */
+    position: relative;
+    border-radius: 0 0 5px 5px;
+}
+
+    .code-display::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(187, 134, 252, 0.02) 50%, transparent 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+    }
+
+/* The unified bar that holds the file name and the icon */
+.code-top-bar {
+    height: 30px;
+    background: rgba(187, 134, 252, 0.08);
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    border-width: 1px 1px 0 1px;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 5px 8px 15px;
+    margin-top: 30px;
+}
+
+/* File name: lowercase/natural, subtle font */
+.code-file-name {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.5px;
+}
+
+/* Icon button style */
+.icon-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+}
+
+    .icon-btn:hover {
+/*        background: rgba(187, 134, 252, 0.1);*/
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    .icon-btn svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+    }
+
+/* Ensure code display matches the bar perfectly */
+.code-display {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    margin-top: 0 !important;
+    border: 1px solid rgba(187, 134, 252, 0.2);
+    border-width: 0 1px 1px 1px;
+}
