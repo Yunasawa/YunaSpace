@@ -164,30 +164,6 @@
 
     <div class="content-container">
 
-        <section id="overview" class="page-section active">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
-                <div>
-                    <p style="color: var(--accent); font-family: monospace;">> INITIALIZING SYSTEM...</p>
-                    <h1>Project<br>Overview</h1>
-                </div>
-                <div class="status-pill"><div class="pulse"></div> ENGINE ONLINE</div>
-            </div>
-
-            <div class="card border-blue">
-                <h3 class="color-blue"><i class="fas fa-microscope"></i> Research Abstract</h3>
-                <p style="color: var(--muted); margin-bottom: 25px; line-height: 1.8;">
-                    Implementation of a <strong>high-fidelity voxel engine</strong> capable of sculpting and generating infinite terrains. By utilizing 3D Scalar Fields and the <strong>Marching Cubes</strong> lookup table, the engine converts raw density data into optimized, manifold triangle meshes in real-time.
-                </p>
-
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
-                    <div class="log-entry"><span class="color-blue">[MEM]</span> Allocated 2GB VRAM for Chunking</div>
-                    <div class="log-entry"><span class="color-green">[GPU]</span> Compute Shader Support: Detected</div>
-                    <div class="log-entry"><span class="color-coral">[CPU]</span> 12 Logical Threads Reserved</div>
-                    <div class="log-entry"><span class="color-blue">[SYS]</span> Voxel Precision: 0.25 Units</div>
-                </div>
-            </div>
-        </section>
-
         <section id="structure" class="page-section">
             <h1>Project<br>Structure</h1>
             <div class="card">

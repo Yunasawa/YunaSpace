@@ -16,10 +16,9 @@
 }
 
 .project-card-full {
-    /* Make the card 94% width to leave 3% gap on each side for the shadow */
     min-width: 94%;
-    margin: 0 3%; /* This creates the left/right "buffer" */
-
+    margin: 0 3%;
+    color: #fff;
     height: 500px;
     position: relative;
     background: #000;

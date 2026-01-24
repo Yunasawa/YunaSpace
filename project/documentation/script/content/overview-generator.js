@@ -1,4 +1,4 @@
-fetch("./overview.json")
+fetch(PAGE_JSON_BASE + "overview.json")
     .then(res => res.json())
     .then(data => {
         const section = document.getElementById("overview");
@@ -43,31 +43,48 @@ fetch("./overview.json")
       </div>
 
       <div class="content-box">
-        ${renderList("Core Gameplay", design.coreGameplay)}
-        ${renderList("Scoring System", design.scoringSystem)}
-
-        <span class="sub-label">Logic Flow</span>
-        <div class="flow-list">
-          ${design.logicFlow.map((step, i) => `
-            <div class="flow-step">
-              <span class="step-number">${i + 1}</span> ${step}
-            </div>
-          `).join("")}
-        </div>
-
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;">
-          ${renderList("Difficulty & Progression", design.difficulty, true)}
-          ${renderList("Visual Design", design.visualDesign, true)}
-        </div>
+        ${design.content.map((block, i, arr) => renderDesignBlock(block, i, arr)).join("")}
       </div>
     `;
     });
 
-function renderList(title, items, last = false) {
+function renderDesignBlock(block, index, array) {
+    // Find last content-list index
+    const lastListIndex = [...array]
+        .map((b, i) => (b.type === "content-list" ? i : -1))
+        .filter(i => i !== -1)
+        .pop();
+
+    switch (block.type) {
+        case "content-list":
+            return renderList(block.label, block.item, index === lastListIndex);
+
+        case "content-flow":
+            return renderFlow(block.label, block.item);
+
+        default:
+            return "";
+    }
+}
+
+function renderList(label, items, isLast = false) {
     return `
-    <span class="sub-label">${title}</span>
-    <ul class="content-list ${last ? "last" : "diamond-bullet"}">
+    <span class="sub-label">${label}</span>
+    <ul class="content-list diamond-bullet ${isLast ? "last" : ""}">
       ${items.map(i => `<li>${i}</li>`).join("")}
     </ul>
+  `;
+}
+
+function renderFlow(label, steps) {
+    return `
+    <span class="sub-label">${label}</span>
+    <div class="flow-list">
+      ${steps.map((step, i) => `
+        <div class="flow-step">
+          <span class="step-number">${i + 1}</span> ${step}
+        </div>
+      `).join("")}
+    </div>
   `;
 }

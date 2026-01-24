@@ -1,0 +1,146 @@
+.tree {
+    list-style: none;
+    padding-left: 18px;
+    margin: 0;
+    position: relative;
+}
+
+#project-tree-root > .tree > li::before,
+#project-tree-root > .tree > li::after {
+    display: none;
+}
+
+#project-tree-root > .tree > li {
+    padding-left: 0;
+}
+
+    #project-tree-root > .tree > li > .tree {
+        margin: 0;
+    }
+
+.tree .tree {
+    border-left: none;
+}
+
+.tree li {
+    position: relative;
+    padding-left: 15px;
+    margin: 2px 0;
+}
+
+    .tree li::before {
+        content: "";
+        position: absolute;
+        left: -3.5px;
+        top: -5px;
+        width: 1px;
+        height: calc(100% + 5px);
+        border-left: 2px solid rgba(72, 44, 105, 1);
+    }
+
+    .tree li::after {
+        content: "";
+        position: absolute;
+        left: -2px;
+        top: 15px;
+        width: 12px;
+        height: 1px;
+        border-top: 2px solid rgba(72, 44, 105, 1);
+    }
+
+    .tree li:last-child::before {
+        height: 22px;
+    }
+
+.tree-node {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+}
+
+.folder-node {
+    height: 25px;
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.file-node {
+    height: 25px;
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Plugin List Container */
+.plugin-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr; /* Stacked list */
+    gap: 10px;
+}
+
+/* Individual Plugin Row */
+.plugin-item {
+    background: rgba(187, 134, 252, 0.03);
+    border: 1px solid rgba(187, 134, 252, 0.1);
+    border-radius: 8px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out name and link */
+    transition: all 0.3s ease;
+}
+
+/* Plugin Info Group */
+.plugin-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Specific Plugin Icon Style */
+.plugin-icon-box {
+    width: 32px;
+    height: 32px;
+    background: rgba(187, 134, 252, 0.1);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.2);
+}
+
+.plugin-name {
+    font-size: 1rem;
+    color: var(--text);
+    letter-spacing: 0.5px;
+}
+
+/* Action Link Button */
+.plugin-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    border: 1px solid rgba(187, 134, 252, 0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+    .plugin-link:hover {
+        /*        background: var(--accent);*/
+        border-color: var(--accent);
+        transform: scale(1.05);
+        box-shadow: 0 0 10px var(--accent-glow);
+    }

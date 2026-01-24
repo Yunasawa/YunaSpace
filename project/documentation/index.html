@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YunaSpace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/test.css">
+    <link rel="stylesheet" href="style/graphic//global-color.css">
     <link rel="stylesheet" href="style/global-style.css">
     <link rel="stylesheet" href="style/tool-bar.css">
     <link rel="stylesheet" href="style/side-bar.css">
     <link rel="stylesheet" href="style/content-container.css">
-    <link rel="stylesheet" href="style/test.css">
     <link rel="stylesheet" href="style/content/content-box.css">
     <link rel="stylesheet" href="style/content/content-item.css">
     <link rel="stylesheet" href="style/content/content-button.css">
     <link rel="stylesheet" href="style/content/content-list.css">
+    <link rel="stylesheet" href="style/content/content-element.css">
+    <link rel="stylesheet" href="style/page/overview.css">
+    <link rel="stylesheet" href="style/page/structure.css">
 
     <style>
-
     </style>
 </head>
 <body>
@@ -70,109 +73,35 @@
 
     <div class="content-container">
 
-        <section id="overview" class="page-section active">
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px;">
+        <section id="overview" class="page-section active"></section>
+        <section id="structure" class="page-section">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;">
                 <div>
-                    <p style="color: var(--accent); font-family: monospace; letter-spacing: 2px;">> SYSTEM_MODULE_01</p>
-                    <h1 style="text-transform: uppercase;">Project Overview</h1>
+                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> STRUCTURE_</p>
+                    <h1>PROJECT STRUCTURE</h1>
                 </div>
             </div>
-
             <div class="content-box">
-                <span class="sub-label">Description</span>
-                <p style="margin-bottom: 30px; font-size: 1rem; opacity: 0.9;">
-                    Block Burst is a casual puzzle game where players drag and place block pieces onto a grid to complete full rows or columns. The goal is to score as high as possible by clearing lines efficiently while managing limited space. The game ends when no available block can be placed on the board.
-                    <br><br>
-                    Designed for quick play sessions, Block Burst emphasizes clarity, satisfying feedback, and strategic spatial thinking. It is fully playable offline and suitable for players of all ages.
-                </p>
-
-                <div class="metadata-grid">
-                    <div class="metadata-box">
-                        <span class="sub-label">Genre</span>
-                        <div style="font-weight: bold;">Puzzle, Casual</div>
-                    </div>
-                    <div class="metadata-box">
-                        <span class="sub-label">Platform</span>
-                        <div style="font-weight: bold;">Mobile</div>
-                    </div>
-                    <div class="metadata-box">
-                        <span class="sub-label">Editor</span>
-                        <div style="font-weight: bold;">Unity 6.3 (URP)</div>
-                    </div>
-                </div>
-
-                <span class="sub-label">Keywords</span>
-                <div class="keyword-container">
-                    <span class="round-button">Grid-Based</span>
-                    <span class="round-button">Puzzle Pattern</span>
-                    <span class="round-button">Drag & Drop</span>
-                    <span class="round-button">Offline</span>
-                    <span class="round-button">Endless</span>
-                </div>
+                <div id="project-tree-root" class="tree-container"></div>
             </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; margin-top: 80px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;margin-top:60px;">
                 <div>
-                    <p style="color: var(--accent); font-family: monospace; letter-spacing: 2px;">> SYSTEM_MODULE_02</p>
-                    <h1 style="text-transform: uppercase;">Project Design</h1>
+                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> DEPENDENCIES_</p>
+                    <h1>PROJECT PLUGINS</h1>
                 </div>
             </div>
-
             <div class="content-box">
-                <span class="sub-label">Core Gameplay</span>
-                <ul class="content-list diamond-bullet">
-                    <li>Players are given a set of 3 block pieces each turn.</li>
-                    <li>Blocks are placed onto a 8x8 grid via drag-and-drop.</li>
-                    <li>Completing full rows or columns clears it from the board.</li>
-                    <li>Cleared lines award points.</li>
-                    <li>The game continues endlessly until no valid placement remains.</li>
-                </ul>
-
-                <span class="sub-label">Scoring System</span>
-                <ul class="content-list diamond-bullet">
-                    <li>Points are awarded for each cleared row or column.</li>
-                    <li>Multiple line clears in a single move grant bonus points.</li>
-                    <li>Optional combo or streak multipliers added for advanced play.</li>
-                    <li>Perfect placing earns more bonus points.</li>
-                    <li>Clear the whole board get a huge point amout and change the game theme.</li>
-                </ul>
-
-                <span class="sub-label">Logic Flow</span>
-                <div class="flow-list">
-                    <div class="flow-step"><span class="step-number">1</span> Start with an empty grid or random pattern</div>
-                    <div class="flow-step"><span class="step-number">2</span> Receive a set of 3 block pieces from algorithm</div>
-                    <div class="flow-step"><span class="step-number">3</span> Place blocks strategically</div>
-                    <div class="flow-step"><span class="step-number">4</span> Clear lines to create space and earn points</div>
-                    <div class="flow-step"><span class="step-number">5</span> Repeat until no moves are possible</div>
-                    <div class="flow-step"><span class="step-number">6</span> Display final score and restart option</div>
-                </div>
-
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px;">
-                    <div>
-                        <span class="sub-label">Difficulty & Progression</span>
-                        <ul class="content-list last">
-                            <li>Difficulty increases naturally as grid space becomes limited.</li>
-                            <li>Larger and more complex block shapes increase challenge over time.</li>
-                            <li>No timers or pressure mechanics—players control the space.</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <span class="sub-label">Visual Design</span>
-                        <ul class="content-list last">
-                            <li>Clean, colorful block visuals for strong readability</li>
-                            <li>Diverse themes set from editor</li>
-                            <li>Clear animations when placing blocks and clearing lines</li>
-                            <li>Satisfying effects to reinforce successful moves</li>
-                        </ul>
-                    </div>
+                <div id="project-plugin-container" class="tree-container">
                 </div>
             </div>
         </section>
-
     </div>
 
     <script src="script/test.js"></script>
     <script src="script/tab-navigator.js"></script>
     <script src="script/tab-generator.js"></script>
+    <script src="script/content/overview-generator.js"></script>
+    <script src="script/content/structure-generator.js"></script>
 </body>
 </html>

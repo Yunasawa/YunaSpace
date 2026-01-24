@@ -38,6 +38,7 @@ fetch("record/typical-projects.json")
 function renderProjects(projects) {
     projects.forEach(project => {
         const thumbnail = project.thumbnail;
+        const link = project.link;
         const genres = project.genre.join(" / ");
         const classification =
             `${project.category.toUpperCase()} / ${project.dimension} / ${project.platform.toUpperCase()} / ${project.editor.toUpperCase()}`;
@@ -47,7 +48,7 @@ function renderProjects(projects) {
             .join("");
 
         const cardHTML = `
-                            <div class="project-card-full">
+                            <a href="${link}" class="project-card-full">
                               <div class="project-bg"
                                 style="background-image: url('${thumbnail}');">
                               </div>
@@ -72,7 +73,7 @@ function renderProjects(projects) {
                                   ${tagsHTML}
                                 </div>
                               </div>
-                            </div>
+                            </a>
                           `;
 
         projectWrapper.insertAdjacentHTML("beforeend", cardHTML);

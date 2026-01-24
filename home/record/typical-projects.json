@@ -2,6 +2,7 @@
     "projects": [
         {
             "thumbnail": "../project/record/library/vozel-engine/image/thumbnail.png",
+            "link": "../project/documentation/?t=library&p=vozel-engine#",
             "category": "Tool",
             "platform": "Desktop",
             "dimension": "2D & 3D",
@@ -13,6 +14,7 @@
         },
         {
             "thumbnail": "../project/record/game/block-burst/image/thumbnail.png",
+            "link": "../project/documentation/?t=game&p=block-burst#",
             "category": "Game",
             "platform": "Mobile",
             "dimension": "2D",
@@ -24,6 +26,7 @@
         },
         {
             "thumbnail": "../project/record/game/viral-rush/image/thumbnail.png",
+            "link": "../project/documentation/?t=game&p=viral-rush#",
             "category": "Game",
             "platform": "Mobile",
             "dimension": "3D",
@@ -35,6 +38,7 @@
         },
         {
             "thumbnail": "../project/record/game/block-burst/image/thumbnail.png",
+            "link": "../project/documentation/?t=game&p=block-burst#",
             "category": "Game",
             "platform": "Mobile",
             "dimension": "3D",

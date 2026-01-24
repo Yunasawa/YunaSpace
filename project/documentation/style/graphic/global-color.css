@@ -1,0 +1,31 @@
+.icon-purple {
+    color: var(--accent);
+}
+
+.icon-blue {
+    color: #5ccfe6;
+}
+
+.icon-orange {
+    color: #ffae57;
+}
+
+.icon-teal {
+    color: #56ffc9;
+}
+
+.icon-yellow {
+    color: #fff387;
+}
+
+.icon-green {
+    color: #83ffa2;
+}
+
+.icon-lime {
+    color: #9eff7e;
+}
+
+.icon-red {
+    color: #ff8585;
+}
