@@ -8,7 +8,7 @@ document.querySelectorAll('section').forEach(s => observer.observe(s));
 
 // Nav Scroll Effect
 window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
+    const nav = document.getElementById('navigation-bar');
     window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
 });
 

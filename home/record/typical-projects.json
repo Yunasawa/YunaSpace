@@ -1,7 +1,7 @@
 {
     "projects": [
         {
-            "thumbnail": "../project/library/vozel-engine/image/thumbnail.png",
+            "thumbnail": "../project/record/library/vozel-engine/image/thumbnail.png",
             "category": "Tool",
             "platform": "Desktop",
             "dimension": "2D & 3D",
@@ -12,7 +12,7 @@
             "keywords": [ "Voxel", "Procedural System", "Noise Function" ]
         },
         {
-            "thumbnail": "../project/game/block-burst/image/thumbnail.png",
+            "thumbnail": "../project/record/game/block-burst/image/thumbnail.png",
             "category": "Game",
             "platform": "Mobile",
             "dimension": "2D",
@@ -23,7 +23,7 @@
             "keywords": [ "Grid-Based", "Puzzle Pattern", "Drag & Drop", "Offline", "Endless" ]
         },
         {
-            "thumbnail": "../project/game/viral-rush/image/thumbnail.png",
+            "thumbnail": "../project/record/game/viral-rush/image/thumbnail.png",
             "category": "Game",
             "platform": "Mobile",
             "dimension": "3D",
@@ -34,7 +34,7 @@
             "keywords": [ "Upgrade System", "Strategy", "Behaviour System", "Offline" ]
         },
         {
-            "thumbnail": "../project/game/block-burst/image/thumbnail.png",
+            "thumbnail": "../project/record/game/block-burst/image/thumbnail.png",
             "category": "Game",
             "platform": "Mobile",
             "dimension": "3D",

@@ -1,0 +1,23 @@
+﻿.diamond-bullet {
+
+}
+
+    .diamond-bullet li::before {
+        content: "◈";
+    }
+
+
+.dot-bullet {
+}
+
+    .dot-bullet li::before {
+        content: "●";
+    }
+    
+
+.star-bullet {
+}
+
+    .star-bullet li::before {
+        content: "✦";
+    }

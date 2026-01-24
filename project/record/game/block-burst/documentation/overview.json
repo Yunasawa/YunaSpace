@@ -1,0 +1,65 @@
+{
+    "overview": {
+        "module": "SYSTEM_MODULE_01",
+        "title": "Project Overview",
+        "description": [
+            "Block Burst is a casual puzzle game where players drag and place block pieces onto a grid to complete full rows or columns. The goal is to score as high as possible by clearing lines efficiently while managing limited space. The game ends when no available block can be placed on the board.",
+            "Designed for quick play sessions, Block Burst emphasizes clarity, satisfying feedback, and strategic spatial thinking. It is fully playable offline and suitable for players of all ages."
+        ],
+        "metadata": {
+            "genre": "Puzzle, Casual",
+            "platform": "Mobile",
+            "editor": "Unity 6.3 (URP)"
+        },
+        "keywords": [
+            "Grid-Based",
+            "Puzzle Pattern",
+            "Drag & Drop",
+            "Offline",
+            "Endless"
+        ]
+    },
+
+    "design": {
+        "module": "SYSTEM_MODULE_02",
+        "title": "Project Design",
+
+        "coreGameplay": [
+            "Players are given a set of 3 block pieces each turn.",
+            "Blocks are placed onto a 8x8 grid via drag-and-drop.",
+            "Completing full rows or columns clears it from the board.",
+            "Cleared lines award points.",
+            "The game continues endlessly until no valid placement remains."
+        ],
+
+        "scoringSystem": [
+            "Points are awarded for each cleared row or column.",
+            "Multiple line clears in a single move grant bonus points.",
+            "Optional combo or streak multipliers added for advanced play.",
+            "Perfect placing earns more bonus points.",
+            "Clearing the whole board grants huge points and changes the game theme."
+        ],
+
+        "logicFlow": [
+            "Start with an empty grid or random pattern",
+            "Receive a set of 3 block pieces from algorithm",
+            "Place blocks strategically",
+            "Clear lines to create space and earn points",
+            "Repeat until no moves are possible",
+            "Display final score and restart option"
+        ],
+
+        "difficulty": [
+            "Difficulty increases naturally as grid space becomes limited.",
+            "Larger and more complex block shapes increase challenge over time.",
+            "No timers or pressure mechanics—players control the space."
+        ],
+
+        "visualDesign": [
+            "Clean, colorful block visuals for strong readability",
+            "Diverse themes set from editor",
+            "Clear animations when placing blocks and clearing lines",
+            "Satisfying effects to reinforce successful moves"
+        ]
+    }
+}

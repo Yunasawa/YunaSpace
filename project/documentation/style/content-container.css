@@ -1,0 +1,61 @@
+.content-container {
+    margin-left: var(--sidebar-w);
+    margin-top: var(--toolbar-h);
+    height: calc(100vh - var(--toolbar-h));
+    overflow-y: auto;
+    padding: 60px 8%;
+    scroll-behavior: smooth;
+}
+
+.page-section {
+    display: none;
+    max-width: 1000px;
+    animation: slideIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+    .page-section.active {
+        display: block;
+    }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjusted H1 - Smaller */
+h1 {
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.card {
+    background: var(--panel);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 6px; /* Reduced corner radius */
+    padding: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    transition: 0.3s;
+}
+
+    .card:hover {
+        border-color: var(--accent);
+    }

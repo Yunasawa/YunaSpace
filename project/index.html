@@ -629,11 +629,6 @@
     </div>
 
     <script>
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
-        });
-
         function filterType(type, btn) {
             const cards = document.querySelectorAll('.card');
             const tabs = document.querySelectorAll('.tab');
