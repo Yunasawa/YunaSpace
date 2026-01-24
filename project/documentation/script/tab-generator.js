@@ -1,4 +1,4 @@
-const PAGE_JSON_BASE = `/project/record/${type}/${project}/documentation/`;
+const PAGE_JSON_BASE = `../project/record/${type}/${project}/documentation/`;
 
 console.log(PAGE_JSON_BASE);
 
@@ -21,10 +21,16 @@ async function initSidebar() {
         for (const item of items) {
             const page = item.dataset.page;
             const jsonPath = `${PAGE_JSON_BASE}${page}.json`;
+            const htmlPath = `${PAGE_JSON_BASE}${page}.html`;
 
-            if (await fileExists(jsonPath)) {
+            const hasJson = await fileExists(jsonPath);
+            const hasHtml = hasJson ? false : await fileExists(htmlPath);
+
+            if (hasJson || hasHtml) {
                 item.classList.add("visible");
                 hasAny = true;
+
+                item.dataset.source = hasJson ? "json" : "html";
             }
         }
 

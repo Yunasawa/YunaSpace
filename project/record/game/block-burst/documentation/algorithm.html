@@ -1,0 +1,138 @@
+<div class="content-box">
+    <span class="label-header">MODULE_03 // GAMEPLAY_LOGIC</span>
+    <h2 class="main-title">Adaptive Block Pattern Generator</h2>
+    <p>
+        A simulation-based piece selection system that generates block patterns by evaluating current board states. 
+        It prioritizes board-clearing potential while maintaining controlled randomness and ensuring game continuity.
+    </p>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 25px;">
+        <div class="card" style="border-top: 2px solid var(--accent); background: rgba(255,255,255,0.02);">
+            <span class="label-header" style="font-size: 0.6rem; opacity: 0.7;">VIRTUAL_ENVIRONMENT</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Simulation Model</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 15px;">Copies the active board into a boolean grid to predict placement outcomes without mutating real state.</p>
+
+            <div class="code-top-bar" style="margin-top: 0; background: rgba(255,255,255,0.03);">
+                <div class="code-file-name">BoardSimulator.cs</div>
+            </div>
+            <pre class="code-display" style="font-size: 0.75rem; padding: 15px 15px 0 15px;">
+bool[,] CreateSimulationGrid(Board board) 
+{
+    var width = board.Width;
+    var height = board.Height;
+    var grid = new bool[width, Height];
+
+    for (int y = 0; y < height; y++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            grid[x, y] = board.IsOccupied(x, y);
+        }
+    }
+
+    return grid;
+}
+            </pre>
+        </div>
+
+        <div class="card" style="border-top: 2px solid var(--accent); background: rgba(255,255,255,0.02);">
+            <span class="label-header" style="font-size: 0.6rem; opacity: 0.7;">SELECTION_PRIORITY</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Generation Strategies</h3>
+            <div class="flow-list" style="margin-top: 10px;">
+                <div class="flow-step"><span class="step-number">1</span><span><strong>Clearer:</strong> Maximize total cell clears.</span></div>
+                <div class="flow-step"><span class="step-number">2</span><span><strong>Breaker:</strong> Guarantee at least one line clear.</span></div>
+                <div class="flow-step"><span class="step-number">3</span><span><strong>Hanger:</strong> Ensure at least one valid fit.</span></div>
+                <div class="flow-step"><span class="step-number">4</span><span><strong>Fallback:</strong> Pure random selection.</span></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px; display: block; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div class="card sub-card-flat">
+            <span class="label-header">STRATEGY_01 // THE_CLEARER</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Clearer Logic</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 15px;">Scans every pattern at every valid position to find candidates with the highest clear score.</p>
+            <div class="code-top-bar" style="margin-top: 0; background: rgba(255,255,255,0.03);">
+                <div class="code-file-name">ClearerStrategy.cs</div>
+            </div>
+            <pre class="code-display" style="font-size: 0.75rem; padding: 15px 15px 0 15px;">
+foreach (var pattern in allPatterns)
+{
+    foreach (var pos in GetValidPlacements(pattern, board)) 
+    {
+        int cleared = CountClearedBlocks(board, pattern, pos);
+
+        if (cleared > bestScore) 
+        {
+            bestScore = cleared;
+            bestPattern = new Pattern(pattern, pos);
+        }
+    }
+}
+            </pre>
+        </div>
+        <div class="card sub-card-flat">
+            <span class="label-header">STRATEGY_03 // THE_HANGER</span>
+            <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Hanger Logic</h3>
+            <p style="font-size: 0.85rem; margin-bottom: 15px;">Filters patterns by priority tiers to find any valid fit, preventing early unwinnable states.</p>
+            <div class="code-top-bar" style="margin-top: 0; background: rgba(255,255,255,0.03);">
+                <div class="code-file-name">HangerStrategy.cs</div>
+            </div>
+            <pre class="code-display" style="font-size: 0.75rem; padding: 15px 15px 0 15px;">
+foreach (var tier in GetPatternsByPriority()) 
+{
+    tier.Shuffle(); // Shuffle patterns in a tier
+
+    foreach (var pattern in tier) 
+    {
+        var spots = GetValidPlacements(pattern, board);
+        if (spots.Count > 0)
+            return new PatternResult(pattern, spots.Random());
+    }
+}</pre>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <span class="label-header">SOURCE_CODE // MULTI_PIECE_FLOW</span>
+        <div class="code-top-bar">
+            <div class="code-file-name">PatternGenerator.cs</div>
+            <button class="icon-btn" onclick="copyCode('gen-logic')" title="Copy Code">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" /></svg>
+            </button>
+        </div>
+        <pre class="code-display" id="gen-logic">
+for (int i = 0; i < 3; i++) {
+    PatternResult result = 
+        TryClearer(simBoard) ?? 
+        TryBreaker(simBoard) ?? 
+        TryHanger(simBoard)  ?? 
+        GetRandomPattern();
+
+    ApplyPattern(simBoard, result); // Mutate simulation for next piece
+    AssignPiece(result);           // Finalize piece for player
+}</pre>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px;">
+        <div class="card sub-card-flat" style="border-top-color: var(--accent);">
+            <span class="label-header">DESIGN_CHARACTERISTICS</span>
+            <ul class="content-list diamond-bullet last">
+                <li><strong>Simulation-driven:</strong> Eliminates guesswork via look-ahead logic.</li>
+                <li><strong>Deterministic:</strong> Consistent generation per unique board seed.</li>
+                <li><strong>Difficulty-aware:</strong> Scales dynamically with pattern complexity.</li>
+                <li><strong>Fairness:</strong> Actively avoids soft-locks via Strategy 2 & 3.</li>
+            </ul>
+        </div>
+
+        <div class="card sub-card-flat" style="border-top-color: var(--accent);">
+            <span class="label-header">GAMEPLAY_IMPACT</span>
+            <ul class="content-list diamond-bullet last">
+                <li><strong>Retention:</strong> Reduces player frustration from "bad rolls."</li>
+                <li><strong>Strategy:</strong> Encourages deliberate setup for high-value clears.</li>
+                <li><strong>Continuity:</strong> Significantly extends mid-game survival windows.</li>
+                <li><strong>Replayability:</strong> Balances optimal play with controlled entropy.</li>
+            </ul>
+        </div>
+    </div>  
+</div>
