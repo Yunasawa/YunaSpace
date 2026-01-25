@@ -1,4 +1,4 @@
-fetch(PAGE_JSON_BASE + "feature.json")
+fetch(RECORD_PATH + "feature.json")
     .then(res => res.json())
     .then(data => {
         const section = document.querySelector("#feature");

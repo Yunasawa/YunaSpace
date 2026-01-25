@@ -1,26 +1,42 @@
 ﻿/* --- BENCHMARK PAGE STYLING --- */
-#benchmark .perf-module {
+#benchmark .benchmark-content-box {
     margin-bottom: 35px;
-    border-left: 4px solid #86c1fc;
+    border: 2px solid rgba(134, 193, 252, 0.3);
     background: rgba(134, 193, 252, 0.04);
     padding: 30px;
 }
 
-/* Grid for Specs (CPU/GPU info) */
-.spec-grid {
+    #benchmark .benchmark-content-box:hover {
+        border-color: rgba(134, 193, 252, 0.5);
+    }
+
+    #benchmark .benchmark-content-box::after {
+        border-top: 2px solid rgba(134, 193, 252, 0.3);
+        border-right: 2px solid rgba(134, 193, 252, 0.3);
+    }
+
+
+/* Titles */
+.benchmark-main-title {
+    margin-bottom: 15px;
+}
+
+
+/* Data grid (TEST ENVIRONMENT) */
+.benchmark-data-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 15px;
 }
 
-.spec-item {
+.benchmark-data-item {
     background: rgba(255, 255, 255, 0.03);
     padding: 10px 15px;
     border-left: 2px solid rgba(134, 193, 252, 0.5);
 }
 
-.spec-label {
+.benchmark-data-label {
     font-family: monospace;
     font-size: 0.7rem;
     color: #86c1fc;
@@ -28,26 +44,63 @@
     display: block;
 }
 
-.spec-value {
+.benchmark-data-value {
     font-size: 0.95rem;
     color: #fff;
     font-weight: 500;
 }
 
-/* Benchmark Tables */
-.bench-table-wrapper {
+.benchmark-meta-note {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    font-family: monospace;
+}
+
+
+/* Data strip / pills */
+.benchmark-data-strip {
+    margin-top: 10px;
+}
+
+.benchmark-sub-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.benchmark-data-pill {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(134, 193, 252, 0.2);
+}
+
+    .benchmark-data-pill span:last-child {
+        color: #86c1fc;
+        font-weight: bold;
+    }
+
+.benchmark-data-total {
+    border-top: 1px solid #86c1fc;
+    padding-top: 10px;
+}
+
+
+/* Tables */
+.benchmark-data-table-wrapper {
     overflow-x: auto;
     margin-top: 15px;
 }
 
-.bench-table {
+.benchmark-data-table {
     width: 100%;
     border-collapse: collapse;
     font-family: monospace;
     font-size: 0.9rem;
 }
 
-    .bench-table th {
+    .benchmark-data-table th {
         text-align: left;
         background: rgba(134, 193, 252, 0.1);
         color: #86c1fc;
@@ -55,42 +108,38 @@
         border-bottom: 2px solid #86c1fc;
     }
 
-    .bench-table td {
+    .benchmark-data-table td {
         padding: 12px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         color: rgba(255, 255, 255, 0.8);
     }
 
-    .bench-table tr:hover {
+    .benchmark-data-table tr:hover {
         background: rgba(134, 193, 252, 0.05);
     }
 
-.highlight-row {
+.benchmark-highlight-row {
     background: rgba(134, 193, 252, 0.08) !important;
     color: #fff !important;
 }
 
-/* Data Pill (Used for Memory/Culling) */
-.data-pill {
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    border-bottom: 1px dashed rgba(134, 193, 252, 0.2);
+
+/* Two-column grid */
+.benchmark-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
 }
 
-    .data-pill span:last-child {
-        color: #86c1fc;
-        font-weight: bold;
-    }
 
-/* Observations List */
-.observation-list {
+/* Observation list */
+.benchmark-observation-list {
     list-style: none;
     padding: 0;
     margin-top: 15px;
 }
 
-    .observation-list li {
+    .benchmark-observation-list li {
         position: relative;
         padding-left: 25px;
         margin-bottom: 12px;
@@ -98,10 +147,46 @@
         line-height: 1.5;
     }
 
-        .observation-list li::before {
+        .benchmark-observation-list li::before {
             content: ">>";
             position: absolute;
             left: 0;
             color: #86c1fc;
             font-family: monospace;
         }
+
+
+/* Structural Layouts */
+.benchmark-flex-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.benchmark-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+/* Data Total style for memory */
+.benchmark-data-total {
+    border-top: 1px solid var(--accent);
+    margin-top: 10px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+/* Ensure the wrapper doesn't break tables on mobile */
+.benchmark-data-table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+}
+
+/* Your existing module styles... */
+.benchmark-module {
+    margin-bottom: 30px;
+    border-left: 4px solid #86c1fc;
+    background: rgba(134, 193, 252, 0.04);
+    padding: 30px;
+}

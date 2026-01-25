@@ -8,7 +8,7 @@ function copyCode(id) {
     setTimeout(() => btn.innerText = originalText, 2000);
 }
 
-fetch(PAGE_JSON_BASE + "algorithm.html")
+fetch(RECORD_PATH + "algorithm.html")
     .then(res => res.text())
     .then(html => {
         const container = document.querySelector("#algorithm-content");

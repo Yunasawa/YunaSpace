@@ -124,4 +124,4 @@ function renderFeatureColumn(items, bulletClass) {
     `;
 }
 
-loadEditors(PAGE_JSON_BASE + "editor.json");
+loadEditors(RECORD_PATH + "editor.json");

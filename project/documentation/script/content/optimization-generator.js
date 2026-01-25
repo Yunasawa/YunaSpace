@@ -1,4 +1,4 @@
-fetch(PAGE_JSON_BASE + "optimization.json")
+fetch(RECORD_PATH + "optimization.json")
     .then(res => res.json())
     .then(data => {
         const section = document.querySelector("#optimization");

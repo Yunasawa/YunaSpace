@@ -1,6 +1,4 @@
-const PAGE_JSON_BASE = `../record/${type}/${project}/documentation/`;
-
-console.log(PAGE_JSON_BASE);
+const RECORD_PATH = `../record/${type}/${project}/documentation/`;
 
 async function fileExists(path) {
     try {
@@ -20,13 +18,15 @@ async function initSidebar() {
 
         for (const item of items) {
             const page = item.dataset.page;
-            const jsonPath = `${PAGE_JSON_BASE}${page}.json`;
-            const htmlPath = `${PAGE_JSON_BASE}${page}.html`;
+            const jsonPath = `${RECORD_PATH}${page}.json`;
+            const htmlPath = `${RECORD_PATH}${page}.html`;
+            const ymdPath = `${RECORD_PATH}${page}.ymd`;
 
             const hasJson = await fileExists(jsonPath);
             const hasHtml = hasJson ? false : await fileExists(htmlPath);
+            const hasYmd = hasJson || hasHtml ? false : await fileExists(ymdPath);
 
-            if (hasJson || hasHtml) {
+            if (hasJson || hasHtml || hasYmd) {
                 item.classList.add("visible");
                 hasAny = true;
 

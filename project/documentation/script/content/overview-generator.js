@@ -1,4 +1,4 @@
-fetch(PAGE_JSON_BASE + "overview.json")
+fetch(RECORD_PATH + "overview.json")
     .then(res => res.json())
     .then(data => {
         const section = document.getElementById("overview");

@@ -4,7 +4,7 @@ async function loadAndBuildProjectTree() {
     container.innerHTML = '<div class="file-node" style="padding: 20px; opacity: 0.5;">Loading system structure...</div>';
 
     try {
-        const response = await fetch(PAGE_JSON_BASE + "structure.json");
+        const response = await fetch(RECORD_PATH + "structure.json");
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
         const projectData = await response.json();
