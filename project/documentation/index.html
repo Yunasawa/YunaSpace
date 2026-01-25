@@ -104,6 +104,33 @@
             <div id="algorithm-content"></div>
         </section>
 
+        <section id="editor" class="page-section">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
+                <div>
+                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> EDITOR_</p>
+                    <h1>CUSTOM EDITOR</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="optimization" class="page-section">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
+                <div>
+                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> OPTIMIZATION_</p>
+                    <h1>PERFORMANCE OPTIMIZATION</h1>
+                </div>
+            </div>
+        </section>
+
+        <section id="benchmark" class="page-section">
+            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
+                <div>
+                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> BENCHMARK_</p>
+                    <h1>PERFORMANCE BENCHMARK</h1>
+                </div>
+            </div>
+        </section>
+
     </div>
 
     <script src="script/tab-navigator.js"></script>
@@ -111,29 +138,9 @@
     <script src="script/content/overview-generator.js"></script>
     <script src="script/content/structure-generator.js"></script>
     <script src="script/content/feature-generator.js"></script>
+    <script src="script/content/algorithm-generator.js"></script>
+    <script src="script/content/editor-generator.js"></script>
+    <script src="script/content/optimization-generator.js"></script>
     <script src="script/test.js"></script>
-
-    <script>
-        function copyCode(id) {
-            const text = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(text);
-            // Visual feedback
-            const btn = event.target;
-            const originalText = btn.innerText;
-            btn.innerText = "COPIED!";
-            setTimeout(() => btn.innerText = originalText, 2000);
-        }
-
-        fetch(PAGE_JSON_BASE + "algorithm.html")
-            .then(res => res.text())
-            .then(html => {
-                const container = document.querySelector("#algorithm-content");
-                container.innerHTML = html;
-            })
-            .catch(err => {
-                console.error("Failed to load algorithm HTML:", err);
-            });
-
-    </script>
 </body>
 </html>

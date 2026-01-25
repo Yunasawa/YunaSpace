@@ -1,0 +1,72 @@
+{
+    "editors": [
+        {
+            "subtitle": "EDITOR 01",
+            "title": "Block Pattern Editor",
+            "type": "landscape",
+            "description": "A dedicated visual environment for managing the game's pattern library. Authors can define shapes on a fixed 5�5 grid, directly influencing the piece generation system's complexity and difficulty curve.",
+            "image": {
+                "src": "../record/game/block-burst/image/editor-block-pattern-editor.png",
+                "alt": "Block Pattern Editor"
+            },
+            "sections": [
+                {
+                    "label": "CORE FEATURES",
+                    "type": "feature-grid",
+                    "features": [
+                        {
+                            "title": "Interactive Grid",
+                            "description": "Click-to-toggle 5�5 matrix for rapid prototyping."
+                        },
+                        {
+                            "title": "Pattern Registry",
+                            "description": "Create and index new shapes instantly."
+                        },
+                        {
+                            "title": "Safety Management",
+                            "description": "Validates and removes unused patterns without breaking data."
+                        },
+                        {
+                            "title": "Data Integration",
+                            "description": "Patterns are exported as serialized data for the Generator."
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "label": "EDITOR 02",
+            "title": "Game Theme List",
+            "type": "portrait",
+            "description": "A centralized configuration tool for visual identity management. By separating aesthetic variables from gameplay logic, themes allow for global color swaps across the board, UI, and particle systems.",
+            "image": {
+                "src": "../record/game/block-burst/image/editor-game-theme-editor.png",
+                "alt": "Theme Editor"
+            },
+            "sections": [
+                {
+                    "label": "THEME CAPABILITIES",
+                    "type": "feature-list",
+                    "features": [
+                        {
+                            "title": "Global Color Fields",
+                            "description": "Direct control over the primary, secondary, and background color palettes."
+                        },
+                        {
+                            "title": "Logic-Visual Separation",
+                            "description": "Swap entire game skins without modifying core engine code."
+                        },
+                        {
+                            "title": "Real-time Preview",
+                            "description": "Instantly visualize color changes across the UI hierarchy."
+                        },
+                        {
+                            "title": "Dynamic Consistency",
+                            "description": "Ensures all generated blocks adhere to the selected theme's color index."
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

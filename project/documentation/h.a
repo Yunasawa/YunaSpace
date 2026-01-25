@@ -213,35 +213,7 @@ public void GenerateMesh(Vector3 pos) {
             </div>
         </section>
 
-        <section id="features" class="page-section">
-            <h1 class="color-green">Engine<br>Features</h1>
-            <div class="card border-green">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                    <div>
-                        <h3 class="color-green">Procedural Generation</h3>
-                        <p class="file">3D Perlin & Simplex noise integration for infinite terrain.</p>
-                    </div>
-                    <div>
-                        <h3 class="color-green">Real-time Deformation</h3>
-                        <p class="file">Add/Subtract voxels with brush tools at 60fps.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <section id="editors" class="page-section">
-            <h1>Custom<br>Unity Editors</h1>
-            <div class="card">
-                <h3>Voxel Brush Inspector</h3>
-                <p style="margin-bottom:15px; color:var(--muted)">A custom Inspector window to modify brush falloff and noise types directly in the Scene View.</p>
-                <div style="background: #111; border: 1px solid var(--border); padding: 15px; border-radius: 4px; font-family: monospace; font-size: 0.8rem;">
-                    [ EDITOR UI: NoiseSettings.cs ]<br>
-                    - Frequency: [ 0.02 ]<br>
-                    - Amplitude: [ 5.50 ]<br>
-                    - Octaves:   [ 4    ]
-                </div>
-            </div>
-        </section>
 
         <section id="benchmarks" class="page-section">
             <h1 class="color-blue">Performance<br>Metrics</h1>

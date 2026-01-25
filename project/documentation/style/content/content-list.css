@@ -45,8 +45,8 @@
         background: var(--accent);
         font-weight: 700;
         font-size: 0.75rem;
-        width: 20px;
-        height: 20px;
+        min-width: 20px;
+        min-height: 20px;
         display: flex;
         align-items: center;
         justify-content: center;

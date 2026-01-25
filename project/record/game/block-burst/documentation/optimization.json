@@ -1,0 +1,100 @@
+{
+    "optimization": [
+        {
+            "label": "OPTIMIZATION 01",
+            "title": "RENDERING OPTIMIZATION",
+            "entries": [
+                {
+                    "title": "GPU-Driven Rendering Pipeline & Graphics API",
+                    "description": [
+                        "Build the meshes all over inside Job System, reduce burden on main thread. Mesh data (transform, UVs, texture indices) is streamed directly to the GPU. CPU cost remains nearly constant regardless of visible voxel count."
+                    ],
+                    "notes": [
+                        {
+                            "type": "problem",
+                            "label": "PROBLEM",
+                            "title": "Why not use GPU Instancing?",
+                            "description": [
+                                "[DrawMeshInstancedIndirect](https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Graphics.DrawMeshInstancedIndirect.html) is only the best choice when the mesh is complex. For voxels, mesh generation must be done on GPU for instancing to work. This approach is not ideal for other dynamic processes."
+                            ]
+                        },
+                        {
+                            "type": "result",
+                            "label": "RESULT",
+                            "description": [
+                                "Massive reduction in draw calls. Significant decrease in CPU overhead in dense scenes."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Face-Level Visibility Control",
+                    "description": [
+                        "Only exposed voxel faces are submitted to the render pipeline. Hidden faces are culled at generation time, preventing unnecessary GPU work."
+                    ],
+                    "notes": [
+                        {
+                            "type": "result",
+                            "label": "RESULT",
+                            "description": [
+                                "Lower vertex throughput. Reduced overdraw during rendering."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Texture Array Sampling",
+                    "description": [
+                        "All voxel materials are stored in Texture2DArray assets. Texture switching is eliminated entirely during rendering. UVs and texture indices are resolved directly in the shader."
+                    ],
+                    "notes": [
+                        {
+                            "type": "result",
+                            "label": "RESULT",
+                            "description": [
+                                "Zero material swaps. Improved GPU cache coherence."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "optimization_02",
+            "label": "OPTIMIZATION 02",
+            "title": "WORLD & CHUNK MANAGEMENT",
+            "entries": [
+                {
+                    "title": "Chunk-Based Spatial Partitioning",
+                    "description": [
+                        "World is divided into fixed-size chunks with deterministic bounds. Chunks outside the view range are unloaded or marked inactive."
+                    ],
+                    "notes": [
+                        {
+                            "type": "result",
+                            "label": "RESULT",
+                            "description": [
+                                "Predictable memory usage. Stable frame times."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Incremental Chunk Updates",
+                    "description": [
+                        "Mesh data is regenerated only for affected chunks. Local voxel edits do not trigger full-world rebuilds."
+                    ],
+                    "notes": [
+                        {
+                            "type": "result",
+                            "label": "RESULT",
+                            "description": [
+                                "Fast block placement. Fast block destruction even in large worlds."
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

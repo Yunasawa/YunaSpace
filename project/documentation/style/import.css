@@ -12,6 +12,8 @@
 @import url("graphic/code-block.css");
 @import url("graphic/global-color.css");
 
+@import url("page/algorithm.css");
 @import url("page/feature.css");
 @import url("page/overview.css");
 @import url("page/structure.css");
+@import url("page/optimization.css");

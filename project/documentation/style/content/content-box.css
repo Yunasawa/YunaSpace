@@ -8,7 +8,12 @@
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     margin-bottom: 60px;
+    transition: all 0.25s ease-out;
 }
+
+    .content-box:hover {
+        border: 2px solid rgba(187, 134, 252, 0.5);
+    }
 
     /* Cross-line pattern on background */
     .content-box::before {

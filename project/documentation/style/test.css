@@ -1,173 +1,107 @@
-﻿/* Utility Bar for Code Blocks */
-.code-utility-bar {
-    background: rgba(0, 0, 0, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 15px;
-    margin-top: 20px;
-    border-radius: 4px 4px 0 0;
+﻿/* --- BENCHMARK PAGE STYLING --- */
+#benchmark .perf-module {
+    margin-bottom: 35px;
+    border-left: 4px solid #86c1fc;
+    background: rgba(134, 193, 252, 0.04);
+    padding: 30px;
 }
 
-.code-actions {
-    display: flex;
-    gap: 10px;
+/* Grid for Specs (CPU/GPU info) */
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
 }
 
-/* Expanded/Collapsed States */
-.code-wrapper {
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    max-height: 400px; /* Default height */
+.spec-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 10px 15px;
+    border-left: 2px solid rgba(134, 193, 252, 0.5);
 }
 
-    .code-wrapper.collapsed {
-        max-height: 0;
-    }
-
-    .code-wrapper.expanded {
-        max-height: 2000px;
-    }
-
-/* Logic Palette */
-.accent-blue {
-    --current-color: #00a3ff;
-    --glow: rgba(0, 163, 255, 0.4);
-}
-
-/* Code Terminal Style */
-.code-terminal {
-    background: #05050a;
-    border: 1px solid rgba(0, 163, 255, 0.3);
-    border-radius: 4px;
-    padding: 20px;
-    position: relative;
-    box-shadow: inset 0 0 20px rgba(0, 0, 0, 1);
-}
-
-    .code-terminal::before {
-        content: "● ● ●";
-        position: absolute;
-        top: 10px;
-        right: 15px;
-        color: rgba(0, 163, 255, 0.5);
-        font-size: 8px;
-        letter-spacing: 2px;
-    }
-
-.code-view-modern {
-    width: 100%;
-    background: transparent;
-    border: none;
-    color: #a5d6ff;
-    font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.85rem;
-    line-height: 1.6;
-    resize: none;
-    outline: none;
-    scrollbar-width: thin;
-    scrollbar-color: var(--current-color) transparent;
-}
-
-/* Syntax Highlighting Sim (using opacity) */
-.code-keyword {
-    color: #ff7b72;
-    font-weight: bold;
-}
-
-.code-func {
-    color: #d2a8ff;
-}
-
-.code-comment {
-    color: #8b949e;
-    font-style: italic;
-}
-
-/* Fantastic Code Display */
-.code-display {
-    background: rgba(5, 7, 10, 1);
-    padding: 25px;
-    margin: 0;
-    font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 0.85rem;
-    line-height: 1.7;
-    color: #d1d1d1;
-    white-space: pre; /* Keeps code formatting */
-    overflow-x: auto; /* Horizontal scroll only if line is too long */
-    position: relative;
-    border-radius: 0 0 5px 5px;
-}
-
-    .code-display::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(rgba(187, 134, 252, 0.02) 50%, transparent 50%);
-        background-size: 100% 4px;
-        pointer-events: none;
-    }
-
-/* The unified bar that holds the file name and the icon */
-.code-top-bar {
-    height: 30px;
-    background: rgba(187, 134, 252, 0.08);
-    border: 1px solid rgba(187, 134, 252, 0.2);
-    border-width: 1px 1px 0 1px;
-    border-bottom: none;
-    border-radius: 6px 6px 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 5px 8px 15px;
-    margin-top: 30px;
-}
-
-/* File name: lowercase/natural, subtle font */
-.code-file-name {
+.spec-label {
     font-family: monospace;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.5px;
+    font-size: 0.7rem;
+    color: #86c1fc;
+    text-transform: uppercase;
+    display: block;
 }
 
-/* Icon button style */
-.icon-btn {
-    background: transparent;
-    border: none;
-    color: var(--accent);
-    cursor: pointer;
+.spec-value {
+    font-size: 0.95rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Benchmark Tables */
+.bench-table-wrapper {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+.bench-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+    .bench-table th {
+        text-align: left;
+        background: rgba(134, 193, 252, 0.1);
+        color: #86c1fc;
+        padding: 12px;
+        border-bottom: 2px solid #86c1fc;
+    }
+
+    .bench-table td {
+        padding: 12px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .bench-table tr:hover {
+        background: rgba(134, 193, 252, 0.05);
+    }
+
+.highlight-row {
+    background: rgba(134, 193, 252, 0.08) !important;
+    color: #fff !important;
+}
+
+/* Data Pill (Used for Memory/Culling) */
+.data-pill {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    opacity: 0.6;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(134, 193, 252, 0.2);
 }
 
-    .icon-btn:hover {
-/*        background: rgba(187, 134, 252, 0.1);*/
-        opacity: 1;
-        transform: scale(1.1);
+    .data-pill span:last-child {
+        color: #86c1fc;
+        font-weight: bold;
     }
 
-    .icon-btn svg {
-        width: 16px;
-        height: 16px;
-        fill: currentColor;
-    }
-
-/* Ensure code display matches the bar perfectly */
-.code-display {
-    border-top-left-radius: 0 !important;
-    border-top-right-radius: 0 !important;
-    margin-top: 0 !important;
-    border: 1px solid rgba(187, 134, 252, 0.2);
-    border-width: 0 1px 1px 1px;
+/* Observations List */
+.observation-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
 }
+
+    .observation-list li {
+        position: relative;
+        padding-left: 25px;
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+        .observation-list li::before {
+            content: ">>";
+            position: absolute;
+            left: 0;
+            color: #86c1fc;
+            font-family: monospace;
+        }
