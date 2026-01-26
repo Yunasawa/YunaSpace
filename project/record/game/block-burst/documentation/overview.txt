@@ -1,0 +1,33 @@
+#sub-title(> OVERVIEW_)
+#header-title(PROJECT OVERVIEW)
+
+$start-content-box
+#module-title(DESCRIPTION)
+Block Burst is a casual puzzle game where players drag and place block pieces onto a grid to complete full rows or columns. The goal is to score as high as possible by clearing lines efficiently while managing limited space. The game ends when no available block can be placed on the board.
+Designed for quick play sessions, Block Burst emphasizes clarity, satisfying feedback, and strategic spatial thinking. It is fully playable offline and suitable for players of all ages.
+
+$start-flex-grid{gap: 15px; margin: 20px 0 40px 0}
+$start-feature-box
+#feature-title(GENRE)
+Puzzle, Casual
+$end-feature-box
+$start-feature-box
+#feature-title(PLATFORM)
+Mobile
+$end-feature-box
+$start-feature-box
+#feature-title(EDITOR)
+Unity 6.3 (URP)
+$end-feature-box
+$start-feature-box
+#feature-title(DIMENSION)
+2D
+$end-feature-box
+$end-flex-grid
+
+#module-title(KEYWORDS)
+$start-flex-grid{gap: 15px; margin: 10px 0 0 0}
+#frame-button[round](GRID-BASED)
+#frame-button[round](PUZZLE PATTERN)
+$end-flex-grid
+$end-content-box

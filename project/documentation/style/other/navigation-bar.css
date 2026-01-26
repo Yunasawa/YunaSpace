@@ -1,0 +1,60 @@
+.navigation-bar {
+    width: var(--sidebar-w);
+    background: rgba(5, 7, 10, 0.5);
+    border-right: 1px solid var(--border);
+    height: calc(100vh - var(--toolbar-h));
+    position: fixed;
+    top: var(--toolbar-h);
+    padding: 40px 0;
+    overflow-y: auto;
+}
+
+.navigation-group {
+    display: none;
+    margin-bottom: 35px;
+}
+
+    .navigation-group.visible {
+        display: block;
+    }
+
+.navigation-label {
+    font-family: monospace;
+    font-size: 0.65rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 0 30px 10px;
+    opacity: 0.8;
+}
+
+.navigation-item {
+    display: none;
+    padding: 12px 30px;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    align-items: center;
+    gap: 12px;
+    transition: 0.3s;
+}
+
+    .navigation-item.visible {
+        display: block;
+    }
+
+    .navigation-item:hover {
+        color: var(--text-color);
+        background: var(--panel-light);
+    }
+
+    .navigation-item.active {
+        color: #000;
+        background: var(--accent);
+        box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+.navigation-icon {
+    margin: 0 5px 0 0;
+}

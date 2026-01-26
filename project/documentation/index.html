@@ -1,12 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YunaSpace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style/test.css">
-    <link rel="stylesheet" href="style/import.css">
+    <link rel="stylesheet" href="style/style-import.css">
 </head>
 <body>
     <header class="toolbar">
@@ -16,7 +15,7 @@
                 <span>Return to Archive</span>
             </a>
             <div style="height: 20px; width: 1px; background: var(--border);"></div>
-            <p style="font-size: 0.75rem; letter-spacing: 2px;">
+            <p style="font-size: 0.75rem; letter-spacing: 2px; color: #aaa;">
                 PROJECT: <span id="unit-name" style="color:var(--accent); font-weight: 700">LOADING...</span>
             </p>
         </div>
@@ -26,122 +25,239 @@
         </div>
     </header>
 
-    <nav class="sidebar">
-        <div class="nav-group">
-            <p class="nav-label">01 // OVERVIEW</p>
-            <div class="nav-item active" data-page="overview" onclick="showPage('overview')"><i class="nav-icon fas fa-terminal"></i> Overview & Design</div>
-            <div class="nav-item" data-page="showcase" onclick="showPage('showcase')"><i class="nav-icon fas fa-eye"></i> Visual Showcase</div>
-            <div class="nav-item" data-page="feature" onclick="showPage('feature')"><i class="nav-icon fas fa-list-check"></i> Project Feature</div>
-            <div class="nav-item" data-page="instruction" onclick="showPage('instruction')"><i class="nav-icon fas fa-file-lines"></i> Usage Instruction</div>
-            <div class="nav-item" data-page="sample" onclick="showPage('sample')"><i class="nav-icon fas fa-book"></i> Sample & API</div>
+    <nav class="navigation-bar">
+        <div class="navigation-group">
+            <p class="navigation-label">01 // OVERVIEW</p>
+            <div class="navigation-item active" data-page="overview" onclick="ShowPage('overview')"><i class="navigation-icon fas fa-terminal"></i> Overview & Design</div>
+            <div class="navigation-item" data-page="showcase" onclick="ShowPage('showcase')"><i class="navigation-icon fas fa-eye"></i> Visual Showcase</div>
+            <div class="navigation-item" data-page="feature" onclick="ShowPage('feature')"><i class="navigation-icon fas fa-list-check"></i> Project Feature</div>
+            <div class="navigation-item" data-page="instruction" onclick="ShowPage('instruction')"><i class="navigation-icon fas fa-file-lines"></i> Usage Instruction</div>
+            <div class="navigation-item" data-page="sample" onclick="ShowPage('sample')"><i class="navigation-icon fas fa-book"></i> Sample & API</div>
         </div>
-        <div class="nav-group">
-            <p class="nav-label">02 // TECHNOLOGY</p>
-            <div class="nav-item" data-page="structure" onclick="showPage('structure')"><i class="nav-icon fas fa-folder-tree"></i> Project Structure</div>
-            <div class="nav-item" data-page="algorithm" onclick="showPage('algorithm')"><i class="nav-icon fas fa-microchip"></i> Logic Algorithm</div>
-            <div class="nav-item" data-page="editor" onclick="showPage('editor')"><i class="nav-icon fas fa-sliders"></i> Custom Editor</div>
+        <div class="navigation-group">
+            <p class="navigation-label">02 // TECHNOLOGY</p>
+            <div class="navigation-item" data-page="structure" onclick="ShowPage('structure')"><i class="navigation-icon fas fa-folder-tree"></i> Project Structure</div>
+            <div class="navigation-item" data-page="algorithm" onclick="ShowPage('algorithm')"><i class="navigation-icon fas fa-microchip"></i> Logic Algorithm</div>
+            <div class="navigation-item" data-page="editor" onclick="ShowPage('editor')"><i class="navigation-icon fas fa-sliders"></i> Custom Editor</div>
         </div>
-        <div class="nav-group">
-            <p class="nav-label">03 // PERFORMANCE</p>
-            <div class="nav-item" data-page="optimization" onclick="showPage('optimization')"><i class="nav-icon fas fa-bolt"></i> Optimization</div>
-            <div class="nav-item" data-page="benchmark" onclick="showPage('benchmark')"><i class="nav-icon fas fa-chart-line"></i> Benchmark</div>
+        <div class="navigation-group">
+            <p class="navigation-label">03 // PERFORMANCE</p>
+            <div class="navigation-item" data-page="optimization" onclick="ShowPage('optimization')"><i class="navigation-icon fas fa-bolt"></i> Optimization</div>
+            <div class="navigation-item" data-page="benchmark" onclick="ShowPage('benchmark')"><i class="navigation-icon fas fa-chart-line"></i> Benchmark</div>
         </div>
-        <div class="nav-group">
-            <p class="nav-label">04 // HIGHLIGHT</p>
-            <div class="nav-item" data-page="challenge" onclick="showPage('challenge')"><i class="nav-icon fas fa-shield-virus"></i> Challenge & Solution</div>
-            <div class="nav-item" data-page="roadmap" onclick="showPage('roadmap')"><i class="nav-icon fas fa-map-signs"></i> Project Roadmap</div>
+        <div class="navigation-group">
+            <p class="navigation-label">04 // HIGHLIGHT</p>
+            <div class="navigation-item" data-page="challenge" onclick="ShowPage('challenge')"><i class="navigation-icon fas fa-shield-virus"></i> Challenge & Solution</div>
+            <div class="navigation-item" data-page="roadmap" onclick="ShowPage('roadmap')"><i class="navigation-icon fas fa-map-signs"></i> Project Roadmap</div>
         </div>
-        <div class="nav-group">
-            <p class="nav-label">05 // ABOUT</p>
-            <div class="nav-item" data-page="about" onclick="showPage('about')"><i class="nav-icon fas fa-address-card"></i> About & Credits</div>
+        <div class="navigation-group">
+            <p class="navigation-label">05 // ABOUT</p>
+            <div class="navigation-item" data-page="about" onclick="ShowPage('about')"><i class="navigation-icon fas fa-address-card"></i> About & Credits</div>
         </div>
     </nav>
 
     <div class="content-container">
-
-        <section id="overview" class="page-section active"></section>
-
-        <section id="feature" class="page-section feature-section">
-            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:40px;">
-                <div>
-                    <p style="color:var(--accent); font-family:monospace; letter-spacing:2px;">> FEATURE_</p>
-                    <h1>PROJECT FEATURES</h1>
-                </div>
+        <section id="overview" class="page-section active">
+            <div class="project-tree">
+                <ul class="tree-view">
+                    <li>
+                        <div class="tree-node folder-node">
+                            <i class="fas fa-folder-open icon-purple"></i>
+                            <span>Assets</span>
+                        </div>
+                        <ul class="tree-view">
+                            <li>
+                                <div class="tree-node folder-node">
+                                    <i class="fas fa-folder-open icon-purple"></i>
+                                    <span>Scripts</span>
+                                </div>
+                                <ul class="tree-view">
+                                    <li>
+                                        <div class="tree-node folder-node">
+                                            <i class="fas fa-folder-open icon-purple"></i>
+                                            <span>Core</span>
+                                        </div>
+                                        <ul class="tree-view">
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-code icon-blue"></i>
+                                                    <span>GameManager.cs</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-code icon-blue"></i>
+                                                    <span>StateMachine.cs</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-node folder-node">
+                                            <i class="fas fa-folder-open icon-purple"></i>
+                                            <span>Gameplay</span>
+                                        </div>
+                                        <ul class="tree-view">
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-code icon-blue"></i>
+                                                    <span>GridSystem.cs</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-code icon-blue"></i>
+                                                    <span>BlockPiece.cs</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-code icon-blue"></i>
+                                                    <span>PlacementValidator.cs</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-node folder-node">
+                                            <i class="fas fa-folder-open icon-purple"></i>
+                                            <span>UI</span>
+                                        </div>
+                                        <ul class="tree-view">
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-lines icon-white"></i>
+                                                    <span>HUDController.json</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-lines icon-white"></i>
+                                                    <span>ScorePopup.txt</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="tree-node file-node">
+                                                    <i class="fas fa-file-image icon-yellow"></i>
+                                                    <span>ScorePopup.png</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <div class="tree-node folder-node">
+                                    <i class="fas fa-folder-open icon-purple"></i>
+                                    <span>Art</span>
+                                </div>
+                                <ul class="tree-view">
+                                    <li>
+                                        <div class="tree-node folder-node">
+                                            <i class="fas fa-folder-open icon-purple"></i>
+                                            <span>Sprites</span>
+                                        </div>
+                                        <ul class="tree-view">
+                                            <li>
+                                                <div class="tree-node folder-node">
+                                                    <i class="fas fa-folder-open icon-purple"></i>
+                                                    <span>Blocks</span>
+                                                </div>
+                                                <ul class="tree-view"></ul>
+                                            </li>
+                                            <li>
+                                                <div class="tree-node folder-node">
+                                                    <i class="fas fa-folder-open icon-purple"></i>
+                                                    <span>Icons</span>
+                                                </div>
+                                                <ul class="tree-view"></ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <div class="tree-node folder-node">
+                                            <i class="fas fa-folder-open icon-purple"></i>
+                                            <span>Animations</span>
+                                        </div>
+                                        <ul class="tree-view"></ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
             </div>
         </section>
-
-        <section id="structure" class="page-section">
-            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;">
-                <div>
-                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> STRUCTURE_</p>
-                    <h1>PROJECT STRUCTURE</h1>
-                </div>
-            </div>
-            <div class="content-box">
-                <div id="project-tree-root" class="tree-container"></div>
-            </div>
-
-            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;margin-top:60px;">
-                <div>
-                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> DEPENDENCIES_</p>
-                    <h1>PROJECT PLUGINS</h1>
-                </div>
-            </div>
-            <div class="content-box">
-                <div id="project-plugin-container" class="tree-container">
-                </div>
-            </div>
-        </section>
-
-        <section id="algorithm" class="page-section">
-            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
-                <div>
-                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> ALGORITHM_</p>
-                    <h1>ALGORITHM ARCHITECTURE</h1>
-                </div>
-            </div>
-
-            <div id="algorithm-content"></div>
-        </section>
-
-        <section id="editor" class="page-section">
-            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
-                <div>
-                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> EDITOR_</p>
-                    <h1>CUSTOM EDITOR</h1>
-                </div>
-            </div>
-        </section>
-
-        <section id="optimization" class="page-section">
-            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
-                <div>
-                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> OPTIMIZATION_</p>
-                    <h1>PERFORMANCE OPTIMIZATION</h1>
-                </div>
-            </div>
-        </section>
-
-        <section id="benchmark" class="page-section">
-            <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:30px;">
-                <div>
-                    <p style="color:var(--accent);font-family:monospace;letter-spacing:2px;">> BENCHMARK_</p>
-                    <h1>PERFORMANCE BENCHMARK</h1>
-                </div>
-            </div>
-
-        </section>
-
     </div>
 
-    <script src="script/tab-navigator.js"></script>
-    <script src="script/tab-generator.js"></script>
-    <script src="script/content/overview-generator.js"></script>
-    <script src="script/content/structure-generator.js"></script>
-    <script src="script/content/feature-generator.js"></script>
-    <script src="script/content/algorithm-generator.js"></script>
-    <script src="script/content/editor-generator.js"></script>
-    <script src="script/content/optimization-generator.js"></script>
-    <script src="script/test.js"></script>
+    <script src="script/card-handler.js"></script>
+    <script src="script/navigation-handler.js"></script>
+
+    <script>
+        const dslText = `
+#sub-title(OVERVIEW_)
+#header-title(PROJECT OVERVIEW){margin: 0 0 30px 0}
+
+$start-content-box
+#feature-title(DESCRIPTION)
+Block Burst is a casual puzzle game where players drag and place block pieces onto a grid.
+
+$start-flex-grid{gap: 15px; margin: 20px 0 40px 0}
+$start-border-box{padding: 15px}
+#feature-title(GENRE){margin: 0 0 10px 0; font-size: 0.95rem}
+Puzzle, Casual
+$end-border-box
+$start-border-box{padding: 15px}
+#feature-title(PLATFORM){margin: 0 0 10px 0; font-size: 0.95rem}
+Mobile
+$end-border-box
+$end-flex-grid
+
+#feature-title(KEYWORDS)
+$start-flex-grid{gap: 10px; margin: 15px 0 0 0; font-size: 0.85rem}
+#frame-button[round](GRID-BASED){color: #fff; font-size: 0.75rem}
+#frame-button[round](PUZZLE PATTERN){color: #fff; font-size: 0.75rem}
+$end-flex-grid
+@start-data-strip{margin: 20px 0 0 0}
+#strip-item(Item 1)
+#strip-item(Item 2)
+#strip-item(Item 3)
+#strip-result(Result)
+@end-data-strip
+@start-code-block{margin: 20px 0 0 0}
+if (inDataStrip) {
+    if (rawLine.trim().startsWith('@end-data-strip')) {
+        flushDataStrip();
+    } else {
+        parseDataStripItem(rawLine.trim());
+    }
+
+    continue;
+}
+@end-code-block
+@start-project-tree{margin: 20px 0 0 0}
+Assets/
+-Scripts/
+--Cores/
+---GameManager.cs
+---StateMachine.mp3
+--Gameplay/
+---GridSystem.fbx
+---BlockPiece.shader
+---PlacementValidator.unity
+--UI/
+---HUDController.json
+---ScorePopup.txt
+---ScorePopup.png
+-Art/
+--Sprites/
+---Blocks/
+---Icons/
+--Animations/
+@end-project-tree
+$end-content-box
+`;
+    </script>
+    <script src="script/site-generator.js"></script>
 </body>
 </html>

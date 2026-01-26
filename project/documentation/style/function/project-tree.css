@@ -1,0 +1,84 @@
+.project-tree > .tree-view > li::before,
+.project-tree > .tree-view > li::after {
+    display: none;
+}
+
+.project-tree > .tree-view > li {
+    padding-left: 0;
+}
+
+    .project-tree > .tree-view > li > .tree-view {
+        margin: 0;
+    }
+
+.tree-view {
+    display: block;
+    list-style: none;
+    padding-left: 18px;
+    margin: 0;
+    position: relative;
+}
+    .tree-view.collapsed {
+        display: none;
+    }
+    .tree-view .tree-view {
+        border-left: none;
+    }
+
+    .tree-view li {
+        position: relative;
+        padding-left: 15px;
+        margin: 2px 0;
+    }
+
+        .tree-view li::before {
+            content: "";
+            position: absolute;
+            left: -3.5px;
+            top: -5px;
+            width: 1px;
+            height: calc(100% + 10px);
+            border-left: 2px solid rgba(72, 44, 105, 1);
+        }
+
+        .tree-view li::after {
+            content: "";
+            position: absolute;
+            left: -2px;
+            top: 10px;
+            width: 12px;
+            height: 1px;
+            border-top: 2px solid rgba(72, 44, 105, 1);
+        }
+
+        .tree-view li:last-child::before {
+            height: 16.5px;
+        }
+
+.tree-node {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-family: 'Fira Code', monospace;
+}
+    .tree-node.folder-node:hover {
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 6px;
+    }
+
+.folder-node {
+    height: 20px;
+    color: #dabbff;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.file-node {
+    height: 20px;
+    color: var(--text);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}

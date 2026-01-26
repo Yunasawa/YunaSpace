@@ -1,0 +1,30 @@
+.title {
+    margin: 0 0 20px 0;
+}
+
+.header-title {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.sub-title {
+    color: var(--accent);
+    font-family: monospace;
+    letter-spacing: 2px;
+    font-size: 0.825rem;
+    margin: 0;
+}
+
+.module-title {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.feature-title {
+    color: var(--accent);
+    font-size: 1.25rem;
+    font-weight: 700;
+}

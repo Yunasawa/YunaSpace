@@ -28,19 +28,3 @@
         transform: translateY(0);
     }
 }
-
-/* Adjusted H1 - Smaller */
-h1 {
-    font-size: 2rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    line-height: 1.1;
-}
-
-h2, h3 {
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
-    color: var(--text);
-}

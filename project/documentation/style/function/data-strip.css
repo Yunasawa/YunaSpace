@@ -1,0 +1,23 @@
+.data-strip {
+    display: flex;
+    flex-direction: column;
+}
+
+    .data-strip .strip-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        margin: 0px;
+        border-bottom: 1px dashed rgba(210, 173, 255, 0.25);
+    }
+
+        .data-strip .strip-item.strip-result {
+            margin-top: -0.5px;
+            border-bottom: 1px rgba(0, 0, 0, 0);
+            border-top: 1px solid rgba(101, 76, 133, 1);
+        }
+
+    .data-strip .strip-item *:last-child {
+        font-weight: 700;
+        color: var(--accent);
+    }

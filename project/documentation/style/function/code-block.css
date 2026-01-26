@@ -1,0 +1,12 @@
+.code-block {
+    background: rgba(0, 0, 0, 1);
+    padding: 15px 25px;
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #fff;
+    white-space: pre;
+    overflow-x: auto;
+    position: relative;
+    border-radius: 10px;
+}

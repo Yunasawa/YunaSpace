@@ -1,0 +1,25 @@
+﻿.item {
+    left: 0;
+    color: var(--text-color);
+    font-size: 1rem;
+}
+    .item::before {
+        color: var(--accent);
+        margin-right: 10px;
+    }
+
+.diamond-bullet::before {
+    content: "◈";
+}
+
+.star-bullet::before {
+    content: "✦";
+}
+
+.dot-bullet::before {
+    content: "●";
+}
+
+.arrow-bullet::before {
+    content: "⇨";
+}
