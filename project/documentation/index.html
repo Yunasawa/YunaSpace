@@ -58,135 +58,16 @@
 
     <div class="content-container">
         <section id="overview" class="page-section active">
-            <div class="project-tree">
-                <ul class="tree-view">
-                    <li>
-                        <div class="tree-node folder-node">
-                            <i class="fas fa-folder-open icon-purple"></i>
-                            <span>Assets</span>
-                        </div>
-                        <ul class="tree-view">
-                            <li>
-                                <div class="tree-node folder-node">
-                                    <i class="fas fa-folder-open icon-purple"></i>
-                                    <span>Scripts</span>
-                                </div>
-                                <ul class="tree-view">
-                                    <li>
-                                        <div class="tree-node folder-node">
-                                            <i class="fas fa-folder-open icon-purple"></i>
-                                            <span>Core</span>
-                                        </div>
-                                        <ul class="tree-view">
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-code icon-blue"></i>
-                                                    <span>GameManager.cs</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-code icon-blue"></i>
-                                                    <span>StateMachine.cs</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="tree-node folder-node">
-                                            <i class="fas fa-folder-open icon-purple"></i>
-                                            <span>Gameplay</span>
-                                        </div>
-                                        <ul class="tree-view">
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-code icon-blue"></i>
-                                                    <span>GridSystem.cs</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-code icon-blue"></i>
-                                                    <span>BlockPiece.cs</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-code icon-blue"></i>
-                                                    <span>PlacementValidator.cs</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="tree-node folder-node">
-                                            <i class="fas fa-folder-open icon-purple"></i>
-                                            <span>UI</span>
-                                        </div>
-                                        <ul class="tree-view">
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-lines icon-white"></i>
-                                                    <span>HUDController.json</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-lines icon-white"></i>
-                                                    <span>ScorePopup.txt</span>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="tree-node file-node">
-                                                    <i class="fas fa-file-image icon-yellow"></i>
-                                                    <span>ScorePopup.png</span>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li>
-                                <div class="tree-node folder-node">
-                                    <i class="fas fa-folder-open icon-purple"></i>
-                                    <span>Art</span>
-                                </div>
-                                <ul class="tree-view">
-                                    <li>
-                                        <div class="tree-node folder-node">
-                                            <i class="fas fa-folder-open icon-purple"></i>
-                                            <span>Sprites</span>
-                                        </div>
-                                        <ul class="tree-view">
-                                            <li>
-                                                <div class="tree-node folder-node">
-                                                    <i class="fas fa-folder-open icon-purple"></i>
-                                                    <span>Blocks</span>
-                                                </div>
-                                                <ul class="tree-view"></ul>
-                                            </li>
-                                            <li>
-                                                <div class="tree-node folder-node">
-                                                    <i class="fas fa-folder-open icon-purple"></i>
-                                                    <span>Icons</span>
-                                                </div>
-                                                <ul class="tree-view"></ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <div class="tree-node folder-node">
-                                            <i class="fas fa-folder-open icon-purple"></i>
-                                            <span>Animations</span>
-                                        </div>
-                                        <ul class="tree-view"></ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            <table class="table-view" style="margin: 20px 0 0 0">
+                <thead>
+                    <tr><th>MODE</th><th>AVG FPS</th><th>MIN FPS</th><th>CPU (ms)</th><th>GPU (ms)</th><th>DRAW CALLS</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>CPU Naive</td><td>28</td><td>19</td><td>21.4</td><td>12.8</td><td>4,200</td></tr>
+                    <tr><td>GPU Instanced</td><td>74</td><td>61</td><td>7.3</td><td>9.6</td><td>420</td></tr>
+                    <tr><td>GPU Indirect</td><td>142</td><td>121</td><td>2.1</td><td>6.4</td><td>3</td></tr>
+                </tbody>
+            </table>
         </section>
     </div>
 
@@ -255,6 +136,38 @@ Assets/
 ---Icons/
 --Animations/
 @end-project-tree
+@start-table-view
+MODE | AVG FPS | MIN FPS | CPU (ms) | GPU (ms) | DRAW CALLS
+---|---|---|---|---|---
+CPU Naive | 28 | 19 | 21.4 | 12.8 | 4,200
+GPU Instanced | 74 | 61 | 7.3 | 9.6 | 420
+GPU Indirect | 142 | 121 | 2.1 | 6.4 | 3
+@end-table-view
+@start-roadmap-view
+
+@start-roadmap-step[completed]
+#feature-title(Hi there){margin: 0}
+$start-note-box
+#feature-title(Hello world)
+Hello world
+$end-note-box
+@end-roadmap-step
+
+@start-roadmap-step[active]
+$start-highlight-box
+#feature-title(Hello world)
+Hello world
+$end-highlight-box
+@end-roadmap-step
+
+@start-roadmap-step
+$start-highlight-box
+#feature-title(Hello world)
+Hello world
+$end-highlight-box
+@end-roadmap-step
+
+@end-roadmap-view
 $end-content-box
 `;
     </script>

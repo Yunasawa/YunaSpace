@@ -15,6 +15,17 @@
     let projectTreeStyle = '';
     let projectTreeBuffer = [];
 
+    let inTableView = false;
+    let tableStyle = '';
+    let tableBuffer = [];
+
+    let inRoadmapView = false;
+    let roadmapSteps = [];
+
+    let inRoadmapStep = false;
+    let roadmapStepBuffer = [];
+    let roadmapStepClasses = [];
+
     /* -------------------------
        CLASS RULES
     ------------------------- */
@@ -254,11 +265,147 @@
         projectTreeBuffer = [];
     }
 
+    function parseTableStart(line) {
+        const m = line.match(/^@start-table-view(?:\{(.+?)\})?$/);
+        if (!m) return false;
+
+        inTableView = true;
+        tableStyle = m[1] || '';
+        tableBuffer = [];
+        return true;
+    }
+    function flushTable() {
+        if (tableBuffer.length < 2) return;
+
+        // HEADERS
+        const headers = tableBuffer[0]
+            .split('|')
+            .map(h => h.trim());
+
+        // ALIGNMENT ROW
+        const alignRow = tableBuffer[1]
+            .split('|')
+            .map(c => c.trim());
+
+        const aligns = alignRow.map(cell => {
+            if (cell.startsWith(':') && cell.endsWith(':')) return 'center';
+            if (cell.startsWith(':')) return 'left';
+            if (cell.endsWith(':')) return 'right';
+            return 'left';
+        });
+
+        // DATA ROWS
+        const rows = tableBuffer
+            .slice(2)
+            .map(row => row.split('|').map(c => c.trim()));
+
+        html += `<table class="table-view"${tableStyle ? ` style="${tableStyle}"` : ''}>`;
+
+        /* THEAD */
+        html += '<thead><tr>';
+        headers.forEach((h, i) => {
+            html += `<th style="text-align:${aligns[i]}">${h}</th>`;
+        });
+        html += '</tr></thead>';
+
+        /* TBODY */
+        html += '<tbody>';
+        rows.forEach(row => {
+            html += '<tr>';
+            row.forEach((cell, i) => {
+                html += `<td style="text-align:${aligns[i]}">${cell}</td>`;
+            });
+            html += '</tr>';
+        });
+        html += '</tbody>';
+
+        html += '</table>';
+
+        inTableView = false;
+        tableStyle = '';
+        tableBuffer = [];
+    }
+
+    function parseRoadmapViewStart(line) {
+        if (line !== '@start-roadmap-view') return false;
+        inRoadmapView = true;
+        roadmapSteps = [];
+        return true;
+    }
+
+    function flushRoadmapView() {
+        html += `<div class="roadmap-view">`;
+        roadmapSteps.forEach(step => html += step);
+        html += `</div>`;
+        inRoadmapView = false;
+    }
+
+    function parseRoadmapStepStart(line) {
+        const m = line.match(/^@start-roadmap-step(?:\[([^\]]+)\])?$/);
+        if (!m) return false;
+
+        inRoadmapStep = true;
+        roadmapStepClasses = m[1]
+            ? m[1].split(',').map(c => c.trim())
+            : [];
+
+        roadmapStepBuffer = [];
+        return true;
+    }
+
+    function flushRoadmapStep() {
+        // 🔥 compile inner DSL recursively
+        const innerHTML = compileDSL(roadmapStepBuffer.join('\n'));
+
+        roadmapSteps.push(`
+        <div class="roadmap-step ${roadmapStepClasses.join(' ')}">
+            <div class="roadmap-node"></div>
+            <div class="roadmap-card">
+                ${innerHTML}
+            </div>
+        </div>
+    `);
+
+        inRoadmapStep = false;
+        roadmapStepBuffer = [];
+        roadmapStepClasses = [];
+    }
+
     /* -------------------------
        MAIN LOOP
     ------------------------- */
     for (const rawLine of lines) {
         const line = rawLine.trim();
+
+        if (inRoadmapView) {
+
+            if (parseRoadmapStepStart(line)) continue;
+
+            if (inRoadmapStep) {
+                if (line === '@end-roadmap-step') {
+                    flushRoadmapStep();
+                } else {
+                    roadmapStepBuffer.push(rawLine);
+                }
+                continue;
+            }
+
+            if (line === '@end-roadmap-view') {
+                flushRoadmapView();
+                continue;
+            }
+
+            continue;
+        }
+
+        if (inTableView) {
+            if (line === '@end-table-view') {
+                flushTable();
+            } else {
+                tableBuffer.push(rawLine);
+            }
+            continue;
+        }
 
         if (inCodeBlock) {
             if (line === '@end-code-block') flushCodeBlock();
@@ -280,6 +427,8 @@
 
         if (!line) continue;
 
+        if (parseRoadmapViewStart(line)) continue;
+        if (parseTableStart(line)) continue;
         if (parseProjectTreeStart(line)) continue;
         if (parseDataStripStart(line)) continue;
         if (parseCodeBlockStart(line)) continue;
