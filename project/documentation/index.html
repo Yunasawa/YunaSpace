@@ -6,6 +6,10 @@
     <title>YunaSpace</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style/style-import.css">
+
+    <style>
+
+    </style>
 </head>
 <body>
     <header class="toolbar">
@@ -26,7 +30,7 @@
     </header>
 
     <nav class="navigation-bar">
-        <div class="navigation-group">
+        <!--<div class="navigation-group">
             <p class="navigation-label">01 // OVERVIEW</p>
             <div class="navigation-item active" data-page="overview" onclick="ShowPage('overview')"><i class="navigation-icon fas fa-terminal"></i> Overview & Design</div>
             <div class="navigation-item" data-page="showcase" onclick="ShowPage('showcase')"><i class="navigation-icon fas fa-eye"></i> Visual Showcase</div>
@@ -53,21 +57,11 @@
         <div class="navigation-group">
             <p class="navigation-label">05 // ABOUT</p>
             <div class="navigation-item" data-page="about" onclick="ShowPage('about')"><i class="navigation-icon fas fa-address-card"></i> About & Credits</div>
-        </div>
+        </div>-->
     </nav>
 
     <div class="content-container">
         <section id="overview" class="page-section active">
-            <table class="table-view" style="margin: 20px 0 0 0">
-                <thead>
-                    <tr><th>MODE</th><th>AVG FPS</th><th>MIN FPS</th><th>CPU (ms)</th><th>GPU (ms)</th><th>DRAW CALLS</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>CPU Naive</td><td>28</td><td>19</td><td>21.4</td><td>12.8</td><td>4,200</td></tr>
-                    <tr><td>GPU Instanced</td><td>74</td><td>61</td><td>7.3</td><td>9.6</td><td>420</td></tr>
-                    <tr><td>GPU Indirect</td><td>142</td><td>121</td><td>2.1</td><td>6.4</td><td>3</td></tr>
-                </tbody>
-            </table>
         </section>
     </div>
 
@@ -79,9 +73,16 @@
 #sub-title(OVERVIEW_)
 #header-title(PROJECT OVERVIEW){margin: 0 0 30px 0}
 
+#solid-icon[gear]
+
 $start-content-box
 #feature-title(DESCRIPTION)
-Block Burst is a casual puzzle game where players drag and place block pieces onto a grid.
+Block Burst is a @text-link(casual puzzle|https://www.facebook.com/messages/e2ee/t/8217972808218499) game where players drag and place block pieces onto a grid.
+
+Hello world
+&&T(n) = O(n \log n) + O(k)&&
+&&f(x) = x^2 + 1 &&
+this is me
 
 $start-flex-grid{gap: 15px; margin: 20px 0 40px 0}
 $start-border-box{padding: 15px}
@@ -107,15 +108,16 @@ $end-flex-grid
 @end-data-strip
 @start-code-block{margin: 20px 0 0 0}
 if (inDataStrip) {
-    if (rawLine.trim().startsWith('@end-data-strip')) {
-        flushDataStrip();
-    } else {
-        parseDataStripItem(rawLine.trim());
-    }
+        if (rawLine.trim().startsWith('@end-data-strip')) {
+            flushDataStrip();
+        } else {
+            parseDataStripItem(rawLine.trim());
+        }
 
-    continue;
+        continue;
 }
 @end-code-block
+
 @start-project-tree{margin: 20px 0 0 0}
 Assets/
 -Scripts/
@@ -136,6 +138,9 @@ Assets/
 ---Icons/
 --Animations/
 @end-project-tree
+
+$start-flex-grid[nowrap]{gap: 10px; margin: 15px 0 0 0}
+
 @start-table-view
 MODE | AVG FPS | MIN FPS | CPU (ms) | GPU (ms) | DRAW CALLS
 ---|---|---|---|---|---
@@ -143,6 +148,16 @@ CPU Naive | 28 | 19 | 21.4 | 12.8 | 4,200
 GPU Instanced | 74 | 61 | 7.3 | 9.6 | 420
 GPU Indirect | 142 | 121 | 2.1 | 6.4 | 3
 @end-table-view
+@start-table-view
+MODE | AVG FPS | MIN FPS | CPU (ms) | GPU (ms) | DRAW CALLS
+---|---|---|---|---|---
+CPU Naive | 28 | 19 | 21.4 | 12.8 | 4,200
+GPU Instanced | 74 | 61 | 7.3 | 9.6 | 420
+GPU Indirect | 142 | 121 | 2.1 | 6.4 | 3
+@end-table-view
+
+$end-flex-grid
+
 @start-roadmap-view
 
 @start-roadmap-step[completed]
@@ -171,6 +186,15 @@ $end-highlight-box
 $end-content-box
 `;
     </script>
-    <script src="script/site-generator.js"></script>
+    <script type="module" src="script/yml-compiler/yml-compiler.js"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['&', '&'], ['\\(', '\\)']],
+                displayMath: [['&&', '&&'], ['\\[', '\\]']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
 </body>
 </html>

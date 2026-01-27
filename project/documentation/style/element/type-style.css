@@ -1,11 +1,18 @@
-a.content-link {
+a.text-link {
     color: #fff;
     text-decoration: none;
     border-bottom: 1px dashed #fff;
     transition: all 0.2s ease-out;
 }
 
-    a.content-link:hover {
+    a.text-link:hover {
         color: #d1abff;
         border-color: #d1abff;
+    }
+
+img.image-item {
+    object-fit: contain;
+}
+    img.image-item.cover {
+        object-fit: cover;
     }

@@ -1,0 +1,23 @@
+.icon::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.icon.warning::before {
+    content: "\f071";
+}
+.icon.file::before {
+    content: "\f15b";
+}
+.icon.puzzle::before {
+    content: "\f12e";
+}
+.icon.gear::before {
+    content: "\f085";
+}
+
+.solid-icon {
+    color: var(--accent);
+}

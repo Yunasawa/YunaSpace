@@ -1,15 +1,19 @@
-.project-tree > .tree-view > li::before,
-.project-tree > .tree-view > li::after {
-    display: none;
+.project-tree {
+    flex-grow: 1;
 }
 
-.project-tree > .tree-view > li {
-    padding-left: 0;
-}
-
-    .project-tree > .tree-view > li > .tree-view {
-        margin: 0;
+    .project-tree > .tree-view > li::before,
+    .project-tree > .tree-view > li::after {
+        display: none;
     }
+
+    .project-tree > .tree-view > li {
+        padding-left: 0;
+    }
+
+        .project-tree > .tree-view > li > .tree-view {
+            margin: 0;
+        }
 
 .tree-view {
     display: block;

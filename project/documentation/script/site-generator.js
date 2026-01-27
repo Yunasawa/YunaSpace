@@ -444,24 +444,3 @@
 
 
 document.getElementById('overview').innerHTML = compileDSL(dslText);
-
-function enableProjectTreeToggle(root = document) {
-    root.querySelectorAll('.tree-node.folder-node').forEach(folder => {
-        folder.addEventListener('click', () => {
-            const childTree = folder.nextElementSibling;
-
-            if (!childTree || !childTree.classList.contains('tree-view')) return;
-
-            childTree.classList.toggle('collapsed');
-
-            const icon = folder.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-folder-open');
-                icon.classList.toggle('fa-folder');
-            }
-        });
-    });
-}
-
-document.getElementById('overview').innerHTML = compileDSL(dslText);
-enableProjectTreeToggle();
