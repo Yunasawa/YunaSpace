@@ -1,0 +1,20 @@
+@start-project-tree{margin: 20px 0 0 0}
+Assets/
+-Scripts/
+--Cores/
+---GameManager.cs
+---StateMachine.mp3
+--Gameplay/
+---GridSystem.fbx
+---BlockPiece.shader
+---PlacementValidator.unity
+--UI/
+---HUDController.json
+---ScorePopup.txt
+---ScorePopup.png
+-Art/
+--Sprites/
+---Blocks/
+---Icons/
+--Animations/
+@end-project-tree

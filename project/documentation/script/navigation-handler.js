@@ -1,27 +1,10 @@
-function AutoResize(el)
-{
-    el.style.height = "auto";
-    el.style.height = el.scrollHeight + "px";
-}
-
-function ShowPage(pageId)
-{
-    document.querySelectorAll('.navigation-item').forEach(item => item.classList.remove('active'));
-    event.currentTarget.classList.add('active');
-
-    document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
-    const target = document.getElementById(pageId);
-    target.classList.add('active');
-
-    target.querySelectorAll('.code-view').forEach(AutoResize);
-    document.querySelector('.content-container').scrollTop = 0;
-}
+﻿import { compileDSL } from './yml-compiler/yml-compiler.js';
 
 async function FileExists(path)
 {
     try
     {
-        const res = await fetch(path, { cache: "no-store" });
+        const res = await fetch(path, { method: "HEAD" });
         return res.ok;
     }
     catch
@@ -30,44 +13,51 @@ async function FileExists(path)
     }
 }
 
-async function InitializeSidebar()
-{
+async function InitializeSidebar() {
     const navGroups = document.querySelectorAll(".navigation-group");
 
-    for (const group of navGroups)
-    {
+    for (const group of navGroups) {
         const items = group.querySelectorAll(".navigation-item[data-page]");
         let hasAny = false;
 
-        for (const item of items)
-        {
+        for (const item of items) {
             const page = item.dataset.page;
             const ymdPath = `${RECORD_PATH}${page}.txt`;
 
             const hasYmd = await FileExists(ymdPath);
 
-            if (hasYmd)
-            {
-                item.classList.add("visible");
-                hasAny = true;
+            if (!hasYmd) continue;
 
-                item.dataset.source = "txt";
+            item.classList.add("visible");
+            item.dataset.source = "txt";
+            hasAny = true;
+
+            // 🔽 LOAD + COMPILE CONTENT
+            try {
+                const res = await fetch(ymdPath);
+                const content = await res.text();
+
+                const target = document.getElementById(page);
+                if (target) {
+                    target.innerHTML = compileDSL(content);
+                } else {
+                    console.warn(`Missing container with id="${page}"`);
+                }
+            }
+            catch (err) {
+                console.error(`Failed to load ${ymdPath}`, err);
             }
         }
 
-        if (hasAny)
-        {
+        if (hasAny) {
             group.classList.add("visible");
         }
     }
 
     const firstVisible = document.querySelector(".navigation-item.visible");
-
-    if (firstVisible)
-    {
-        firstVisible.click();
-    }
+    if (firstVisible) firstVisible.click();
 }
+
 
 InitializeSidebar();
 

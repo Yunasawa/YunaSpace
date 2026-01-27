@@ -1,8 +1,10 @@
 import { LayoutComponent } from './component/yml-layout-component.js';
+import { SpaceComponent } from './component/yml-layout-component.js';
 import { TitleComponent } from './component/yml-title-component.js';
 import { LinkComponent } from './component/yml-text-link.js';
 import { IconComponent } from './component/yml-icon-component.js';
 import { ImageComponent } from './component/yml-image-component.js';
+import { BookmarkComponent } from './component/yml-bookmark-component.js';
 import { CodeBlockComponent } from './component/yml-code-block.js';
 import { DataStripComponent } from './component/yml-data-strip.js';
 import { ProjectTreeComponent } from './component/yml-project-tree.js';
@@ -21,6 +23,11 @@ export function compileDSL(input) {
         const line = rawLine.trim();
         if (!line) continue;
 
+        if (BookmarkComponent.match(line)) {
+            html += BookmarkComponent.render(line);
+            continue;
+        }
+
         // 1. Block components (Code, Table, etc.) - Usually don't want links inside code
         const block = blockComponents.find(c => c.match(line));
         if (block) {
@@ -34,6 +41,14 @@ export function compileDSL(input) {
             html += block.render(buffer, line, compileDSL);
             continue;
         }
+
+        if (SpaceComponent.match(line)) {
+            html += SpaceComponent.render(line);
+            continue;
+        }
+
+        let processedLine = LinkComponent.process(line);
+        processedLine = IconComponent.process(processedLine);
 
         // 2. Layout markers ($start / $end)
         if (LayoutComponent.match(line)) {
@@ -53,12 +68,23 @@ export function compileDSL(input) {
             continue;
         }
 
-        let processedLine = LinkComponent.process(line);
-        processedLine = IconComponent.process(processedLine);
-
         html += `<p>${processedLine}</p>`;
     }
+
     return html;
 }
 
-document.getElementById('overview').innerHTML = compileDSL(dslText);
+export function updateNavigation() {
+    const nav = document.querySelector('.navigation-bar');
+    if (!nav) {
+        console.error("Navigation bar not found in HTML");
+        return;
+    }
+
+    nav.innerHTML = BookmarkComponent.bookmarks.map(bm => `
+        <div class="bookmark-button ${bm.type}-bookmark"  
+             onclick="document.getElementById('${bm.id}').scrollIntoView({behavior: 'smooth'})">
+            ${bm.text}
+        </div>
+    `).join('');
+}

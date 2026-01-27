@@ -17,16 +17,11 @@ export const LayoutComponent = {
             return `</div>`;
         }
 
-        // Updated Regex: 
-        // 1. $start-([\w-]+) -> The base class
-        // 2. (?:\[([^\]]+)\])? -> Optional extra classes in []
-        // 3. (?:\{(.+?)\})? -> Optional inline styles in {}
         const m = line.match(/^\$start-([\w-]+)(?:\[([^\]]+)\])?(?:\{(.+?)\})?$/);
 
         if (!m) return '';
 
         const baseClass = m[1];
-        // Capture [extra,classes] and convert to array
         const extraClasses = m[2] ? m[2].split(',').map(c => c.trim()) : [];
         const style = m[3] || '';
 
@@ -34,5 +29,22 @@ export const LayoutComponent = {
         stack.push('div');
 
         return `<div class="${classes.join(' ')}"${style ? ` style="${style}"` : ''}>`;
+    }
+};
+
+export const SpaceComponent = {
+    match: (line) => line.startsWith('@space('),
+
+    render: (line) => {
+        const m = line.match(/^\@space\(([^|)]+)\|([^|)]+)\)$/);
+
+        if (!m) return '';
+
+        const width = m[1].trim();
+        const height = m[2].trim();
+
+        const formatDim = (val) => isNaN(val) ? val : `${val}px`;
+
+        return `<div class="flex-space" style="width: ${formatDim(width)}; height: ${formatDim(height)}"></div>`;
     }
 };

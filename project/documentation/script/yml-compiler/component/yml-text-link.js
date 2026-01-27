@@ -1,7 +1,7 @@
 export const LinkComponent = {
     // This regex looks for @text-link[class](content|url){style} anywhere in a string
     // Matches: @text-link[extra](text|url){style}
-    pattern: /@text-link(?:\[([^\]]+)\])?\(([^|)]+)\|([^|)]+)\)(?:\{([^}]+)\})?/g,
+    pattern: /@link(?:\[([^\]]+)\])?\(([^|)]+)\|([^|)]+)\)(?:\{([^}]+)\})?/g,
 
     process: (text) => {
         return text.replace(LinkComponent.pattern, (match, extraClasses, content, url, style) => {

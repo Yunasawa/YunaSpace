@@ -1,33 +1,60 @@
 #sub-title(> OVERVIEW_)
-#header-title(PROJECT OVERVIEW)
+#header-title(PROJECT OVERVIEW){margin: 0 0 30px 0}
 
 $start-content-box
-#module-title(DESCRIPTION)
-Block Burst is a casual puzzle game where players drag and place block pieces onto a grid to complete full rows or columns. The goal is to score as high as possible by clearing lines efficiently while managing limited space. The game ends when no available block can be placed on the board.
+
+#feature-title(DESCRIPTION)
+
+<b>Block Burst</b> is a casual puzzle game where players drag and place block pieces onto a grid to complete full rows or columns. The goal is to score as high as possible by clearing lines efficiently while managing limited space. The game ends when no available block can be placed on the board.
+@space(0|15)
 Designed for quick play sessions, Block Burst emphasizes clarity, satisfying feedback, and strategic spatial thinking. It is fully playable offline and suitable for players of all ages.
 
+@space(0|10)
+
 $start-flex-grid{gap: 15px; margin: 20px 0 40px 0}
-$start-feature-box
-#feature-title(GENRE)
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(GENRE){margin: 0 0 10px 0; font-size: 0.95rem}
 Puzzle, Casual
-$end-feature-box
-$start-feature-box
-#feature-title(PLATFORM)
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(PLATFORM){margin: 0 0 10px 0; font-size: 0.95rem}
 Mobile
-$end-feature-box
-$start-feature-box
-#feature-title(EDITOR)
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(EDITOR){margin: 0 0 10px 0; font-size: 0.95rem}
 Unity 6.3 (URP)
-$end-feature-box
-$start-feature-box
-#feature-title(DIMENSION)
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(DIMENSION){margin: 0 0 10px 0; font-size: 0.95rem}
 2D
-$end-feature-box
+$end-border-box
 $end-flex-grid
 
-#module-title(KEYWORDS)
-$start-flex-grid{gap: 15px; margin: 10px 0 0 0}
-#frame-button[round](GRID-BASED)
-#frame-button[round](PUZZLE PATTERN)
+@space(0|20)
+
+#feature-title(KEYWORDS)
+$start-flex-grid{gap: 10px; margin: 15px 0 0 0; font-size: 0.85rem}
+#frame-button[round](GRID-BASED){color: #fff; font-size: 0.75rem}
+#frame-button[round](PUZZLE PATTERN){color: #fff; font-size: 0.75rem}
+#frame-button[round](DRAG & DROP){color: #fff; font-size: 0.75rem}
+#frame-button[round](DIVERSE THEME){color: #fff; font-size: 0.75rem}
+#frame-button[round](OFFLINE){color: #fff; font-size: 0.75rem}
+#frame-button[round](ENDLESS){color: #fff; font-size: 0.75rem}
 $end-flex-grid
+
+$end-content-box
+
+@space(0|50)
+
+#sub-title(> OVERVIEW_)
+#header-title(PROJECT DESIGN){margin: 0 0 30px 0}
+
+$start-content-box
+
+#feature-title(CORE GAMPLAY)
+#feature-title(SCORE SYSTEM)
+#feature-title(LOGIC FLOW)
+#feature-title(DIFFICULTY & PROGRESSION)
+#feature-title(VISUAL DESIGN)
+
 $end-content-box

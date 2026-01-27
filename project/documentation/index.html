@@ -30,7 +30,7 @@
     </header>
 
     <nav class="navigation-bar">
-        <!--<div class="navigation-group">
+        <div class="navigation-group">
             <p class="navigation-label">01 // OVERVIEW</p>
             <div class="navigation-item active" data-page="overview" onclick="ShowPage('overview')"><i class="navigation-icon fas fa-terminal"></i> Overview & Design</div>
             <div class="navigation-item" data-page="showcase" onclick="ShowPage('showcase')"><i class="navigation-icon fas fa-eye"></i> Visual Showcase</div>
@@ -57,136 +57,35 @@
         <div class="navigation-group">
             <p class="navigation-label">05 // ABOUT</p>
             <div class="navigation-item" data-page="about" onclick="ShowPage('about')"><i class="navigation-icon fas fa-address-card"></i> About & Credits</div>
-        </div>-->
+        </div>
     </nav>
 
     <div class="content-container">
-        <section id="overview" class="page-section active">
-        </section>
+        <section id="overview" class="page-section active"></section>
+        <section id="structure" class="page-section"></section>
     </div>
 
+    <script type="module" src="script/navigation-handler.js"></script>
     <script src="script/card-handler.js"></script>
-    <script src="script/navigation-handler.js"></script>
-
     <script>
-        const dslText = `
-#sub-title(OVERVIEW_)
-#header-title(PROJECT OVERVIEW){margin: 0 0 30px 0}
-
-#solid-icon[gear]
-
-$start-content-box
-#feature-title(DESCRIPTION)
-Block Burst is a @text-link(casual puzzle|https://www.facebook.com/messages/e2ee/t/8217972808218499) game where players drag and place block pieces onto a grid.
-
-Hello world
-&&T(n) = O(n \log n) + O(k)&&
-&&f(x) = x^2 + 1 &&
-this is me
-
-$start-flex-grid{gap: 15px; margin: 20px 0 40px 0}
-$start-border-box{padding: 15px}
-#feature-title(GENRE){margin: 0 0 10px 0; font-size: 0.95rem}
-Puzzle, Casual
-$end-border-box
-$start-border-box{padding: 15px}
-#feature-title(PLATFORM){margin: 0 0 10px 0; font-size: 0.95rem}
-Mobile
-$end-border-box
-$end-flex-grid
-
-#feature-title(KEYWORDS)
-$start-flex-grid{gap: 10px; margin: 15px 0 0 0; font-size: 0.85rem}
-#frame-button[round](GRID-BASED){color: #fff; font-size: 0.75rem}
-#frame-button[round](PUZZLE PATTERN){color: #fff; font-size: 0.75rem}
-$end-flex-grid
-@start-data-strip{margin: 20px 0 0 0}
-#strip-item(Item 1)
-#strip-item(Item 2)
-#strip-item(Item 3)
-#strip-result(Result)
-@end-data-strip
-@start-code-block{margin: 20px 0 0 0}
-if (inDataStrip) {
-        if (rawLine.trim().startsWith('@end-data-strip')) {
-            flushDataStrip();
-        } else {
-            parseDataStripItem(rawLine.trim());
+        function AutoResize(el) {
+            el.style.height = "auto";
+            el.style.height = el.scrollHeight + "px";
         }
 
-        continue;
-}
-@end-code-block
+        function ShowPage(pageId) {
+            document.querySelectorAll('.navigation-item').forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
 
-@start-project-tree{margin: 20px 0 0 0}
-Assets/
--Scripts/
---Cores/
----GameManager.cs
----StateMachine.mp3
---Gameplay/
----GridSystem.fbx
----BlockPiece.shader
----PlacementValidator.unity
---UI/
----HUDController.json
----ScorePopup.txt
----ScorePopup.png
--Art/
---Sprites/
----Blocks/
----Icons/
---Animations/
-@end-project-tree
+            document.querySelectorAll('.page-section').forEach(section => section.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            target.classList.add('active');
 
-$start-flex-grid[nowrap]{gap: 10px; margin: 15px 0 0 0}
-
-@start-table-view
-MODE | AVG FPS | MIN FPS | CPU (ms) | GPU (ms) | DRAW CALLS
----|---|---|---|---|---
-CPU Naive | 28 | 19 | 21.4 | 12.8 | 4,200
-GPU Instanced | 74 | 61 | 7.3 | 9.6 | 420
-GPU Indirect | 142 | 121 | 2.1 | 6.4 | 3
-@end-table-view
-@start-table-view
-MODE | AVG FPS | MIN FPS | CPU (ms) | GPU (ms) | DRAW CALLS
----|---|---|---|---|---
-CPU Naive | 28 | 19 | 21.4 | 12.8 | 4,200
-GPU Instanced | 74 | 61 | 7.3 | 9.6 | 420
-GPU Indirect | 142 | 121 | 2.1 | 6.4 | 3
-@end-table-view
-
-$end-flex-grid
-
-@start-roadmap-view
-
-@start-roadmap-step[completed]
-#feature-title(Hi there){margin: 0}
-$start-note-box
-#feature-title(Hello world)
-Hello world
-$end-note-box
-@end-roadmap-step
-
-@start-roadmap-step[active]
-$start-highlight-box
-#feature-title(Hello world)
-Hello world
-$end-highlight-box
-@end-roadmap-step
-
-@start-roadmap-step
-$start-highlight-box
-#feature-title(Hello world)
-Hello world
-$end-highlight-box
-@end-roadmap-step
-
-@end-roadmap-view
-$end-content-box
-`;
+            target.querySelectorAll('.code-view').forEach(AutoResize);
+            document.querySelector('.content-container').scrollTop = 0;
+        }
     </script>
-    <script type="module" src="script/yml-compiler/yml-compiler.js"></script>
+
     <script>
         window.MathJax = {
             tex: {
