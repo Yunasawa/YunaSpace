@@ -43,23 +43,6 @@ $end-feature-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
-	#feature-title(BLOCK SHAPE SYSTEM){margin: 0 0 25px 0}
-
-	A flexible block definition system designed for easy expansion and controlled randomness.
-
-	@space(0|15)
-
-	$start-flex-grid[column]{gap: 15px;}
-	#item[diamond-bullet](<b>Shape Matrix Definitions</b>: Block shapes are stored as Vector2 sets with the original position anchored at (0, 0).){color: #ccc}
-	#item[diamond-bullet](<b>Scriptable Shape Data</b>: Shapes are defined using ScriptableObjects for easy tuning, reuse, and expansion.){color: #ccc}
-	#item[diamond-bullet](<b>Weighted Random Generator</b>: Shape selection is controlled via weighted randomness to prevent impossible board states.){color: #ccc}
-	#item[diamond-bullet](<b>Ghost Preview Support</b>: Real-time placement previews snap accurately to grid cells during drag interaction.){color: #ccc}
-	$end-flex-grid
-
-$end-feature-box
-
-$start-feature-box{margin: 0 0 25px 0}
-
 	#feature-title(LINE CLEAR & SCORING SYSTEM){margin: 0 0 25px 0}
 
 	Event-driven logic for clearing rows, columns, and calculating scores.

@@ -1,0 +1,67 @@
+#sub-title(> SHOWCASE_)
+#header-title(PROJECT SHOWCASE){margin: 0 0 30px 0}
+
+@space(0|50)
+
+$start-content-box
+
+#feature-title(GAMEPLAY SHOWCASE VIDEO){margin: 0 0 25px 0}
+
+$start-flex-grid{display:grid; grid-template-columns: 0.75fr 0.25fr; gap: 50px; }
+
+$start-flex-grid{display: flex; flex-direction: column; gap: 15px;}
+
+#item[diamond-bullet](This video presents a fast-paced gameplay walkthrough. As players drag pieces from the tray onto the board, a ghost preview appears to indicate the final placement.){color: #ccc}
+#item[diamond-bullet](If the placement completes one or more rows or columns, those lines glow with an outline matching the piece's color. When the combo count reaches four or higher, the outline shifts to a dynamic rainbow effect (visible at <b>0:26</b>).){color: #ccc}
+#item[diamond-bullet](Upon placement, line-clearing visual effects are triggered and points are immediately added to the score.){color: #ccc}
+
+$end-flex-grid
+
+<video controls style="width: 100%; border-radius: 10px"><source src="../record/game/block-burst/image/demo.mp4" type="video/mp4"></video>
+
+$end-flex-grid
+$end-content-box 
+
+@space(0|25)
+
+$start-content-box
+
+#feature-title(OUTLINE GLOW EFFECT){margin: 0 0 25px 0}
+
+$start-flex-grid{display:grid; grid-template-columns: 0.5fr 0.5fr; gap: 50px; }
+
+$start-flex-grid{display: flex; flex-direction: column; gap: 15px;}
+
+#item[diamond-bullet](The glowing outline is created using a dedicated outline texture and a custom shader that tints the texture based on the piece's color.){color: #ccc}
+#item[diamond-bullet](When the player reaches four or more combos, the outline transitions into a rotating rainbow effect.){color: #ccc}
+#item[diamond-bullet](In addition to the outline glow, subtle floating particles are added to enhance the overall visual feedback.){color: #ccc}
+
+$end-flex-grid
+
+$start-flex-grid{display:grid; grid-template-columns: 0.5fr 0.5fr; gap: 20px; }
+
+#image(../record/game/block-burst/image/normal-glow.png){width: 100%; border-radius: 10px}
+#image(../record/game/block-burst/image/rainbow-glow.png){width: 100%; border-radius: 10px}
+
+$end-flex-grid
+
+$end-flex-grid
+$end-content-box 
+
+@space(0|25)
+
+$start-content-box
+
+#feature-title(GAME THEME SAMPLES){margin: 0 0 25px 0}
+
+$start-flex-grid{display:grid; grid-template-columns: repeat(6, 1fr); gap:20px; margin-top:25px; align-items:start;}
+#image(../record/game/block-burst/image/theme-1.png){width: 100%; border-radius: 10px}
+#image(../record/game/block-burst/image/theme-2.png){width: 100%; border-radius: 10px}
+#image(../record/game/block-burst/image/theme-3.png){width: 100%; border-radius: 10px}
+#image(../record/game/block-burst/image/theme-4.png){width: 100%; border-radius: 10px}
+#image(../record/game/block-burst/image/theme-5.png){width: 100%; border-radius: 10px}
+#image(../record/game/block-burst/image/theme-6.png){width: 100%; border-radius: 10px}
+
+$end-flex-grid
+
+$end-content-box 

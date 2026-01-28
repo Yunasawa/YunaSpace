@@ -1,5 +1,70 @@
-#sub-title(> ALGORITHM_)
-#header-title(ALGORITHM ARCHITECTURE){margin: 0 0 30px 0}
+#sub-title(> EDITOR_)
+#header-title(CUSTOM EDITOR){margin: 0 0 30px 0}
+
+
+
 
 $start-content-box
+#sub-title(EDITOR 01)
+#module-title(BLOCK PATTERN EDITOR){margin: 0 0 30px 0}
+
+A dedicated visual environment for managing the game's pattern library. Authors can define shapes on a fixed 5x5 grid, directly influencing the piece generation system's complexity and difficulty curve.
+
+@space(0|15)
+
+#image(../record/game/block-burst/image/editor-block-pattern-editor.png){width: 100%; border-radius: 10px}
+
+@space(0|25)
+
+$start-border-box
+
+#sub-title(CORE FEATURES)
+
+$start-flex-grid{display:grid; grid-template-columns: repeat(2, minmax(240px, 1fr)); gap:20px; margin-top:15px;}
+#item[diamond-bullet](<b>Interactive Grid</b>: Click-to-toggle 5x5 matrix for rapid prototyping.){color: #ccc}
+#item[diamond-bullet](<b>Safety Management</b>: Validates and removes unused patterns without breaking data.){color: #ccc}
+#item[diamond-bullet](<b>Pattern Registry</b>: Create and index new shapes instantly.){color: #ccc}
+#item[diamond-bullet](<b>Data Integration</b>: Patterns are exported as serialized data for the Generator.){color: #ccc}
+$end-flex-grid
+
+$end-border-box
+
+$end-content-box
+
+
+@space(0|25)
+
+
+$start-content-box
+#sub-title(EDITOR 02)
+#module-title(GAME THEME LIST){margin: 0 0 30px 0}
+
+$start-flex-grid{display:grid; grid-template-columns:0.6fr 0.4fr; gap:40px; margin-top:25px; align-items:start;}
+
+$start-flex-grid
+
+A centralized configuration tool for visual identity management. By separating aesthetic variables from gameplay logic, themes allow for global color swaps across the board, UI, and particle systems.
+
+@space(0|25)
+
+$start-border-box
+
+#sub-title(CORE FEATURES)
+
+$start-flex-grid{gap:20px; margin-top:15px;}
+#item[diamond-bullet](<b>Global Color Fields</b>: Direct control over the primary, secondary, and background color palettes.){color: #ccc}
+#item[diamond-bullet](<b>Logic-Visual Separation</b>: Swap entire game skins without modifying core engine code.){color: #ccc}
+#item[diamond-bullet](<b>Dynamic Consistency</b>: Ensures all generated blocks adhere to the selected theme's color index.){color: #ccc}
+$end-flex-grid
+
+$end-border-box
+
+$end-flex-grid
+
+$start-flex-grid
+#image(../record/game/block-burst/image/editor-game-theme-editor.png){width: 100%; border-radius: 10px}
+$end-flex-grid
+
+$end-flex-grid
+
 $end-content-box

@@ -68,7 +68,7 @@ export function compileDSL(input) {
             continue;
         }
 
-        html += `<p>${processedLine}</p>`;
+        html += `${processedLine}`;
     }
 
     return html;

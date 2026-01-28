@@ -22,3 +22,10 @@ img.image-item {
     img.image-item.cover {
         object-fit: cover;
     }
+
+video {
+    transition: all 0.2s ease-out;
+}
+    video:hover {
+        transform: scale(1.025);
+    }
