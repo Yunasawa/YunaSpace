@@ -44,17 +44,59 @@ $end-flex-grid
 
 $end-content-box
 
-@space(0|50)
+@space(0|100)
 
 #sub-title(> OVERVIEW_)
 #header-title(PROJECT DESIGN){margin: 0 0 30px 0}
 
 $start-content-box
 
-#feature-title(CORE GAMPLAY)
-#feature-title(SCORE SYSTEM)
-#feature-title(LOGIC FLOW)
-#feature-title(DIFFICULTY & PROGRESSION)
-#feature-title(VISUAL DESIGN)
+#feature-title(CORE GAMEPLAY){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](At the start of each game, an 8x8 grid is generated, either partially filled with random patterns or left empty. Players receive three block pieces per turn.){color: #ccc}
+#item[diamond-bullet](Players drag and place these pieces onto the grid, aiming to complete full rows or columns to earn points.){color: #ccc}
+#item[diamond-bullet](Clearing at least one line within four placements builds a combo; failing to do so resets the combo counter.){color: #ccc}
+#item[diamond-bullet](Clearing the entire board grants a massive score bonus and triggers a visual theme change, rewarding perfect play.){color: #ccc}
+#item[diamond-bullet](The game continues endlessly until no valid placements remain, marking the end of the run.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(SCORE SYSTEM){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Basic Point</b>: Each block placed earns 1 point (e.g., a 3x3 piece grants 9 points).){color: #ccc}
+#item[diamond-bullet](<b>Line Clear (Combo)</b>: Clearing lines in same direction awards 50 / 100 / 200 / 350 / 500 points for combo levels 1 / 2 / 3 / 4 / 5+.){color: #ccc}
+#item[diamond-bullet](<b>Cross-Line Clear</b>: Clearing multiple rows and columns at once grants 200 / 400 / 600 / 800 / 1000){color: #ccc}
+#item[diamond-bullet](<b>Combo Multiplier</b>: Active combos multiply line-clear points by 1x / 1.25x / 1.5x / 2x / 2.5x / 3x / 3.5x / 4x.){color: #ccc}
+#item[diamond-bullet](<b>Perfect Placement</b>: Placing a piece at the optimal offset awards 200 bonus points.){color: #ccc}
+#item[diamond-bullet](<b>Full Board Clear</b>: Clearing the entire board awards 1000 bonus points.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(DIFFICULTY & PROGRESSION){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Initial Board</b>: The game starts with a randomly generated pattern to establish the initial difficulty.){color: #ccc}
+#item[diamond-bullet](<b>Piece Generation</b>: Three generation algorithms (see <b style="color: var(--accent)">Logic Algorithm</b> for details) are selected per turn based on weighted ratios.){color: #ccc}
+#item[dot-bullet](<b>Clearer (40%)</b>: Generates pieces that create the most amount of line cleared on the current board.){color: #ccc; left: 25px}
+#item[dot-bullet](<b>Breaker (35%)</b>: Always generates pieces that have at least one valid placement on the current board.){color: #ccc; left: 25px}
+#item[dot-bullet](<b>Hanger (20%)</b>: Generates pieces that require optimal placement to preserve space and enable future moves.){color: #ccc; left: 25px}
+#item[dot-bullet](<b>Random (5%)</b>: Generates unpredictable pieces that may create unsolvable situations, potentially ending the run.){color: #ccc; left: 25px}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(VISUAL DESIGN){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](Clean, colorful block visuals for strong readability.)
+#item[diamond-bullet](Diverse themes set from editor.)
+#item[diamond-bullet](Clear animations when placing blocks and clearing lines.)
+#item[diamond-bullet](Satisfying effects to reinforce successful moves.)
+$end-flex-grid
 
 $end-content-box
+

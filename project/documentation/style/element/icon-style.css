@@ -1,8 +1,8 @@
 .icon::before {
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
-    font-size: 1.5rem;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
 }
 
 .icon.warning::before {
@@ -16,6 +16,9 @@
 }
 .icon.gear::before {
     content: "\f085";
+}
+.icon.plug::before {
+    content: "\f1e6";
 }
 
 .solid-icon {

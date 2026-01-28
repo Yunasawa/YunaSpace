@@ -21,9 +21,12 @@
     padding-left: 18px;
     margin: 0;
     position: relative;
+    overflow: hidden;
+    transition-property: height;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
     .tree-view.collapsed {
-        display: none;
+        height: 0;
     }
     .tree-view .tree-view {
         border-left: none;
@@ -78,6 +81,7 @@
     color: #dabbff;
     font-weight: bold;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .file-node {

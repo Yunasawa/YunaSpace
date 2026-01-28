@@ -1,20 +1,133 @@
+#sub-title(> STRUCTURE_)
+#header-title(PROJECT STRUCTURE){margin: 0 0 30px 0}
+
+$start-content-box
+
 @start-project-tree{margin: 20px 0 0 0}
 Assets/
--Scripts/
---Cores/
----GameManager.cs
----StateMachine.mp3
---Gameplay/
----GridSystem.fbx
----BlockPiece.shader
----PlacementValidator.unity
---UI/
----HUDController.json
----ScorePopup.txt
----ScorePopup.png
--Art/
---Sprites/
----Blocks/
----Icons/
---Animations/
+-Cores/
+--Scenes/
+---SampleScene/
+----Global Volume Profile.asset
+---SampleScene.unity
+--Scripts/
+---Effects/
+----BlockBurstFX.cs
+----LineClearFX.cs
+---Handlers/
+----Elements/
+-----BlockBoard/
+------Handlers/
+-------BlockBoard.EffectHandler.cs
+-------BlockBoard.GhostHandler.cs
+-------BlockBoard.HighlightHandler.cs
+-------BlockBoard.LineHandler.cs
+-------BlockBoard.PlacementHandler.cs
+-------BlockBoard.StateHandler.cs
+------BlockBoard.cs
+------BlockBoard.Utilities.cs
+------BlockBoard.Variable.cs
+-----BlockPiece/
+------Handlers/
+-------BlockPiece.AnimationHandler.cs
+-------BlockPiece.InputHandler.cs
+-------BlockPiece.PatternHandler.cs
+------BlockPiece.cs
+------BlockPiece.Variable.cs
+-----BlockStack/
+------Handlers/
+-------BlockStack.PatternHandler.cs
+-------BlockStack.PieceHandler.cs
+-------BlockStack.SimulationHandler.cs
+------BlockStack.cs
+------BlockStack.Utilities.cs
+------BlockStack.Variable.cs
+-----BlockCell.cs
+----Systems/
+-----Score System/
+------Models/
+-------ScoreContext.cs
+-------ScoreResult.cs
+------ScoreSystem.cs
+-----Theme System/
+------ThemeSystem.cs
+---Records/
+----BlockPatternRecord.cs
+----BlockThemeRecord.cs
+----GameStateRecord.cs
+----ScoreConfigRecord.cs
+---Tests/
+----BlockPatternDrawer.cs
+----BlockPatternEditorWindow.cs
+----BoardPatternDrawer.cs
+----GridSpriteSpawner.cs
+----ParticleLineClear.cs
+----RenderTextureToPNG.cs
+---Utilities/
+----CameraRatioResizer.cs
+----FunctionUtilities.cs
+---Views/
+----JudgementView.cs
+----NotificationBand.cs
+----ScoreView.cs
+--Sources/
+---Fonts/
+---Prefabs/
+----Block Cell.prefab
+----Block Clear.prefab
+----Block Piece.prefab
+----Line Clear.prefab
+---Records/
+----Block Pattern Record.asset
+----Block Theme Record.asset
+----Game State Record.asset
+----Score Config Record.asset
+---Shaders/
+----Functions/
+----Subs/
+----BlockBoardShader.shadergraph
+----BlockBurstShader.shadergraph
+----BlockCellShader.shadergraph
+----BlockOutlineShader.shadergraph
+---Sprites/
+--Tests/
+---Fade Outline.shadergraph
+---Inner Fade Shader.shader
+---Outer Fade Shader.shader
+-Plugins/
+--Demigiant/DOTween/
+--UI Toolkit/
+--URP/
+--TextMesh Pro/
+
 @end-project-tree
+
+$end-content-box
+
+@space(0|100)
+
+#sub-title(> STRUCTURE_)
+#header-title(PROJECT PLUGINS){margin: 0 0 30px 0}
+
+$start-content-box
+
+$start-gradient-box{padding: 10px; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(DOTween Pro){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://dotween.demigiant.com/pro.php" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+
+@space(0|10)
+
+$start-gradient-box{padding: 10px ; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(TextMeshPro){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+
+
+$end-content-box

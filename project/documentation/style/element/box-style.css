@@ -1,4 +1,6 @@
 .box {
+/*    display: flex;*/
+    flex-direction: column;
     flex-grow: 1;
     transition: all 0.25s ease-out;
 }
@@ -42,7 +44,7 @@
 
 
 .flow-box {
-    padding: 10px 25px;
+    padding: 0 25px;
     border-left: 2px dashed rgba(210, 173, 255, 0.5);
 }
 

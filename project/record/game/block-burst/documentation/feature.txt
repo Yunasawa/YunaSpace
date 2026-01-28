@@ -1,0 +1,140 @@
+﻿#sub-title(> FEATURE_)
+#header-title(PROJECT FEATURES){margin: 0 0 30px 0}
+
+$start-content-box
+
+<b>Block Burst</b> is built on a lightweight, modular gameplay architecture optimized for mobile performance, fast iteration, and extensibility.
+
+@space(0|25)
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(GRID & BOARD SYSTEM){margin: 0 0 25px 0}
+
+	A deterministic grid-based system responsible for placement logic, validation, and state tracking.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>8x8 Grid Architecture</b>: Grid represented as a data-driven 2D array; Each cell stores occupancy state and block metadata.){color: #ccc}
+	#item[diamond-bullet](<b>Fast Placement Validation</b>: Bounds and collision checks executed only on affected cells; No physics-based logic.){color: #ccc}
+	#item[diamond-bullet](<b>Partial Grid Scanning</b>: Row and column scans limited to impacted areas after placement for better performance.){color: #ccc}
+	#item[diamond-bullet](<b>Grid State Isolation</b>: Grid logic separated from rendering and input for easier testing and simulation.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(BLOCK SHAPE SYSTEM){margin: 0 0 25px 0}
+
+	A flexible block definition system designed for easy expansion and controlled randomness.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Shape Matrix Definitions</b>: Block shapes are stored as Vector2 sets with the original position anchored at (0, 0).){color: #ccc}
+	#item[diamond-bullet](<b>Scriptable Shape Data</b>: Shapes are defined using ScriptableObjects for easy tuning, reuse, and expansion.){color: #ccc}
+	#item[diamond-bullet](<b>Weighted Random Generator</b>: Shape selection is controlled via weighted randomness to prevent impossible board states.){color: #ccc}
+	#item[diamond-bullet](<b>Ghost Preview Support</b>: Real-time placement previews snap accurately to grid cells during drag interaction.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(BLOCK SHAPE SYSTEM){margin: 0 0 25px 0}
+
+	A flexible block definition system designed for easy expansion and controlled randomness.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Shape Matrix Definitions</b>: Block shapes are stored as Vector2 sets with the original position anchored at (0, 0).){color: #ccc}
+	#item[diamond-bullet](<b>Scriptable Shape Data</b>: Shapes are defined using ScriptableObjects for easy tuning, reuse, and expansion.){color: #ccc}
+	#item[diamond-bullet](<b>Weighted Random Generator</b>: Shape selection is controlled via weighted randomness to prevent impossible board states.){color: #ccc}
+	#item[diamond-bullet](<b>Ghost Preview Support</b>: Real-time placement previews snap accurately to grid cells during drag interaction.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(LINE CLEAR & SCORING SYSTEM){margin: 0 0 25px 0}
+
+	Event-driven logic for clearing rows, columns, and calculating scores.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Row & Column Detection</b>: Supports simultaneous detection and clearing of multiple lines from a single placement.){color: #ccc}
+	#item[diamond-bullet](<b>Two-Phase Clear Pipeline</b>: Mark → animate → clear → VFX pipeline keeps visuals and data fully synchronized.){color: #ccc}
+	#item[diamond-bullet](<b>Modular Score Calculation</b>: Base score, bonuses, and combo logic are processed through a scoring pipeline.){color: #ccc}
+	#item[diamond-bullet](<b>Event-Based Score Updates</b>: UI, audio, and visual effects react to score events instead of direct calls.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(INPUT & INTERACTION LAYER){margin: 0 0 25px 0}
+
+	Unified input handling for touch and mouse with responsive feedback.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Unified Drag System</b>: A single input layer supports both mouse and touch interactions.){color: #ccc}
+	#item[diamond-bullet](<b>Soft Snap Placement</b>: Forgiving snap-to-grid behavior improves placement feel on mobile devices.){color: #ccc}
+	#item[diamond-bullet](<b>Invalid Placement Feedback</b>: Immediate visual and animation feedback is shown on failed placements.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(VISUAL & THEME SYSTEM){margin: 0 0 25px 0}
+
+	Data-driven visual setup decoupled from gameplay logic.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Theme Configuration</b>: Colors, block styles, and grid visuals are defined via theme data.){color: #ccc}
+	#item[diamond-bullet](<b>Runtime Theme Switching</b>: Visual themes can be swapped at runtime without affecting gameplay state.){color: #ccc}
+	#item[diamond-bullet](<b>Animation Hooks</b>: Placement and clear animations are triggered through gameplay events.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(PERFORMANCE & OPTIMIZATION){margin: 0 0 25px 0}
+
+	Designed for smooth gameplay on low-end mobile devices.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Allocation-Free Core Loop</b>: Active gameplay avoids runtime memory allocations.){color: #ccc}
+	#item[diamond-bullet](<b>Logic-Only Gameplay Core</b>: Grid and block logic rely on pure math and arrays with no physics dependency.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box
+
+	#feature-title(PERSISTENCE & DATA){margin: 0 0 25px 0}
+
+	Simple, reliable local data storage with room to scale.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Local Save System</b>: Best score, settings, and theme selection are stored locally.){color: #ccc}
+	#item[diamond-bullet](<b>JSON-Friendly Structure</b>: Save data is structured for easy migration or future cloud sync.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$end-content-box

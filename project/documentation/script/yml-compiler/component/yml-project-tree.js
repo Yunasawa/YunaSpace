@@ -5,8 +5,8 @@ const getFileIcon = (name) =>
     if (lower.endsWith('.cs')) return ['fa-file-code', 'icon-blue'];
     if (lower.endsWith('.json') || lower.endsWith('.txt')) return ['fa-file-lines', 'icon-white'];
     if (lower.endsWith('.png') || lower.endsWith('.jpg')) return ['fa-file-image', 'icon-yellow'];
-    if (lower.endsWith('.fbx') || lower.endsWith('.obj')) return ['fa-cube', 'icon-orange'];
-    if (lower.endsWith('.shader')) return ['fa-fire', 'icon-teal'];
+    if (lower.endsWith('.fbx') || lower.endsWith('.prefab')) return ['fa-cube', 'icon-orange'];
+    if (lower.endsWith('.shader') || lower.endsWith('.shadergraph')) return ['fa-fire', 'icon-teal'];
     if (lower.endsWith('.unity')) return ['fa-cubes', 'icon-red'];
 
     return ['fa-file', 'icon-white'];

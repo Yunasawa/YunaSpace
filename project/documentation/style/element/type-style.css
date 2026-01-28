@@ -1,3 +1,9 @@
+a.button-link {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease-out;
+}
+
 a.text-link {
     color: #fff;
     text-decoration: none;

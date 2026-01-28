@@ -6,3 +6,6 @@
     .flex-grid.nowrap {
         flex-wrap: nowrap;
     }
+    .flex-grid.column {
+        flex-direction: column;
+    }

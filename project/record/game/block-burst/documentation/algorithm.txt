@@ -1,0 +1,216 @@
+#sub-title(> ALGORITHM_)
+#header-title(ALGORITHM ARCHITECTURE){margin: 0 0 30px 0}
+
+$start-content-box
+
+#sub-title(GAMEPLAY LOGIC)
+#module-title(Adaptive Block Pattern Generator)
+
+@space(0|25)
+
+A simulation-based piece selection system that generates block patterns by evaluating current board states. It prioritizes board-clearing potential while maintaining controlled randomness and ensuring game continuity.
+
+@space(0|25)
+
+$start-flex-grid[nowrap]{gap: 15px;}
+
+$start-highlight-box
+
+#sub-title(VIRTUAL ENVIRONMENT){font-size: 0.625rem; margin-bottom: 5px}
+#feature-title(SIMULATION MODEL)
+
+Copies the active board into a boolean grid to predict placement outcomes without mutating real state.
+
+@space(0|15)
+
+@start-code-block
+bool[,] CreateSimulationGrid(Board board) 
+{
+    var width = board.Width;
+    var height = board.Height;
+    var grid = new bool[width, Height];
+
+    for (int y = 0; y < height; y++)
+    {
+        for (int x = 0; x < width; x++)
+        {
+            grid[x, y] = board.IsOccupied(x, y);
+        }
+    }
+
+    return grid;
+}
+@end-code-block
+
+$end-highlight-box
+
+$start-highlight-box
+
+#sub-title(SELECTION PRIORITY){font-size: 0.625rem; margin-bottom: 5px}
+#feature-title(GENERATION STRATEGIES)
+
+$start-flow-box{display: flex; gap: 15px}
+#item[diamond-bullet](<b>Clearer</b>: Maximize total cell clears.){color: #ccc}
+#item[diamond-bullet](<b>Breaker</b>: Guarantee at least one line clear.){color: #ccc}
+#item[diamond-bullet](<b>Hanger</b>: Ensure at least one valid fit.){color: #ccc}
+#item[diamond-bullet](<b>Fallback</b>: Pure random selection.){color: #ccc}
+$end-flow-box
+
+$end-highlight-box
+
+$end-flex-grid
+
+@space(0|50)
+
+$start-border-box
+
+#sub-title(STRATEGY 01){font-size: 0.625rem; margin-bottom: 5px}
+#feature-title(CLEARER STRATEGY LOGIC)
+
+Scans every pattern at every valid position to find candidates with the highest clear score.
+
+@space(0|15)
+
+@start-code-block
+foreach (var pattern in allPatterns)
+{
+    foreach (var pos in GetValidPlacements(pattern, board)) 
+    {
+        int cleared = CountClearedBlocks(board, pattern, pos);
+
+        if (cleared > bestScore) 
+        {
+            bestScore = cleared;
+            bestPattern = new Pattern(pattern, pos);
+        }
+    }
+}
+@end-code-block
+
+$end-border-box
+
+@space(0|25)
+
+$start-border-box
+
+#sub-title(STRATEGY 02){font-size: 0.625rem; margin-bottom: 5px}
+#feature-title(BREAKER STRATEGY LOGIC)
+
+Scans every pattern at every valid position to find candidates with at least one cleared line.
+
+@space(0|15)
+
+@start-code-block
+foreach (var pattern in allPatterns)
+{
+    foreach (var pos in GetValidPlacements(pattern, board)) 
+    {
+        int cleared = CountClearedBlocks(board, pattern, pos);
+
+        if (cleared > 0)
+        {
+            pattern = new Pattern(pattern, pos);
+        }
+    }
+}
+@end-code-block
+
+$end-border-box
+
+@space(0|25)
+
+$start-border-box
+
+#sub-title(STRATEGY 03){font-size: 0.625rem; margin-bottom: 5px}
+#feature-title(HANGER STRATEGY LOGIC)
+
+Filters patterns by priority tiers to find any valid fit, preventing early unwinnable states.
+
+@space(0|15)
+
+@start-code-block
+foreach (var tier in GetPatternsByPriority()) 
+{
+    tier.Shuffle(); // Shuffle patterns in a tier
+
+    foreach (var pattern in tier) 
+    {
+        var spots = GetValidPlacements(pattern, board);
+        if (spots.Count > 0)
+        {
+            return new Pattern(pattern, spots.Random());
+        }
+    }
+}
+@end-code-block
+
+$end-border-box
+
+@space(0|25)
+
+$start-border-box
+
+#sub-title(STRATEGY 04){font-size: 0.625rem; margin-bottom: 5px}
+#feature-title(RANDOM STRATEGY LOGIC (FALLBACK))
+
+Get random patterns from pattern storage whether any free space on board or not.
+
+@space(0|15)
+
+@start-code-block
+return new Pattern(allPatterns.GetRandom(), null);
+@end-code-block
+
+$end-border-box
+
+@space(0|50)
+
+Get patterns from random strategy: 40% of Clearer, 35% of Breaker, 20% of Hanger and 5% of Random
+
+@space(0|15)
+
+@start-code-block
+var strategy = GetRandomStrategy();
+    
+for (int i = 0; i < 3; i++) 
+{
+    Pattern result = GetPatternByStrategy(strategy, board);
+
+    ApplyPattern(board, result);
+    AssignPiece(result);
+}
+@end-code-block
+
+@space(0|50)
+
+$start-flex-grid[nowrap]{gap: 15px;}
+
+$start-highlight-box
+
+#feature-title(DESIGN CHARACTERISTICS)
+
+$start-flow-box{display: flex; gap: 15px}
+#item[diamond-bullet](<b>Simulation-driven</b>: Eliminates guesswork via look-ahead logic.){color: #ccc}
+#item[diamond-bullet](<b>Deterministic</b>: Consistent generation per unique board seed.){color: #ccc}
+#item[diamond-bullet](<b>Difficulty-aware</b>: Scales dynamically with pattern complexity.){color: #ccc}
+#item[diamond-bullet](<b>Fairness</b>: Actively avoids soft-locks via Strategy 2 & 3.){color: #ccc}
+$end-flow-box
+
+$end-highlight-box
+
+$start-highlight-box
+
+#feature-title(GAMEPLAY EXPERIENCE)
+
+$start-flow-box{display: flex; gap: 15px}
+#item[diamond-bullet](<b>Retention</b>: Reduces player frustration from "bad rolls."){color: #ccc}
+#item[diamond-bullet](<b>Strategy</b>: Encourages deliberate setup for high-value clears.){color: #ccc}
+#item[diamond-bullet](<b>Continuity</b>: Significantly extends mid-game survival windows.){color: #ccc}
+#item[diamond-bullet](<b>Replayability</b>: Balances optimal play with controlled entropy.){color: #ccc}
+$end-flow-box
+
+$end-highlight-box
+
+$end-flex-grid
+
+$end-content-box
