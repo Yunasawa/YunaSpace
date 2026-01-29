@@ -3,6 +3,7 @@ const type = params.get("t");
 const project = params.get("p");
 
 const unitName = document.getElementById("unit-name");
+const iconImage = document.getElementById("icon-image");
 
 if (!type || !project)
 {
@@ -21,6 +22,7 @@ fetch(jsonPath)
     {
         unitName.textContent = data.name.toUpperCase();
         document.title = `${type.toUpperCase()}: ${data.name}`;
+        iconImage.src = `../record/${type}/${project}/image/icon.png`;
 
         console.log("Project data loaded:", data);
     })
