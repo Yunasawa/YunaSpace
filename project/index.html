@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TERMINAL // COMMANDANT_PORTFOLIO</title>
+    <title>YunaSpace | Project</title>
+    <link rel="icon" type="image/png" href="../home/image/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -17,164 +18,7 @@
             --border: rgba(255, 255, 255, 0.1);
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* VIEW TOGGLE GROUPED AS TABS */
-        .view-toggle-group {
-            display: flex;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 4px;
-            border-radius: 100px;
-            margin-left: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .view-btn {
-            padding: 8px 15px;
-            border-radius: 100px;
-            border: none;
-            background: transparent;
-            color: var(--muted);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-            .view-btn.active {
-                background: var(--accent);
-                color: #000;
-            }
-
-        /* DISABLE ANIMATION ON VIEW SWITCH */
-        /* This ensures the image doesn't "pop" or scale when toggling list/grid */
-        .project-grid.switching .card,
-        .project-grid.switching .card-image {
-            transition: none !important;
-        }
-
-        /* LIST MODE RE-LAYOUT */
-        .project-grid.list-mode {
-            grid-template-columns: 1fr;
-        }
-
-            .project-grid.list-mode .card {
-                height: 120px; /* Slimmer height for list */
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-            }
-
-            .project-grid.list-mode .card-image {
-                width: 200px;
-                height: 100%;
-                position: relative;
-                opacity: 0.5;
-                flex-shrink: 0;
-            }
-
-            .project-grid.list-mode .card-overlay {
-                background: linear-gradient(90deg, transparent 0%, var(--bg) 60%);
-            }
-
-            .project-grid.list-mode .card-content {
-                position: relative;
-                padding: 0 30px;
-                bottom: auto;
-                width: 100%;
-            }
-
-            .project-grid.list-mode .card-description {
-                margin-bottom: 5px;
-                display: -webkit-box;
-                -webkit-line-clamp: 1;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
-        .view-toggle {
-            display: flex;
-            gap: 15px;
-            margin-left: 20px;
-            padding-right: 10px;
-            border-left: 1px solid var(--border);
-            padding-left: 20px;
-        }
-
-            .view-toggle label {
-                font-size: 0.75rem;
-                color: var(--muted);
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                cursor: pointer;
-                transition: 0.3s;
-            }
-
-            .view-toggle input[type="radio"] {
-                accent-color: var(--accent);
-            }
-
-            .view-toggle label:hover {
-                color: var(--accent);
-            }
-
-        /* LIST MODE LAYOUT */
-        .project-grid.list-mode {
-            grid-template-columns: 1fr; /* 1 project per line */
-        }
-
-            .project-grid.list-mode .card {
-                height: 150px; /* Shorter height */
-                display: flex;
-                flex-direction: row;
-            }
-
-            .project-grid.list-mode .card-image {
-                width: 250px;
-                height: 100%;
-                position: relative;
-                opacity: 0.6;
-            }
-
-            .project-grid.list-mode .card-overlay {
-                background: linear-gradient(90deg, rgba(5,7,10,0) 0%, rgba(5,7,10,1) 80%);
-            }
-
-            .project-grid.list-mode .card-content {
-                position: relative;
-                bottom: auto;
-                left: auto;
-                width: auto;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 0 40px;
-            }
-
-            .project-grid.list-mode .card-description {
-                margin-bottom: 8px;
-                display: -webkit-box;
-                -webkit-line-clamp: 1;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-
-        @media (max-width: 768px) {
-            .project-grid.list-mode .card-image {
-                width: 120px;
-            }
-
-            .project-grid.list-mode .card-content {
-                padding: 0 20px;
-            }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -184,257 +28,32 @@
             min-height: 100vh;
         }
 
-            body::before {
-                content: "";
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
-                background-size: 50px 50px;
-                mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
-                z-index: -1;
-                opacity: 0.3;
-            }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 100px 5% 60px 5%;
-        }
-
-        .header-box {
-            margin-bottom: 80px;
-            position: relative;
-        }
-
-            .header-box h1 {
-                font-size: clamp(3rem, 8vw, 5rem);
-                font-weight: 900;
-                text-transform: uppercase;
-                letter-spacing: -2px;
-                line-height: 0.9;
-                background: linear-gradient(180deg, #fff 0%, var(--muted) 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-
-            .header-box span {
-                color: var(--accent);
-                -webkit-text-fill-color: var(--accent);
-                font-style: italic;
-            }
-
-        .status-line {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            color: var(--accent);
-        }
-
-        .toolbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--card-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            padding: 10px 10px 10px 30px;
-            border-radius: 100px;
-            margin-bottom: 60px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .search-wrapper {
-            position: relative;
-            flex: 1;
-        }
-
-            .search-wrapper input {
-                background: transparent;
-                border: none;
-                color: white;
-                padding: 10px;
-                width: 80%;
-                outline: none;
-                font-size: 1rem;
-            }
-
-        .tabs {
-            display: flex;
-            gap: 5px;
-        }
-
-        .tab {
-            padding: 12px 25px;
-            border-radius: 100px;
-            border: none;
-            background: transparent;
-            color: var(--muted);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            transition: 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-            .tab.active {
-                background: var(--accent);
-                color: #000;
-                box-shadow: 0 0 20px var(--accent-glow);
-            }
-
-        /* MODIFIED: Smaller grid min-width */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        /* MODIFIED: Smaller height */
-        .card {
-            position: relative;
-            height: 400px;
-            border-radius: 24px;
-            overflow: hidden;
-            background: #000;
-            border: 2px solid var(--border);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-
-        .card-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: var(--thumb);
-            background-size: cover;
-            background-position: center;
-            transition: transform 0.8s ease;
-            opacity: 0.4; /* Slightly dimmer for better text readability */
-        }
-
-        .card-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(5, 7, 10, 0.98) 95%);
-            z-index: 1;
-        }
-
-        .card:hover {
-            border-color: var(--accent);
-            transform: scale(1.02);
-            box-shadow: 0 0 40px rgba(187, 134, 252, 0.2);
-        }
-
-            .card:hover .card-image {
-                transform: scale(1.1);
-                opacity: 0.6;
-            }
-
-        .card-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px;
-            z-index: 2;
-        }
-
-        .card-category {
-            font-family: monospace;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.7rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .card-title {
-            font-size: 1.8rem; /* Scaled down title for smaller card */
-            font-weight: 800;
-            margin-bottom: 12px;
-            line-height: 1;
-        }
-
-        /* MODIFIED: Always visible */
-        .card-description {
-            color: var(--muted);
-            font-size: 0.9rem;
-            max-width: 100%;
-            margin-bottom: 20px;
-            opacity: 1;
-            transform: none;
-        }
-
-        .tech-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            backdrop-filter: blur(5px);
-        }
-
-        .card::before {
+        body::before {
             content: "";
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            width: 30px;
-            height: 30px;
-            border-top: 2px solid var(--accent);
-            border-right: 2px solid var(--accent);
-            opacity: 0;
-            transition: 0.3s;
-            z-index: 3;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+            z-index: -1;
+            opacity: 0.3;
         }
 
-        .card:hover::before {
-            opacity: 1;
-            transform: translate(-5px, 5px);
-        }
+        .container { max-width: 1300px; margin: 0 auto; padding: 100px 5% 60px 5%; }
 
-        .hidden {
-            display: none !important;
-        }
-
-        @media (max-width: 768px) {
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .toolbar {
-                border-radius: 20px;
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            .tabs {
-                width: 100%;
-                overflow-x: auto;
-                margin-top: 15px;
-            }
-        }
-    </style>
-    <style>
+        /* NAV STYLES */
         .navigator {
+            position: fixed; top: 0; width: 100%; height: 70px;
+            background: rgba(5, 7, 10, 0.8); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 10%; z-index: 1000;
+        }
+        .navigation-bar {
             position: fixed;
             top: 0;
             width: 100%;
-            height: 70px;
+            height: 60px;
             background: rgba(5, 7, 10, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
@@ -446,12 +65,12 @@
             transition: 0.3s;
         }
 
-            .navigator.scrolled {
-                height: 60px;
+            .navigation-bar.scrolled {
+                height: 50px;
                 border-bottom: 1px solid var(--accent);
             }
 
-        .nav-logo {
+        .navigation-logo {
             font-weight: 900;
             font-size: 1.2rem;
             color: var(--text);
@@ -459,29 +78,29 @@
             text-transform: uppercase;
         }
 
-            .nav-logo span {
+            .navigation-logo span {
                 color: var(--accent);
             }
 
-        .logo-img {
-            height: 32px; /* Adjust size to match your nav height */
-            width: 32px; /* Keep it square */
+        .logo-image {
+            height: 30px;
+            width: 30px;
             object-fit: contain;
             filter: drop-shadow(0 0 10px rgba(187, 134, 252, 0.5));
             margin-bottom: -7.5px;
         }
 
-        .nav-links {
+        .navigation-link {
             display: flex;
             list-style: none;
             gap: 30px;
         }
 
-            .nav-links > * > .selected {
+            .navigation-link > * > .selected {
                 color: var(--accent);
             }
 
-            .nav-links a {
+            .navigation-link a {
                 color: var(--muted);
                 font-size: 0.7rem;
                 font-weight: 700;
@@ -491,233 +110,298 @@
                 text-decoration: none;
             }
 
-                .nav-links a:hover {
+                .navigation-link a:hover {
                     color: var(--accent);
                     text-shadow: 0 0 30px var(--accent);
                 }
-        .card-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
+
+        /* HEADER */
+        .header-box { margin-bottom: 80px; }
+        .header-box h1 {
+            font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; text-transform: uppercase;
+            line-height: 0.9; background: linear-gradient(180deg, #fff 0%, var(--muted) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .header-box span { -webkit-text-fill-color: var(--accent); font-style: italic; }
+        .status-line { display: flex; align-items: center; gap: 15px; margin-top: 20px; font-family: monospace; color: var(--accent); }
+
+        /* TOOLBAR */
+        .toolbar {
+            display: flex; justify-content: space-between; align-items: center;
+            background: var(--card-bg); backdrop-filter: blur(20px);
+            border: 1px solid var(--border); padding: 10px 10px 10px 30px;
+            border-radius: 100px; margin-bottom: 60px;
+        }
+        .search-wrapper { flex: 1; display: flex; align-items: center; }
+        .search-wrapper input { background: transparent; border: none; color: white; padding: 10px; width: 80%; outline: none; }
+        .tabs { display: flex; gap: 5px; }
+        .tab {
+            padding: 12px 25px; border-radius: 100px; border: none; background: transparent;
+            color: var(--muted); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; cursor: pointer;
+            transition: all 0.25s ease-out;
+        }
+        .tab.active { background: var(--accent); color: #000; box-shadow: 0 0 20px var(--accent-glow); }
+
+        .view-toggle-group { display: flex; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 100px; margin-left: 20px; border: 1px solid var(--border); }
+        .view-btn {
+            padding: 8px 15px;
+            border-radius: 100px;
+            border: none;
+            background: transparent;
+            color: var(--muted);
+            cursor: pointer;
+            transition: all 0.25s ease-out;
+        }
+            .view-btn.active {
+                background: var(--accent);
+                color: #000;
+                box-shadow: 0 0 20px var(--accent-glow);
+            }
+
+        /* GRID & CARDS */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .card-link { text-decoration: none; color: inherit; display: block; }
+        .card {
+            position: relative;
+            height: 300px; /* New Height */
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid var(--border);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .card-image {
+            position: absolute; inset: 0; background-image: var(--thumb);
+            background-size: cover; background-position: center; opacity: 0.4; transition: 0.25s ease-out;
+        }
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(5, 7, 10, 0.1) 0%, rgba(5, 7, 10, 0.8) 60%, rgba(5, 7, 10, 1) 100% );
+            z-index: 1;
+        }
+        .card-content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 20px; /* Reduced padding */
+            z-index: 2;
+        }
+        .card-category { font-family: monospace; color: var(--accent); letter-spacing: 3px; font-size: 0.7rem; margin-bottom: 10px; display: block; }
+        .card-title {
+            font-size: 1.4rem; /* Slightly smaller for 300px scale */
+            font-weight: 800;
+        }
+        .card-description {
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Limits description to 2 lines */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
+        /* KEYWORD LINE LOGIC */
+        .tech-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: nowrap; /* Force one line */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            white-space: nowrap; /* Prevent tag text from wrapping */
+            flex-shrink: 0; /* Keep tags their original size */
+        }
+
+        .card:hover { border-color: var(--accent); transform: scale(1.02); }
+        .card:hover .card-image { transform: scale(1.1); opacity: 0.6; }
+
+        /* LIST MODE */
+        .project-grid.list-mode { grid-template-columns: 1fr; }
+        .project-grid.list-mode .card { height: 150px; display: flex; flex-direction: row; }
+        .project-grid.list-mode .card-image { width: 250px; position: relative; opacity: 0.6; }
+        .project-grid.list-mode .card-overlay { background: linear-gradient(90deg, transparent 0%, var(--bg) 80%); }
+        .project-grid.list-mode .card-content { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; }
+        .project-grid.list-mode .card-description { -webkit-line-clamp: 1; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+
+        .hidden { display: none !important; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        /* Container for Icon + Title */
+        .title-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .title-icon {
+            color: var(--accent);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 8px var(--accent-glow));
+        }
+
+        /* Updated Tag Fade Effect */
+        .tech-tags::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 40px;
+            background: linear-gradient(to right, transparent, rgba(5, 7, 10, 1));
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
-    <nav id="navbar" class="navigator">
-        <div class="nav-logo">
-            <img src="../home/sources/logo.png" class="logo-img">
+    <nav id="navigation-bar" class="navigation-bar">
+        <div class="navigation-logo">
+            <img src="../home/image/logo.png" class="logo-image">
             YUNA<span>SPACE</span>_
         </div>
-        <ul class="nav-links">
+        <ul class="navigation-link">
             <li><a href="../home/">Home</a></li>
-            <li><a class="selected"">Project</a></li>
+            <li><a href="#" class="selected">Project</a></li>
             <li><a href="../article/">Article</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <header class="header-box">
-            <div class="status-line">
-                <i class="fas fa-circle" style="font-size: 8px; animation: pulse 2s infinite;"></i>
-                SYSTEM_STABLE // USER: UNITY_DEV_01
-            </div>
+            <div class="status-line"><i class="fas fa-circle" style="font-size: 8px; animation: pulse 2s infinite;"></i> SYSTEM STABLE // READY TO EXPLORE</div>
             <h1>CORE<br><span>PROJECTS</span>_</h1>
         </header>
 
         <nav class="toolbar">
             <div class="search-wrapper">
                 <i class="fas fa-search" style="color: var(--accent); margin-right: 10px;"></i>
-                <input type="text" id="searchInput" placeholder="Search..." onkeyup="handleSearch()">
+                <input type="text" id="searchInput" placeholder="Search archives..." onkeyup="handleSearch()">
             </div>
-
             <div class="tabs">
                 <button class="tab active" onclick="filterType('all', this)">All</button>
-                <button class="tab" onclick="filterType('games', this)">Game</button>
-                <button class="tab" onclick="filterType('tools', this)">Tool</button>
-                <button class="tab" onclick="filterType('libs', this)">Library</button>
+                <button class="tab" onclick="filterType('game', this)">Game</button>
+                <button class="tab" onclick="filterType('tool', this)">Tool</button>
+                <button class="tab" onclick="filterType('library', this)">Library</button>
             </div>
-
             <div class="view-toggle-group">
-                <button class="view-btn active" id="gridBtn" onclick="toggleView('grid')">
-                    <i class="fas fa-th-large"></i>
-                </button>
-                <button class="view-btn" id="listBtn" onclick="toggleView('list')">
-                    <i class="fas fa-list"></i>
-                </button>
+                <button class="view-btn active" id="gridBtn" onclick="toggleView('grid')"><i class="fas fa-th-large"></i></button>
+                <button class="view-btn" id="listBtn" onclick="toggleView('list')"><i class="fas fa-list"></i></button>
             </div>
         </nav>
 
         <main class="project-grid" id="projectGrid">
-
-            <a href="test/" class="card-link">
-                <div class="card" data-type="games" data-name="Project Neon">
-                    <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=1200');"></div>
-                    <div class="card-overlay"></div>
-                    <div class="card-content">
-                        <span class="card-category">Deployment // 01</span>
-                        <h3 class="card-title">PROJECT NEON</h3>
-                        <p class="card-description">A high-fidelity Unity 6 action experience utilizing custom SRP and ray-traced global illumination.</p>
-                        <div class="tech-tags">
-                            <span class="tag">Unity 6</span>
-                            <span class="tag">HLSL</span>
-                            <span class="tag">C#</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-            <div class="card" data-type="tools" data-name="Graph Baker">
-                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <span class="card-category">Utility // 02</span>
-                    <h3 class="card-title">GRAPH BAKER</h3>
-                    <p class="card-description">Automated pipeline tool for converting complex node-based shaders into high-performance textures.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Editor API</span>
-                        <span class="tag">Compute</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" data-type="libs" data-name="NetSync Pro">
-                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <span class="card-category">Architecture // 03</span>
-                    <h3 class="card-title">NETSYNC PRO</h3>
-                    <p class="card-description">Low-latency UDP networking architecture designed for deterministic state synchronization.</p>
-                    <div class="tech-tags">
-                        <span class="tag">.NET 8</span>
-                        <span class="tag">Socket</span>
-                        <span class="tag">UDP</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" data-type="tools" data-name="Graph Baker">
-                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <span class="card-category">Utility // 02</span>
-                    <h3 class="card-title">GRAPH BAKER</h3>
-                    <p class="card-description">Automated pipeline tool for converting complex node-based shaders into high-performance textures.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Editor API</span>
-                        <span class="tag">Compute</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" data-type="libs" data-name="NetSync Pro">
-                <div class="card-image" style="--thumb: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200');"></div>
-                <div class="card-overlay"></div>
-                <div class="card-content">
-                    <span class="card-category">Architecture // 03</span>
-                    <h3 class="card-title">NETSYNC PRO</h3>
-                    <p class="card-description">Low-latency UDP networking architecture designed for deterministic state synchronization.</p>
-                    <div class="tech-tags">
-                        <span class="tag">.NET 8</span>
-                        <span class="tag">Socket</span>
-                        <span class="tag">UDP</span>
-                    </div>
-                </div>
-            </div>
-
         </main>
     </div>
 
     <script>
-        function filterType(type, btn) {
-            const cards = document.querySelectorAll('.card');
-            const tabs = document.querySelectorAll('.tab');
+        const projectRegistry = [
+            ['game', 'block-burst'],
+            ['game', 'viral-rush'],
+            ['library', 'vozel-engine']
+        ];
 
-            tabs.forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-
-            cards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-
-                setTimeout(() => {
-                    if (type === 'all' || card.dataset.type === type) {
-                        card.classList.remove('hidden');
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 50);
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }, 300);
-            });
-        }
-
-        function toggleView(viewType) {
+        async function loadProjects() {
             const grid = document.getElementById('projectGrid');
-            const gridBtn = document.getElementById('gridBtn');
-            const listBtn = document.getElementById('listBtn');
+            grid.innerHTML = ""; // Clear
 
-            // Add temporary class to disable transitions during layout change
-            grid.classList.add('switching');
-
-            if (viewType === 'list') {
-                grid.classList.add('list-mode');
-                listBtn.classList.add('active');
-                gridBtn.classList.remove('active');
-            } else {
-                grid.classList.remove('list-mode');
-                gridBtn.classList.add('active');
-                listBtn.classList.remove('active');
-            }
-
-            // Force a reflow then remove the class to allow hover animations again
-            void grid.offsetWidth;
-            grid.classList.remove('switching');
-        }
-
-        function filterType(type, btn) {
-            const cards = document.querySelectorAll('.card');
-            const tabs = document.querySelectorAll('.tab');
-
-            tabs.forEach(t => t.classList.remove('active'));
-            btn.classList.add('active');
-
-            cards.forEach(card => {
-                // Use Visibility instead of display:none during transition to prevent jump
-                // or just apply the hidden class directly
-                if (type === 'all' || card.dataset.type === type) {
-                    card.classList.remove('hidden');
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                } else {
-                    card.classList.add('hidden');
+            const promises = projectRegistry.map(async ([type, folder]) => {
+                try {
+                    const response = await fetch(`./record/${type}/${folder}/card.json`);
+                    if (!response.ok) return null;
+                    const data = await response.json();
+                    return { type, folder, data };
+                } catch (e) {
+                    console.error(`Could not load project: ${folder}`, e);
+                    return null;
                 }
             });
 
-            // Note: If your page was jumping, it was likely due to the "300ms timeout"
-            // removing all elements from the DOM, making the body height 0.
-            // By removing the timeout or using a min-height on the container, we fix it.
+            const results = (await Promise.all(promises)).filter(p => p !== null);
+            renderCards(results);
+        }
+
+        function renderCards(projects) {
+            const grid = document.getElementById('projectGrid');
+
+            // Define your icons here
+            const iconMap = {
+                'game': 'fa-gamepad',
+                'tool': 'fa-screwdriver-wrench',
+                'library': 'fa-book-bookmark'
+            };
+
+            grid.innerHTML = projects.map(p => {
+                const thumb = `./record/${p.type}/${p.folder}/image/thumbnail.png`;
+                const docLink = `documentation/?t=${p.type}&p=${p.folder}`;
+                const iconClass = iconMap[p.type] || 'fa-cube'; // Fallback icon
+
+                return `
+                <a href="${docLink}" class="card-link" data-type="${p.type}" data-name="${p.data.name}">
+                    <div class="card">
+                        <div class="card-image" style="--thumb: url('${thumb}')"></div>
+                        <div class="card-overlay"></div>
+                        <div class="card-content">
+                            <span class="card-category">${p.data.category.toUpperCase()} // ${p.data.editor || 'SYSTEM'}</span>
+
+                            <div class="title-wrapper">
+                                <i class="fas ${iconClass} title-icon"></i>
+                                <h3 class="card-title">${p.data.name.toUpperCase()}</h3>
+                            </div>
+
+                            <p class="card-description">${p.data.description}</p>
+
+                            <div class="tech-tags">
+                                ${p.data.keywords.map(k => `<span class="tag">${k}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `;
+            }).join('');
+        }
+
+        function filterType(type, btn) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+
+            document.querySelectorAll('.card-link').forEach(card => {
+                const match = (type === 'all' || card.dataset.type === type);
+                card.classList.toggle('hidden', !match);
+            });
         }
 
         function handleSearch() {
             const query = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
+            document.querySelectorAll('.card-link').forEach(card => {
                 const name = card.dataset.name.toLowerCase();
                 card.classList.toggle('hidden', !name.includes(query));
             });
         }
 
-        document.addEventListener('mousemove', (e) => {
-            const header = document.querySelector('.header-box');
-            if (header) {
-                const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-                const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-                header.style.transform = `translate(${moveX}px, ${moveY}px)`;
-            }
+        function toggleView(view) {
+            const grid = document.getElementById('projectGrid');
+            const isList = view === 'list';
+            grid.classList.toggle('list-mode', isList);
+            document.getElementById('gridBtn').classList.toggle('active', !isList);
+            document.getElementById('listBtn').classList.toggle('active', isList);
+        }
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navigation-bar');
+            window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
         });
+
+        window.onload = loadProjects;
     </script>
 </body>
 </html>

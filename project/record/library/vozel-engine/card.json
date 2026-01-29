@@ -1,0 +1,10 @@
+{
+    "name": "Vozel Engine",
+    "category": "Library",
+    "platform": "Editor",
+    "dimension": "2D/3D",
+    "editor": "Unity 6.3 (URP)",
+    "genre": [ "Engine", "Voxel" ],
+    "description": "Defeating enemies and collecting resources, unlock upgrades and new lands, gradually reclaiming the cellular world from viral threats.",
+    "keywords": [ "Survival", "Resource Collection", "Map Expansion", "Upgrade System" ]
+}

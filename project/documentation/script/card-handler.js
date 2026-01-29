@@ -20,6 +20,7 @@ fetch(jsonPath)
     .then(data =>
     {
         unitName.textContent = data.name.toUpperCase();
+        document.title = `${type.toUpperCase()}: ${data.name}`;
 
         console.log("Project data loaded:", data);
     })

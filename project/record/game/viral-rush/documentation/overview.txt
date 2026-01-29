@@ -1,0 +1,136 @@
+#sub-title(> OVERVIEW_)
+#header-title(PROJECT OVERVIEW){margin: 0 0 30px 0}
+
+$start-content-box
+
+#feature-title(DESCRIPTION)
+
+<b>Viral Rush</b> is a survival action game where players control a cellular warrior navigating through infected zones to eliminate hostile viruses. The objective is to cleanse each area, gather biological resources, and strengthen the cell to survive increasingly dangerous environments.
+@space(0|15)
+The game focuses on fast-paced combat, strategic movement, and progressive expansion. By defeating enemies and collecting resources, players unlock upgrades and new lands, gradually reclaiming the cellular world from viral threats.
+
+@space(0|10)
+
+$start-flex-grid{gap: 15px; margin: 20px 0 20px 0; }
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(GENRE){margin: 0 0 10px 0; font-size: 0.95rem}
+Casual, RPG, Survival, Action
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(PLATFORM){margin: 0 0 10px 0; font-size: 0.95rem}
+Mobile
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(EDITOR){margin: 0 0 10px 0; font-size: 0.95rem}
+Unity 2022.2 (URP)
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(DIMENSION){margin: 0 0 10px 0; font-size: 0.95rem}
+3D
+$end-border-box
+$end-flex-grid
+
+$start-flex-grid{gap: 15px; margin: 20px 0 25px 0}
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(DURATION){margin: 0 0 10px 0; font-size: 0.95rem}
+~500 hours
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(TEAM){margin: 0 0 10px 0; font-size: 0.95rem}
+5 people (1 Unity Developer)
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(ROLE){margin: 0 0 10px 0; font-size: 0.95rem}
+Main Unity Developer
+$end-border-box
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(KEYWORDS)
+$start-flex-grid{gap: 10px; margin: 15px 0 0 0; font-size: 0.85rem}
+#frame-button[round](SURVIVAL){color: #fff; font-size: 0.75rem}
+#frame-button[round](RESOURCE COLLECTION){color: #fff; font-size: 0.75rem}
+#frame-button[round](MAP EXPANSION){color: #fff; font-size: 0.75rem}
+#frame-button[round](UPGRADE SYSTEM){color: #fff; font-size: 0.75rem}
+$end-flex-grid
+
+$end-content-box
+
+@space(0|100)
+
+#sub-title(> OVERVIEW_)
+#header-title(PROJECT DESIGN){margin: 0 0 30px 0}
+
+$start-content-box
+
+#feature-title(CORE GAMEPLAY){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](Player controls a cellular warrior in a hostile environment.){color: #ccc}
+#item[diamond-bullet](Viruses spawn and patrol across different regions of the map.){color: #ccc}
+#item[diamond-bullet](Defeating viruses drops resources used to upgrade strength.){color: #ccc}
+#item[diamond-bullet](Clearing enemies allows the player to level up and unlock further areas.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(COMBAT SYSTEM){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](Approach enemies to attack continuously until their health is depleted; disengaging allows enemies to recover quickly.){color: #ccc}
+#item[diamond-bullet](Elite viruses introduce special abilities and environmental hazards.){color: #ccc}
+#item[diamond-bullet](Player health management is critical for long-term survival.){color: #ccc}
+#item[diamond-bullet](Combat intensity increases as new areas unlock.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(RESOURCE & UPGRADE SYSTEM){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](Resources are collected from defeated viruses and interactive map spots.){color: #ccc}
+#item[diamond-bullet](Resources are used to upgrade attack, defense, and special abilities.){color: #ccc}
+#item[diamond-bullet](Upgrades provide permanent progression across the run.){color: #ccc}
+#item[diamond-bullet](Certain upgrades unlock new mechanics or skills.){color: #ccc}
+#item[diamond-bullet](Strategic upgrade choices directly affect player playstyle.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(LOGIC FLOW){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](Cellular warrior spawns in the home area.){color: #ccc}
+#item[diamond-bullet](Explore the map and engage nearby viruses.){color: #ccc}
+#item[diamond-bullet](Defeat enemies and collect biological resources.){color: #ccc}
+#item[diamond-bullet](Upgrade abilities and core stats.){color: #ccc}
+#item[diamond-bullet](Clear the zone and unlock new land.){color: #ccc}
+#item[diamond-bullet](Repeat the cycle with stronger enemies and higher stakes.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(WORLD & PROGRESSION){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](The map is divided into multiple infection zones.){color: #ccc}
+#item[diamond-bullet](Each zone introduces new virus types and threats.){color: #ccc}
+#item[diamond-bullet](Environmental hazards increase overall difficulty.){color: #ccc}
+#item[diamond-bullet](Progression is tightly tied to land expansion.){color: #ccc}
+#item[diamond-bullet](Late-game areas demand optimized builds and strategies.){color: #ccc}
+$end-flex-grid
+
+@space(0|50)
+
+#feature-title(VISUAL & FEEDBACK DESIGN){margin: 0 0 20px 0}
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](Stylized cellular environments with strong color contrast.){color: #ccc}
+#item[diamond-bullet](Clear visual distinction between player and virus entities.){color: #ccc}
+#item[diamond-bullet](Responsive hit effects and damage feedback.){color: #ccc}
+#item[diamond-bullet](Smooth upgrade animations to reinforce progression.){color: #ccc}
+#item[diamond-bullet](Dynamic visual changes as areas are purified.){color: #ccc}
+$end-flex-grid
+
+$end-content-box

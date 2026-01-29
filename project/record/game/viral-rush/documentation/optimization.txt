@@ -1,0 +1,86 @@
+#sub-title(> OPTIMIZATION_)
+#header-title(PERFORMANCE OPTIMIZATION){margin: 0 0 30px 0}
+
+$start-content-box
+
+#sub-title(OPTIMIZATION 01)
+#module-title(ENEMY MOVEMENT OPTIMIZATION){margin: 0 0 30px 0}
+
+$start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
+#feature-title(PROBLEM){font-size: 1rem; margin-bottom: 0px;}
+<div>
+Handling patrol and roaming behavior for hundreds of enemies using per-object <b><code>Update()</code></b> logic caused significant CPU overhead. Each enemy independently calculating movement, direction changes, and boundary checks on the main thread led to frame drops and unstable gameplay, especially in dense zones.
+</div>
+$end-note-box
+
+$start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
+#feature-title(SOLUTION){font-size: 1rem; margin-bottom: 0px;}
+<div>
+Enemy movement was offloaded to Unity's Job System using
+<b><a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Jobs.IJobParallelForTransform.html" target="_blank" class="text-link"><code>IJobParallelForTransform</code></a></b>.
+<div style="height: 10px;"></div>
+All movement calculations such as direction updates, position interpolation, and simple state checks are executed in parallel across worker threads, removing heavy per-frame logic from the main thread while maintaining deterministic behavior.
+</div>
+$end-note-box
+
+$start-flow-box{ padding: 15px 25px; gap: 10px; }
+Smooth movement maintained even with high enemy counts. FPS increased by ~120% in stress tests (from ~50 FPS to ~110 FPS).
+$end-flow-box
+
+$end-content-box
+
+@space(0|25)
+
+$start-content-box
+
+#sub-title(OPTIMIZATION 02)
+#module-title(ENEMY LIFETIME OPTIMIZATION){margin: 0 0 30px 0}
+
+$start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
+#feature-title(PROBLEM){font-size: 1rem; margin-bottom: 0px;}
+<div>
+Updating all enemies across the entire map every frame caused unnecessary CPU workload. Enemies far outside the player's current area still executed AI logic, movement updates, and state checks, leading to wasted processing and performance degradation in large maps.
+</div>
+$end-note-box
+
+$start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
+#feature-title(SOLUTION){font-size: 1rem; margin-bottom: 0px;}
+<div>
+Enemy updates were scoped to the active gameplay area only. Enemies are enabled exclusively within the current stage (map region), while all enemies outside the active stage are fully disabled. This ensures AI logic runs only where gameplay interaction is possible.
+</div>
+$end-note-box
+
+$start-flow-box{ padding: 15px 25px; gap: 10px; }
+Massive reduction in redundant per-frame updates. CPU workload was significantly reduced, improving overall performance by up to <b>90%</b> in large-scale scenarios.
+$end-flow-box
+
+$end-content-box
+
+@space(0|25)
+
+$start-content-box
+
+#sub-title(OPTIMIZATION 03)
+#module-title(ENEMY DETECTION OPTIMIZATION){margin: 0 0 30px 0}
+
+$start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
+#feature-title(PROBLEM){font-size: 1rem; margin-bottom: 0px;}
+<div>
+Relying solely on collider trigger events (<b><code>OnTriggerEnter</code></b> / <b><code>OnTriggerExit</code></b>) for enemy detection proved inefficient and difficult to scale. This introduced unnecessary physics callbacks and made detection logic harder to control and debug.
+</div>
+$end-note-box
+
+$start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
+#feature-title(SOLUTION){font-size: 1rem; margin-bottom: 0px;}
+<div>
+Detection logic was replaced with a manual physics query system using
+<b><a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Physics.OverlapSphereNonAlloc.html" target="_blank" class="text-link"><code>Physics.OverlapSphereNonAlloc</code></a></b>.
+Enemies query their surroundings using a preallocated collider buffer, allowing precise control over detection range, frequency, and filtering without generating garbage.
+</div>
+$end-note-box
+
+$start-flow-box{ padding: 15px 25px; gap: 10px; }
+Improved control over enemy detection behavior with more predictable, efficient, and debuggable AI interactions.
+$end-flow-box
+
+$end-content-box

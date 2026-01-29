@@ -1,0 +1,46 @@
+#sub-title(> SHOWCASE_)
+#header-title(PROJECT SHOWCASE){margin: 0 0 30px 0}
+
+@space(0|50)
+
+$start-content-box
+
+#feature-title(GAMEPLAY SHOWCASE VIDEO){margin: 0 0 25px 0}
+
+<iframe style="width: 100%; aspect-ratio: 16/9" src="https://www.youtube.com/embed/_3GjQCp3TSc?si=ET3Z52LP9iJohLLn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+$end-content-box 
+
+@space(0|25)
+
+$start-content-box
+
+#feature-title(PLAY AREA - MAP){margin: 0 0 25px 0}
+
+#image(../record/game/viral-rush/image/map.png){width: 100%; border-radius: 10px}
+
+$end-content-box 
+
+@space(0|25)
+
+$start-content-box
+
+#feature-title(GAME PLAY IMAGES & UI){margin: 0 0 25px 0}
+
+$start-flex-grid{display:grid; grid-template-columns: repeat(5, 1fr); gap:20px; margin-top:25px; align-items:start;}
+#image(../record/game/viral-rush/image/image-1.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-2.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-3.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-4.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-5.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-7.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-8.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-9.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-10.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-11.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-12.png){width: 100%; border-radius: 10px}
+#image(../record/game/viral-rush/image/image-13.png){width: 100%; border-radius: 10px}
+
+$end-flex-grid
+
+$end-content-box 

@@ -4,9 +4,7 @@
 $start-content-box
 
 #sub-title(GAMEPLAY LOGIC)
-#module-title(Adaptive Block Pattern Generator)
-
-@space(0|25)
+#module-title(ADAPTIVE BLOCK PATTERN GENERATOR){margin: 0 0 30px 0}
 
 A simulation-based piece selection system that generates block patterns by evaluating current board states. It prioritizes board-clearing potential while maintaining controlled randomness and ensuring game continuity.
 
@@ -14,7 +12,7 @@ A simulation-based piece selection system that generates block patterns by evalu
 
 $start-flex-grid[nowrap]{gap: 15px;}
 
-$start-highlight-box
+$start-highlight-box{width: 60%}
 
 #sub-title(VIRTUAL ENVIRONMENT){font-size: 0.625rem; margin-bottom: 5px}
 #feature-title(SIMULATION MODEL)
@@ -44,7 +42,7 @@ bool[,] CreateSimulationGrid(Board board)
 
 $end-highlight-box
 
-$start-highlight-box
+$start-highlight-box{width: 40%}
 
 #sub-title(SELECTION PRIORITY){font-size: 0.625rem; margin-bottom: 5px}
 #feature-title(GENERATION STRATEGIES)
@@ -185,7 +183,7 @@ for (int i = 0; i < 3; i++)
 
 $start-flex-grid[nowrap]{gap: 15px;}
 
-$start-highlight-box
+$start-highlight-box{width: 50%}
 
 #feature-title(DESIGN CHARACTERISTICS)
 
@@ -198,7 +196,7 @@ $end-flow-box
 
 $end-highlight-box
 
-$start-highlight-box
+$start-highlight-box{width: 50%}
 
 #feature-title(GAMEPLAY EXPERIENCE)
 

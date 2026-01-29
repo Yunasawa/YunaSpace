@@ -1,0 +1,10 @@
+﻿{
+    "name": "Viral Rush",
+    "category": "Game",
+    "platform": "Mobile",
+    "dimension": "3D",
+    "editor": "Unity 2022.3 (URP)",
+    "genre": [ "Puzzle", "Casual" ],
+    "description": "Defeating enemies and collecting resources, unlock upgrades and new lands, gradually reclaiming the cellular world from viral threats.",
+    "keywords": [ "Survival", "Resource Collection", "Map Expansion", "Upgrade System" ]
+}

@@ -1,0 +1,285 @@
+#sub-title(> STRUCTURE_)
+#header-title(PROJECT STRUCTURE){margin: 0 0 30px 0}
+
+$start-content-box
+
+@start-project-tree{margin: 20px 0 0 0}
+Assets/
+-Mains/
+--Scenes/
+---SampleScene.unity
+---Test Scene.unity
+--Scripts/
+---Commands/
+----Events/
+-----Cheat.Event.cs
+-----Construct.Event.cs
+-----Player.Event.cs
+-----Quest.Event.cs
+-----View.Event.cs
+---Datas/
+----Sources/
+-----Bases/
+------AttributeStats.cs
+------CapacityStats.cs
+------ConstructStats.cs
+------EnemySource.cs
+------PlayerStats.cs
+------QuestStats.cs
+------RuntimeConstructStats.cs
+------RuntimeEnemyStats.cs
+------RuntimeMiniCell.cs
+------ShopGroup.cs
+-----Databases/
+------DatabaseEnemySO.cs
+------DatabaseStatsSO.cs
+------DatabaseVaultSO.cs
+-----Runtimes/
+------RuntimeEnemySO.cs
+------RuntimeStatsSO.cs
+----Utilities/
+-----Group.cs
+---Handlers/
+----Elements/
+-----Cameras/
+------CameraAudioManager.cs
+------CameraDoorManager.cs
+------CameraManager.cs
+------CameraMovementManager.cs
+-----Games/
+------Managers/
+-------GameData.cs
+-------GameEnemy.cs
+-------GameInput.cs
+-------GameLoader.cs
+------Game.Reference.cs
+------Game.Runtime.cs
+------GameManager.cs
+-----Players/
+------Cells/
+-------DeliveryCell.cs
+-------HunterCell.cs
+------Managers/
+-------Action Managers/
+--------PlayerMovementManager.cs
+-------Functions/
+--------PlayerContructionManager.cs
+--------PlayerEnemyManager.cs
+--------PlayerIndicatorManager.cs
+--------PlayerMiniManager.cs
+--------PlayerStageManager.cs
+--------PlayerStatsManager.cs
+--------PlayerUpgradeManager.cs
+-------PlayerManager.cs
+------Player.Reference.cs
+------Tentacle.cs
+----Features/
+-----Characters/
+------Managers/
+-------EmenyStats.cs
+-------EnemyMovement.cs
+-------EnemyUI.cs
+------BossPool.cs
+------Enemy.cs
+------EnemyPool.cs
+------EnemyPoolManager.cs
+------SMPool.cs
+-----Constructs/
+------Constructs/
+-------FarmConstruct.cs
+-------MarketConstruct.cs
+-------QuestConstruct.cs
+------Construct.cs
+------ConstructManager.cs
+-----Elements/
+------Doors/
+-------Door.cs
+-------Lock.cs
+-----Quests/
+------Main Quests/
+-------MainQuest1.cs
+-------MainQuest2.cs
+------Mini Quests/
+-------MiniQuest1.cs
+-------MiniQuest2.cs
+-------MiniQuest3.cs
+-------MiniQuest4.cs
+-------MiniQuest5.cs
+-------MiniQuest6.cs
+-------MiniQuest7.cs
+-------MiniQuest8.cs
+------BaseQuest.cs
+----Saves/
+-----SaveData.cs
+----Systems/
+-----Builder.cs
+-----Collection.cs
+-----Formula.cs
+-----Key.cs
+-----Serializer.cs
+----Utilities/
+-----ColliderTriggerDettector.cs
+-----ColliderTriggerListener.cs
+-----GridLayoutGroup2.cs
+-----ObjectPool.cs
+-----SwitchButton.cs
+---Tests/
+----Resources/
+----Boundary.cs
+----BoxScaler.cs
+----CreativeController.cs
+----CustomInspectorWindow.cs
+----EnemySpawner.cs
+----FPS.cs
+----GenerateEnemyData.cs
+----GraphViewWindow.cs
+----ReplaceWall.cs
+----SecondOrderDemo.cs
+----TestManager.cs
+----WeekdaysDropdown.cs
+---Views/
+----Base UIs/
+-----CapacityFieldUI.cs
+-----ConstructFieldUI.cs
+-----HealthFieldUI.cs
+-----ResourceFieldlUI.cs
+-----ResourceNodeUI.cs
+----Cheat UIs/
+-----Adjust Attribute Cheaters/
+------AdjustAttributeCheaterUI.cs
+------AdjustAttributeFieldUI.cs
+-----Adjust Resource Cheaters/
+------AdjustResourceCheaterUI.cs
+------AdjustResourceFieldUI.cs
+-----Adjust Status Cheaters/
+------AdjustStatusCheaterUI.cs
+-----CheaterPanelUI.cs
+-----CheaterViewUI.cs
+----Construct UIs/
+-----Consctruct Windows/
+------Exchanger UIs/
+-------ExchangerNodeUI.cs
+-------ExchangerWindowUI.cs
+------Farm UIs/
+-------FarmNodeUI.cs
+-------FarmWindowUI.cs
+------Market UIs/
+-------MarketNodeUI.cs
+-------MarketWindowUI.cs
+-----ConstructPanelUI.cs
+-----ConstructWindowUI.cs
+----Effect UIs/
+------CapacityPopperUI.cs
+------ExpPopperUI.cs
+------HPPopperUI.cs
+----Function UIs/
+-----Level Field/
+------LevelFieldUI.cs
+-----Quest Window/
+------QuestFieldUI.cs
+------QuestWindowUI.cs
+-----Upgrade Window/
+------UpgradeFieldUI.cs
+------UpgradeWindowUI.cs
+-----NavigationWindowUI.cs
+----Over UIs/
+-----OverPanelUI.cs
+----Policy UIs/
+-----PolicyWindowUI.cs
+----Shop UIs/
+-----ShopGroupUI.cs
+-----ShopItemUI.cs
+-----ShopWindowUI.cs
+----Toggle UIs/
+-----Settings View/
+------SettingsToggleUI.cs
+------SettingsWindowUI.cs
+-----Stats View/
+------StatsBarUI.cs
+------StatsViewUI.cs
+------StatsWindowUI.cs
+-----ResourceBarUI.cs
+-----ResourceViewUI.cs
+-----TogglePanelUI.cs
+-----ToggleViewUI.cs
+----Tutorial UIs/
+-----Tutorials/
+------ReturnToBaseTutorialUI.cs
+------StartGameTutorialUI.cs
+------UpgradeAttributeTutorialUI.cs
+-----TutorialPanelUI.cs
+----World UIs/
+-----CharacterWindowUI.cs
+-----DeliveryWindowUI.cs
+-----FarmBillboardUI.cs
+-----QuestBillboardUI.cs
+----UIHider.cs
+--Sources/
+---Animations/
+---Audios/
+---Creatives/
+---Datas/
+----Databases/
+-----Enemy - Database SO.asset
+-----Stats - Database SO.asset
+-----Vault - Database SO.asset
+----Runtimes/
+-----Enemy - Runtime SO.asset
+-----Stats - Runtime SO.asset
+---Fonts/
+---Images/
+---Materials/
+---Models/
+---Prefabs/
+----Characters/
+----Constructs/
+----GUIs/
+-----Cheat UIs/
+-----Effect Uis/
+-----Shop UIs/
+-----World UIs/
+----Particles/
+----Players/
+---Textures/
+-Plugins/
+@end-project-tree
+
+$end-content-box
+
+@space(0|100)
+
+#sub-title(> STRUCTURE_)
+#header-title(PROJECT PLUGINS){margin: 0 0 30px 0}
+
+$start-content-box
+
+$start-gradient-box{padding: 10px; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(DOTween Pro){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://dotween.demigiant.com/pro.php" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+
+@space(0|10)
+
+$start-gradient-box{padding: 10px ; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(TextMeshPro){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+    
+@space(0|10)
+
+$start-gradient-box{padding: 10px ; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(Obi Rope){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://obi.virtualmethodstudio.com/manual/6.1/ropesetup.html" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+
+
+$end-content-box

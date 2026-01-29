@@ -11,7 +11,7 @@ Designed for quick play sessions, Block Burst emphasizes clarity, satisfying fee
 
 @space(0|10)
 
-$start-flex-grid{gap: 15px; margin: 20px 0 40px 0}
+$start-flex-grid{gap: 15px; margin: 20px 0 20px 0}
 $start-border-box[animation, move-y, glow]{padding: 15px}
 #feature-title(GENRE){margin: 0 0 10px 0; font-size: 0.95rem}
 Puzzle, Casual
@@ -30,7 +30,22 @@ $start-border-box[animation, move-y, glow]{padding: 15px}
 $end-border-box
 $end-flex-grid
 
-@space(0|20)
+$start-flex-grid{gap: 15px; margin: 20px 0 25px 0}
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(DURATION){margin: 0 0 10px 0; font-size: 0.95rem}
+~40 hours
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(TEAM){margin: 0 0 10px 0; font-size: 0.95rem}
+2 people (1 Unity Developer)
+$end-border-box
+$start-border-box[animation, move-y, glow]{padding: 15px}
+#feature-title(ROLE){margin: 0 0 10px 0; font-size: 0.95rem}
+Main Unity Developer
+$end-border-box
+$end-flex-grid
+
+@space(0|50)
 
 #feature-title(KEYWORDS)
 $start-flex-grid{gap: 10px; margin: 15px 0 0 0; font-size: 0.85rem}

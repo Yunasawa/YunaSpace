@@ -1,0 +1,133 @@
+#sub-title(> FEATURE_)
+#header-title(TECHNICAL FEATURES){margin: 0 0 30px 0}
+
+$start-content-box
+
+This project is built on a modular, data-driven gameplay architecture that prioritizes scalability, systemic clarity, and long-term progression balance. Core systems are designed to interact cleanly while allowing future expansion without reworking existing logic.
+
+@space(0|25)
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(RESOURCE & ECONOMY SYSTEM){margin: 0 0 25px 0}
+
+	A layered resource economy designed to regulate player progression, upgrade pacing, and strategic decision-making.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Primary Resource Layer</b>: Protein serves as the core currency, comparable to gold or coins, and is used for standard upgrades, exchanges, and early-game progression.){color: #ccc}
+	#item[diamond-bullet](<b>Evolution Resources</b>: Plasma and Antigen function as higher-tier energy resources, primarily used for character evolution, farming upgrades, and advanced gameplay systems.){color: #ccc}
+	#item[diamond-bullet](<b>DNA Tier System</b>: DNA is divided into generational tiers (Gen 1-4), acting as a hard progression gate for high-level upgrades and late-game content.){color: #ccc}
+	#item[diamond-bullet](<b>Conversion Materials</b>: Enzyme enables controlled conversion of lower-tier resources into higher-tier DNA, preventing rapid progression spikes.){color: #ccc}
+	#item[diamond-bullet](<b>Drop Table Architecture</b>: Resource drops are defined through weighted tables based on monster type, rarity, and respawn logic, ensuring predictable yet varied outcomes.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(ECONOMY BUILDINGS & PRODUCTION){margin: 0 0 25px 0}
+
+	World-based facilities that convert, generate, and refine resources over time, reinforcing long-term economic planning.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Market</b>: Allows players to trade collected resources for upgrades and utilities such as power, movement speed, capacity, and system unlocks.){color: #ccc}
+	#item[diamond-bullet](<b>Exchanger</b>: Converts one resource type into another using predefined exchange rates, enabling flexible resource management.){color: #ccc}
+	#item[diamond-bullet](<b>Farm</b>: Produces Protein passively over time, acting as a stable income source for early and mid-game progression.){color: #ccc}
+	#item[diamond-bullet](<b>Protein Farm</b>: A specialized production node optimized for high-volume Protein generation.){color: #ccc}
+	#item[diamond-bullet](<b>Gen Farm</b>: Generates Gen resources over time, supporting long-term DNA progression and late-game upgrades.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(CHARACTER UPGRADE PIPELINE){margin: 0 0 25px 0}
+
+	A centralized upgrade framework supporting multiple upgrade sources and progression stages.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Global Upgrade Layer</b>: Core stat upgrades (HP, Movement Speed, Capacity) are accessible directly from the main gameplay interface.){color: #ccc}
+	#item[diamond-bullet](<b>Market-Based Upgrades</b>: Specialized upgrades are distributed across Market locations, each unlocked at specific progression milestones.){color: #ccc}
+	#item[diamond-bullet](<b>Stage-Gated Markets</b>: Market 1 and 2 unlock at Stage 3, while Market 3 unlocks at Stage 7 to prevent early power inflation.){color: #ccc}
+	#item[diamond-bullet](<b>Multi-Resource Costs</b>: Upgrade requirements dynamically combine Protein, energy resources, and DNA depending on tier and impact.){color: #ccc}
+	#item[diamond-bullet](<b>Upgrade Threshold Logic</b>: Certain stat milestones enforce DNA requirements, ensuring controlled late-game scaling.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(CAPACITY & CARRY SYSTEM){margin: 0 0 25px 0}
+
+	A risk–reward mechanic governing resource transport, combat eligibility, and survival decisions.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Capacity Units</b>: Each collected resource consumes one capacity unit, with higher capacity enabling longer and more profitable runs.){color: #ccc}
+	#item[diamond-bullet](<b>Dynamic Combat Requirements</b>: Certain high-value monsters require a minimum amount of free capacity to engage, gating access strategically.){color: #ccc}
+	#item[diamond-bullet](<b>Death Penalty Logic</b>: If the player dies while carrying resources, all unreturned resources are permanently lost.){color: #ccc}
+	#item[diamond-bullet](<b>Home Base Reset</b>: Returning to the home base deposits all carried resources, fully restores HP, and resets used capacity.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(MONSTER DATA & BEHAVIOR SYSTEM){margin: 0 0 25px 0}
+
+	Data-driven enemy definitions with scalable difficulty and behavior parameters.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Stat Profiles</b>: Each monster defines HP, movement speed, attack behavior, EXP yield, and resource drops.){color: #ccc}
+	#item[diamond-bullet](<b>Spawn Control</b>: Spawn counts and respawn timers are configurable per monster type and zone.){color: #ccc}
+	#item[diamond-bullet](<b>Rare Spawn Scaling</b>: Rare monsters increase in strength with each respawn cycle to maintain long-term challenge.){color: #ccc}
+	#item[diamond-bullet](<b>Attack Behavior Types</b>: Enemies may be passive, aggressive, or pursuit-based, governed by leash distance logic.){color: #ccc}
+	#item[diamond-bullet](<b>Health Regeneration</b>: Monsters regenerate health when disengaged, encouraging sustained combat.){color: #ccc}
+	#item[diamond-bullet](<b>Special Timed Enemies</b>: Unique monsters respawn on extended cooldowns (e.g., 2h30m), acting as long-term objectives.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(EXPERIENCE & PROGRESSION SYSTEM){margin: 0 0 25px 0}
+
+	Level-based progression driving system unlocks and content availability.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>EXP Gain</b>: Experience is awarded upon defeating monsters, scaled by enemy difficulty and rarity.){color: #ccc}
+	#item[diamond-bullet](<b>Level-Gated Content</b>: Player level determines access to quests, stages, and gameplay systems.){color: #ccc}
+	#item[diamond-bullet](<b>Automatic Progression</b>: Quests are not manually accepted; progression unfolds organically through leveling.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+	#feature-title(QUEST & MAP UNLOCK FLOW){margin: 0 0 25px 0}
+
+	A low-friction quest system embedded directly into exploration.
+
+	@space(0|15)
+
+	$start-flex-grid[column]{gap: 15px;}
+	#item[diamond-bullet](<b>Collection-Based Objectives</b>: Quests focus on gathering specific quantities of resources.){color: #ccc}
+	#item[diamond-bullet](<b>Spatial Quest Completion</b>: Quests complete automatically when the player enters an NPC zone after meeting requirements.){color: #ccc}
+	#item[diamond-bullet](<b>One-Time Claim Nodes</b>: Once rewards are claimed, quest NPCs are removed to reduce map clutter.){color: #ccc}
+	#item[diamond-bullet](<b>Map Progression Gate</b>: Completing required quests unlocks new maps or stages.){color: #ccc}
+	$end-flex-grid
+
+$end-feature-box
+
+$end-content-box

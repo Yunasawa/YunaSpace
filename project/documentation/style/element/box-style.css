@@ -3,6 +3,7 @@
     flex-direction: column;
     flex-grow: 1;
     transition: all 0.25s ease-out;
+    overflow: hidden;
 }
     .box.animation.scale:hover {
         transform: scale(1.05);
