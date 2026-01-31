@@ -1,8 +1,10 @@
 #sub-title(> OVERVIEW_)
+@header-bookmark(PROJECT OVERVIEW|project-overview)
 #header-title(PROJECT OVERVIEW){margin: 0 0 30px 0}
 
 $start-content-box
 
+@feature-bookmark(Project Description|description)
 #feature-title(DESCRIPTION)
 
 <b>Block Burst</b> is a casual puzzle game where players drag and place block pieces onto a grid to complete full rows or columns. The goal is to score as high as possible by clearing lines efficiently while managing limited space. The game ends when no available block can be placed on the board.
@@ -47,6 +49,7 @@ $end-flex-grid
 
 @space(0|50)
 
+@feature-bookmark(Project Keywords|keywords)
 #feature-title(KEYWORDS)
 $start-flex-grid{gap: 10px; margin: 15px 0 0 0; font-size: 0.85rem}
 #frame-button[round](GRID-BASED){color: #fff; font-size: 0.75rem}
@@ -62,10 +65,13 @@ $end-content-box
 @space(0|100)
 
 #sub-title(> OVERVIEW_)
+@bookmark-space(20)
+@header-bookmark(PROJECT DESIGN|project-design)
 #header-title(PROJECT DESIGN){margin: 0 0 30px 0}
 
 $start-content-box
 
+@feature-bookmark(Core Gameplay|core-gameplay)
 #feature-title(CORE GAMEPLAY){margin: 0 0 20px 0}
 
 $start-flex-grid[column]{gap: 15px;}
@@ -78,6 +84,7 @@ $end-flex-grid
 
 @space(0|50)
 
+@feature-bookmark(Score System|score-system)
 #feature-title(SCORE SYSTEM){margin: 0 0 20px 0}
 
 $start-flex-grid[column]{gap: 15px;}
@@ -91,6 +98,7 @@ $end-flex-grid
 
 @space(0|50)
 
+@feature-bookmark(Difficulty & Progression|difficulty-and-progression)
 #feature-title(DIFFICULTY & PROGRESSION){margin: 0 0 20px 0}
 
 $start-flex-grid[column]{gap: 15px;}
@@ -104,6 +112,7 @@ $end-flex-grid
 
 @space(0|50)
 
+@feature-bookmark(Visual Design|visual-design)
 #feature-title(VISUAL DESIGN){margin: 0 0 20px 0}
 
 $start-flex-grid[column]{gap: 15px;}
@@ -114,4 +123,3 @@ $start-flex-grid[column]{gap: 15px;}
 $end-flex-grid
 
 $end-content-box
-

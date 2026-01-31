@@ -1,4 +1,5 @@
 ﻿#sub-title(> FEATURE_)
+@header-bookmark(PROJECT FEATURES|project-features)
 #header-title(PROJECT FEATURES){margin: 0 0 30px 0}
 
 $start-content-box
@@ -9,6 +10,7 @@ $start-content-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
+	@feature-bookmark(Grid & Board System|grid-and-board-system)
 	#feature-title(GRID & BOARD SYSTEM){margin: 0 0 25px 0}
 
 	A deterministic grid-based system responsible for placement logic, validation, and state tracking.
@@ -26,6 +28,7 @@ $end-feature-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
+	@feature-bookmark(Block Shape System|block-shape-system)
 	#feature-title(BLOCK SHAPE SYSTEM){margin: 0 0 25px 0}
 
 	A flexible block definition system designed for easy expansion and controlled randomness.
@@ -43,6 +46,7 @@ $end-feature-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
+	@feature-bookmark(Line Clear & Scoring System|line-clear-scoring-system)
 	#feature-title(LINE CLEAR & SCORING SYSTEM){margin: 0 0 25px 0}
 
 	Event-driven logic for clearing rows, columns, and calculating scores.
@@ -60,6 +64,7 @@ $end-feature-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
+	@feature-bookmark(Input & Interaction Layer|input-and-interaction)
 	#feature-title(INPUT & INTERACTION LAYER){margin: 0 0 25px 0}
 
 	Unified input handling for touch and mouse with responsive feedback.
@@ -76,6 +81,7 @@ $end-feature-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
+	@feature-bookmark(Visual & Theme System|visual-and-theme-system)
 	#feature-title(VISUAL & THEME SYSTEM){margin: 0 0 25px 0}
 
 	Data-driven visual setup decoupled from gameplay logic.
@@ -92,6 +98,7 @@ $end-feature-box
 
 $start-feature-box{margin: 0 0 25px 0}
 
+	@feature-bookmark(Performance & Optimization|performance-and-optimization)
 	#feature-title(PERFORMANCE & OPTIMIZATION){margin: 0 0 25px 0}
 
 	Designed for smooth gameplay on low-end mobile devices.
@@ -107,6 +114,7 @@ $end-feature-box
 
 $start-feature-box
 
+	@feature-bookmark(Persistence & Data|persistence-and-data)
 	#feature-title(PERSISTENCE & DATA){margin: 0 0 25px 0}
 
 	Simple, reliable local data storage with room to scale.

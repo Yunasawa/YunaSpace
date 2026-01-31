@@ -1,4 +1,5 @@
-﻿import { compileDSL } from './yml-compiler/yml-compiler.js';
+﻿import { updateNavigation, ResetBookmark, compileDSL } from './yml-compiler/yml-compiler.js';
+import { InitScrollSpy } from './bookmark-handler.js';
 
 function EnableProjectTreeToggle(root = document) {
     const SPEED = 1.2;        // px per ms (tweak this)
@@ -63,6 +64,8 @@ async function FileExists(path)
 }
 
 async function InitializeSidebar() {
+    ResetBookmark();
+
     const navGroups = document.querySelectorAll(".navigation-group");
 
     for (const group of navGroups) {
@@ -88,7 +91,7 @@ async function InitializeSidebar() {
 
                 const target = document.getElementById(page);
                 if (target) {
-                    target.innerHTML = compileDSL(content);
+                    target.innerHTML = compileDSL(content, page);
                 } else {
                     console.warn(`Missing container with id="${page}"`);
                 }
@@ -102,6 +105,10 @@ async function InitializeSidebar() {
             group.classList.add("visible");
         }
     }
+
+    updateNavigation();
+
+    InitScrollSpy();
 
     const firstVisible = document.querySelector(".navigation-item.visible");
     if (firstVisible) firstVisible.click();

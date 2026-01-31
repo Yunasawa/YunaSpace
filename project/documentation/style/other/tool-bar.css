@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 30px;
+    padding: 0 15px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -64,16 +64,15 @@
         }
 
         .toolbar .tool-btn.primary {
-            background: var(--accent);
-            color: #000;
-            border: none;
+            color: var(--accent);
+            border: 2px solid var(--accent);
         }
 
         .toolbar .tool-btn.private {
             color: var(--muted);
+            border: 2px solid var(--muted);
         }
 
             .toolbar .tool-btn.private:hover {
-                border-color: #555;
-                box-shadow: 0 0 0px var(--accent-glow);
+                box-shadow: 0 0 15px #555;
             }

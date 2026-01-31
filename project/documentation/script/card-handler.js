@@ -4,6 +4,7 @@ const project = params.get("p");
 
 const unitName = document.getElementById("unit-name");
 const iconImage = document.getElementById("icon-image");
+const googlePlay = document.getElementById("google-play");
 
 if (!type || !project)
 {
@@ -23,6 +24,9 @@ fetch(jsonPath)
         unitName.textContent = data.name.toUpperCase();
         document.title = `${type.toUpperCase()}: ${data.name}`;
         iconImage.src = `../record/${type}/${project}/image/icon.png`;
+
+        if (data.play === "") googlePlay.style.display = "none";
+        else googlePlay.href = data.play;
 
         console.log("Project data loaded:", data);
     })

@@ -13,7 +13,11 @@ import { RoadmapViewComponent } from './component/yml-roadmap-view.js';
 
 const blockComponents = [CodeBlockComponent, DataStripComponent, ProjectTreeComponent, TableViewComponent, RoadmapViewComponent];
 
-export function compileDSL(input) {
+export function ResetBookmark() {
+    BookmarkComponent.bookmarks = [];
+}
+
+export function compileDSL(input, page) {
     const lines = input.split('\n');
     let html = '';
     const stack = [];
@@ -24,7 +28,7 @@ export function compileDSL(input) {
         if (!line) continue;
 
         if (BookmarkComponent.match(line)) {
-            html += BookmarkComponent.render(line);
+            html += BookmarkComponent.render(line, page);
             continue;
         }
 
@@ -75,16 +79,27 @@ export function compileDSL(input) {
 }
 
 export function updateNavigation() {
-    const nav = document.querySelector('.navigation-bar');
-    if (!nav) {
-        console.error("Navigation bar not found in HTML");
-        return;
-    }
+    document.querySelectorAll('.toc-section .toc-list').forEach(list => list.innerHTML = '');
 
-    nav.innerHTML = BookmarkComponent.bookmarks.map(bm => `
-        <div class="bookmark-button ${bm.type}-bookmark"  
-             onclick="document.getElementById('${bm.id}').scrollIntoView({behavior: 'smooth'})">
-            ${bm.text}
-        </div>
-    `).join('');
+    BookmarkComponent.bookmarks.forEach(bm => {
+        const selector = `.toc-section[data-page="${bm.page}"] .toc-list`;
+        const container = document.querySelector(selector);
+
+        if (container) {
+            const li = document.createElement('li');
+
+            if (bm.type === 'spacer') {
+                // Create an empty space item
+                li.style.height = `${bm.height}px`;
+                li.style.listStyle = 'none';
+                li.className = 'toc-spacer';
+            } else {
+                // Create standard link item
+                li.className = `toc-item ${bm.type}`;
+                li.innerHTML = `<a href="#${bm.id}">${bm.text}</a>`;
+            }
+
+            container.appendChild(li);
+        }
+    });
 }

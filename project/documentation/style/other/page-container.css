@@ -1,16 +1,17 @@
 .content-container {
-    margin-left: var(--sidebar-w);
+    display: block;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(187, 134, 252, 0.05), transparent);
     margin-top: var(--toolbar-h);
     height: calc(100vh - var(--toolbar-h));
     overflow-y: auto;
-    padding: 60px 8%;
+    padding: 60px 5%;
     scroll-behavior: smooth;
 }
 
 .page-section {
     display: none;
-    max-width: 1000px;
-    animation: slideIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    animation: slideIn 0.25s ease-out;
 }
 
     .page-section.active {

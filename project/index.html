@@ -15,7 +15,7 @@
             --text: #ffffff;
             --muted: rgba(255, 255, 255, 0.5);
             --card-bg: rgba(15, 20, 28, 0.7);
-            --border: rgba(255, 255, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.2);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -159,7 +159,7 @@
             }
 
         /* GRID & CARDS */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
         .card-link { text-decoration: none; color: inherit; display: block; }
         .card {
             position: relative;
@@ -167,9 +167,19 @@
             border-radius: 20px;
             overflow: hidden;
             background: #000;
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
         }
+            .card:hover {
+                border-color: var(--accent);
+                transform: scale(1.02);
+                box-shadow: 0 0 30px var(--accent-glow);
+            }
+
+                .card:hover .card-image {
+                    transform: scale(1.1);
+                    opacity: 0.6;
+                }
         .card-image {
             position: absolute; inset: 0; background-image: var(--thumb);
             background-size: cover; background-position: center; opacity: 0.4; transition: 0.25s ease-out;
@@ -221,9 +231,6 @@
             white-space: nowrap; /* Prevent tag text from wrapping */
             flex-shrink: 0; /* Keep tags their original size */
         }
-
-        .card:hover { border-color: var(--accent); transform: scale(1.02); }
-        .card:hover .card-image { transform: scale(1.1); opacity: 0.6; }
 
         /* LIST MODE */
         .project-grid.list-mode { grid-template-columns: 1fr; }
@@ -307,7 +314,8 @@
         const projectRegistry = [
             ['game', 'block-burst'],
             ['game', 'viral-rush'],
-            ['library', 'vozel-engine']
+            ['library', 'vozel-engine'],
+            ['tool', 'general-toolbox']
         ];
 
         async function loadProjects() {

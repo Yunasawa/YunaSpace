@@ -73,9 +73,7 @@ $end-note-box
 $start-note-box{display: flex; flex-direction: column; padding: 15px 25px; gap: 10px; margin-bottom: 10px}
 #feature-title(SOLUTION){font-size: 1rem; margin-bottom: 0px;}
 <div>
-Detection logic was replaced with a manual physics query system using
-<b><a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Physics.OverlapSphereNonAlloc.html" target="_blank" class="text-link"><code>Physics.OverlapSphereNonAlloc</code></a></b>.
-Enemies query their surroundings using a preallocated collider buffer, allowing precise control over detection range, frequency, and filtering without generating garbage.
+Detection logic was replaced with a manual physics query system using <b><a href="https://docs.unity3d.com/6000.3/Documentation/ScriptReference/Physics.OverlapSphereNonAlloc.html" target="_blank" class="text-link"><code>Physics.OverlapSphereNonAlloc</code></a></b>.	Enemies query their surroundings using a preallocated collider buffer, allowing precise control over detection range, frequency, and filtering without generating garbage.
 </div>
 $end-note-box
 

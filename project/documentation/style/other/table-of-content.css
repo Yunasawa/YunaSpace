@@ -1,0 +1,98 @@
+﻿.content-table {
+    position: sticky;
+    top: var(--toolbar-h);
+    min-width: 300px;
+    height: calc(100vh - var(--toolbar-h));
+    border-right: 1px solid rgba(187, 134, 252, 0.1);
+    padding: 40px 24px;
+    background: linear-gradient(0deg, rgba(187, 134, 252, 0.05), transparent);
+}
+
+.toc-header {
+    font-family: monospace;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: #bb86fc;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .toc-header::after {
+        content: '';
+        flex-grow: 1;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(187, 134, 252, 0.3), transparent);
+    }
+
+.toc-section {
+    display: none;
+    margin-bottom: 24px;
+}
+
+    .toc-section.active {
+        display: block;
+    }
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.toc-item {
+    position: relative;
+    margin-left: -1px;
+}
+
+    .toc-item a {
+        color: #ddd;
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        border-left: 2px solid transparent;
+    }
+
+        .toc-item a:hover {
+            color: #fff;
+            background: rgba(187, 134, 252, 0.05);
+            transform: translateX(4px);
+            opacity: 1;
+            color: #bb86fc;
+        }
+
+    .toc-item.active a {
+        color: #bb86fc;
+        font-weight: 600;
+        border-left: 2px solid #bb86fc;
+        background: linear-gradient(90deg, rgba(187, 134, 252, 0.1), transparent);
+    }
+
+    .toc-item.feature {
+    }
+
+        .toc-item.feature a {
+            font-size: 0.8rem;
+        
+        }
+            .toc-item.feature a::before {
+                content: "";
+                margin-left: 20px;
+            }
+
+    .toc-item.sub {
+    }
+
+        .toc-item.sub a {
+            font-size: 0.75rem;
+        }
+
+            .toc-item.sub a::before {
+                content: "";
+                margin-right: 40px;
+            }

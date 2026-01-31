@@ -1,9 +1,11 @@
 #sub-title(> ALGORITHM_)
+@header-bookmark(ALGORITHM ARCHITECTURE|algorithm-architecture)
 #header-title(ALGORITHM ARCHITECTURE){margin: 0 0 30px 0}
 
 $start-content-box
 
 #sub-title(GAMEPLAY LOGIC)
+@feature-bookmark(Adaptive Block Pattern Generator|adaptive-block-pattern-generator)
 #module-title(ADAPTIVE BLOCK PATTERN GENERATOR){margin: 0 0 30px 0}
 
 A simulation-based piece selection system that generates block patterns by evaluating current board states. It prioritizes board-clearing potential while maintaining controlled randomness and ensuring game continuity.
@@ -15,6 +17,7 @@ $start-flex-grid[nowrap]{gap: 15px;}
 $start-highlight-box{width: 60%}
 
 #sub-title(VIRTUAL ENVIRONMENT){font-size: 0.625rem; margin-bottom: 5px}
+@sub-bookmark(Simulation Model|simulation-model)
 #feature-title(SIMULATION MODEL)
 
 Copies the active board into a boolean grid to predict placement outcomes without mutating real state.
@@ -45,6 +48,7 @@ $end-highlight-box
 $start-highlight-box{width: 40%}
 
 #sub-title(SELECTION PRIORITY){font-size: 0.625rem; margin-bottom: 5px}
+@sub-bookmark(Generation Strategies|generation-strategies)
 #feature-title(GENERATION STRATEGIES)
 
 $start-flow-box{display: flex; gap: 15px}
@@ -63,6 +67,7 @@ $end-flex-grid
 $start-border-box
 
 #sub-title(STRATEGY 01){font-size: 0.625rem; margin-bottom: 5px}
+@sub-bookmark(S01: Clearer Strategy Logic|strategy-01)
 #feature-title(CLEARER STRATEGY LOGIC)
 
 Scans every pattern at every valid position to find candidates with the highest clear score.
@@ -92,6 +97,7 @@ $end-border-box
 $start-border-box
 
 #sub-title(STRATEGY 02){font-size: 0.625rem; margin-bottom: 5px}
+@sub-bookmark(S02: Breaker Strategy Logic|strategy-02)
 #feature-title(BREAKER STRATEGY LOGIC)
 
 Scans every pattern at every valid position to find candidates with at least one cleared line.
@@ -120,6 +126,7 @@ $end-border-box
 $start-border-box
 
 #sub-title(STRATEGY 03){font-size: 0.625rem; margin-bottom: 5px}
+@sub-bookmark(S03: Hanger Strategy Logic|strategy-03)
 #feature-title(HANGER STRATEGY LOGIC)
 
 Filters patterns by priority tiers to find any valid fit, preventing early unwinnable states.
@@ -149,6 +156,7 @@ $end-border-box
 $start-border-box
 
 #sub-title(STRATEGY 04){font-size: 0.625rem; margin-bottom: 5px}
+@sub-bookmark(S04: Random Strategy Logic|strategy-04)
 #feature-title(RANDOM STRATEGY LOGIC (FALLBACK))
 
 Get random patterns from pattern storage whether any free space on board or not.
@@ -185,6 +193,7 @@ $start-flex-grid[nowrap]{gap: 15px;}
 
 $start-highlight-box{width: 50%}
 
+@sub-bookmark(Design Characteristics|design-characteristics)
 #feature-title(DESIGN CHARACTERISTICS)
 
 $start-flow-box{display: flex; gap: 15px}
@@ -198,6 +207,7 @@ $end-highlight-box
 
 $start-highlight-box{width: 50%}
 
+@sub-bookmark(Gameplay Experience|gameplay-experience)
 #feature-title(GAMEPLAY EXPERIENCE)
 
 $start-flow-box{display: flex; gap: 15px}

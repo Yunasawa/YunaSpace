@@ -1,13 +1,24 @@
 ﻿.navigation-bar {
-    width: var(--sidebar-w);
+    width: 50px;
+    min-width: 50px;
+    box-sizing: border-box;
+    flex-shrink: 0;
     background: rgba(5, 7, 10, 0.5);
     border-right: 1px solid var(--border);
     height: calc(100vh - var(--toolbar-h));
-    position: fixed;
+    position: relative;
     top: var(--toolbar-h);
     padding: 40px 0;
+    overflow-x: hidden;
     overflow-y: auto;
+    background: linear-gradient(0deg, rgba(187, 134, 252, 0.05), transparent);
+    transition: width 0.25s ease-out;
 }
+
+    .navigation-bar:hover {
+        width: var(--sidebar-w);
+    }
+
     .navigation-bar .navigation-thumbnail {
         position: relative;
         width: 100%;
@@ -21,7 +32,6 @@
             height: auto;
             display: block;
         }
-
         .navigation-bar .navigation-thumbnail .cover {
             position: absolute;
             inset: 0;
@@ -29,7 +39,15 @@
             pointer-events: none;
             z-index: 2;
         }
-
+    .navigation-bar:hover .navigation-text {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+    .navigation-bar:hover .navigation-label {
+        opacity: 0.8;
+        max-width: 200px; 
+    }
 
 .navigation-group {
     display: none;
@@ -42,24 +60,28 @@
 
 .navigation-label {
     font-family: monospace;
+    white-space: nowrap;
+    max-width: 0;
+    overflow: hidden;
     font-size: 0.65rem;
     color: var(--accent);
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 0 30px 10px;
-    opacity: 0.8;
+    opacity: 0;
+    transition: opacity 0.2s ease;
 }
 
 .navigation-item {
     display: none;
-    padding: 12px 30px;
+    align-items: center;
+    padding: 12px 14px;
     color: var(--muted);
     cursor: pointer;
     font-size: 0.8rem;
     font-weight: 600;
-    align-items: center;
-    gap: 12px;
-    transition: 0.3s;
+    white-space: nowrap;
+    transition: background 0.3s, color 0.3s;
 }
 
     .navigation-item.visible {
@@ -78,5 +100,17 @@
     }
 
 .navigation-icon {
-    margin: 0 5px 0 0;
+    width: 22px;
+    min-width: 22px;
+    text-align: center;
+    font-size: 1rem;
+    margin-right: 10px;
 }
+
+.navigation-text {
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+}
+

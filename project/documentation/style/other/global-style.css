@@ -16,6 +16,10 @@
     --toolbar-h: 50px;
 }
 
+[id] {
+    scroll-margin-top: calc(var(--toolbar-h) + 20px);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

@@ -1,4 +1,5 @@
 #sub-title(> EDITOR_)
+@header-bookmark(CUSTOM EDITOR|custom-editor)
 #header-title(CUSTOM EDITOR){margin: 0 0 30px 0}
 
 
@@ -6,6 +7,7 @@
 
 $start-content-box
 #sub-title(EDITOR 01)
+@feature-bookmark(Block Pattern Editor|block-pattern-editor)
 #module-title(BLOCK PATTERN EDITOR){margin: 0 0 30px 0}
 
 A dedicated visual environment for managing the game's pattern library. Authors can define shapes on a fixed 5x5 grid, directly influencing the piece generation system's complexity and difficulty curve.
@@ -37,6 +39,7 @@ $end-content-box
 
 $start-content-box
 #sub-title(EDITOR 02)
+@feature-bookmark(Game Theme List|game-theme-list)
 #module-title(GAME THEME LIST){margin: 0 0 30px 0}
 
 $start-flex-grid{display:grid; grid-template-columns:0.6fr 0.4fr; gap:40px; margin-top:25px; align-items:start;}

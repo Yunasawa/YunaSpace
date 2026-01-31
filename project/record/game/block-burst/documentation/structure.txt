@@ -1,4 +1,5 @@
 #sub-title(> STRUCTURE_)
+@header-bookmark(PROJECT STRUCTURE|project-structure)
 #header-title(PROJECT STRUCTURE){margin: 0 0 30px 0}
 
 $start-content-box
@@ -107,6 +108,7 @@ $end-content-box
 @space(0|100)
 
 #sub-title(> STRUCTURE_)
+@header-bookmark(PROJECT PLUGINS|project-plugins)
 #header-title(PROJECT PLUGINS){margin: 0 0 30px 0}
 
 $start-content-box
