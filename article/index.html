@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YunaSpace | Project</title>
+    <title>YunaSpace | Article</title>
     <link rel="icon" type="image/png" href="../home/image/logo.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -136,7 +136,8 @@
         .search-wrapper input { background: transparent; border: none; color: white; padding: 10px; width: 80%; outline: none; }
         .tabs { display: flex; gap: 5px; }
         .tab {
-            padding: 12px 25px; border-radius: 100px; border: none; background: transparent;
+            height: 35px;
+            padding: 0 15px 0 15px; border-radius: 100px; border: none; background: transparent;
             color: var(--muted); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; cursor: pointer;
             transition: all 0.25s ease-out;
         }
@@ -159,11 +160,11 @@
             }
 
         /* GRID & CARDS */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .card-link { text-decoration: none; color: inherit; display: block; }
         .card {
             position: relative;
-            height: 300px; /* New Height */
+            height: 300px;
             border-radius: 20px;
             overflow: hidden;
             background: #000;
@@ -199,8 +200,7 @@
         }
         .card-category { font-family: monospace; color: var(--accent); letter-spacing: 3px; font-size: 0.7rem; margin-bottom: 10px; display: block; }
         .card-title {
-            font-size: 1.4rem; /* Slightly smaller for 300px scale */
-            font-weight: 800;
+            font-size: 1rem; /* Slightly smaller for 300px scale */
         }
         .card-description {
             color: var(--muted);
@@ -248,7 +248,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            margin-bottom: 6px;
+            margin-bottom: 15px;
         }
 
         .title-icon {
@@ -278,15 +278,15 @@
         </div>
         <ul class="navigation-link">
             <li><a href="../home/">Home</a></li>
-            <li><a href="#" class="selected">Project</a></li>
-            <li><a href="../article/">Article</a></li>
+            <li><a href="../project/">Project</a></li>
+            <li><a href="" class="selected">Article</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <header class="header-box">
             <div class="status-line"><i class="fas fa-circle" style="font-size: 8px; animation: pulse 2s infinite;"></i> SYSTEM STABLE // READY TO EXPLORE</div>
-            <h1>CORE<br><span>PROJECTS</span>_</h1>
+            <h1>TECHNICAL<br><span>ARTICLES</span>_</h1>
         </header>
 
         <nav class="toolbar">
@@ -296,9 +296,11 @@
             </div>
             <div class="tabs">
                 <button class="tab active" onclick="filterType('all', this)">All</button>
-                <button class="tab" onclick="filterType('game', this)">Game</button>
-                <button class="tab" onclick="filterType('tool', this)">Tool</button>
-                <button class="tab" onclick="filterType('library', this)">Library</button>
+                <button class="tab" onclick="filterType('graphics', this)">Graphics</button>
+                <button class="tab" onclick="filterType('architecture', this)">Architecture</button>
+                <button class="tab" onclick="filterType('mathematics', this)">Mathematics</button>
+                <button class="tab" onclick="filterType('performance', this)">Performance</button>
+                <button class="tab" onclick="filterType('systems', this)">Systems</button>
             </div>
             <div class="view-toggle-group">
                 <button class="view-btn active" id="gridBtn" onclick="toggleView('grid')"><i class="fas fa-th-large"></i></button>
@@ -312,11 +314,7 @@
 
     <script>
         const projectRegistry = [
-            ['game', 'block-burst'],
-            ['game', 'viral-rush'],
-            ['library', 'vozel-engine'],
-            ['tool', 'general-toolbox'],
-            ['tool', 'simple-ai-system']
+            ['mathematics', 'noise-function-in-game-development'],
         ];
 
         async function loadProjects() {
@@ -344,9 +342,11 @@
 
             // Define your icons here
             const iconMap = {
-                'game': 'fa-gamepad',
-                'tool': 'fa-screwdriver-wrench',
-                'library': 'fa-book-bookmark'
+                'graphics': 'fa-compass-drafting',
+                'architecture': 'fa-laptop-code',
+                'mathematics': 'fa-bezier-curve',
+                'performance': 'fa-bolt',
+                'systems': 'fa-network-wired',
             };
 
             grid.innerHTML = projects.map(p => {
@@ -360,14 +360,12 @@
                         <div class="card-image" style="--thumb: url('${thumb}')"></div>
                         <div class="card-overlay"></div>
                         <div class="card-content">
-                            <span class="card-category">${p.data.category.toUpperCase()} // ${p.data.editor || 'SYSTEM'}</span>
+                            <span class="card-category">${p.data.category.toUpperCase()}</span>
 
                             <div class="title-wrapper">
                                 <i class="fas ${iconClass} title-icon"></i>
-                                <h3 class="card-title">${p.data.name.toUpperCase()}</h3>
+                                <h3 class="card-title">${p.data.name}</h3>
                             </div>
-
-                            <p class="card-description">${p.data.description}</p>
 
                             <div class="tech-tags">
                                 ${p.data.keywords.map(k => `<span class="tag">${k}</span>`).join('')}

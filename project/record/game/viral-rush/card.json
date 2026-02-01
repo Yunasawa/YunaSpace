@@ -5,6 +5,7 @@
     "dimension": "3D",
     "editor": "Unity 2022.3 (URP)",
     "genre": [ "Puzzle", "Casual" ],
+    "github": "",
     "play": "https://play.google.com/store/apps/details?id=com.onelevenstudio.viralrush&pcampaignid=web_share",
     "description": "Defeating enemies and collecting resources, unlock upgrades and new lands, gradually reclaiming the cellular world from viral threats.",
     "keywords": [ "Survival", "Resource Collection", "Map Expansion", "Upgrade System" ]

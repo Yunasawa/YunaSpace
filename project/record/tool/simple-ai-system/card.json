@@ -1,0 +1,12 @@
+{
+    "name": "Simple AI System",
+    "category": "Tool",
+    "platform": "Editor",
+    "dimension": "-",
+    "editor": "Unity 2021.3+",
+    "genre": [ "Editor", "Runtime" ],
+    "github": "https://github.com/Yunasawa-Studio/YNL-Simple-AI-System",
+    "play": "",
+    "description": "Implement basic AI behaviors effortlessly using this straightforward toolkit. It’s designed to handle object behaviors and interactions.",
+    "keywords": [ "Behaviour System", "AI", "Behaviour Agent" ]
+}

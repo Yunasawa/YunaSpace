@@ -5,7 +5,8 @@
     "dimension": "2D",
     "editor": "Unity 6.3 (URP)",
     "genre": [ "Puzzle", "Casual" ],
-    "play": "https://fontawesome.com/icons/google-play?f=brands&s=solid",
+    "github": "",
+    "play": "",
     "description": "Drag block shapes onto a grid to fill rows or columns. Clear lines for points, the game ends when no available piece fits.",
     "keywords": [ "Grid-Based", "Puzzle Pattern", "Drag & Drop", "Offline", "Endless" ]
 }

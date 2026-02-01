@@ -1,0 +1,63 @@
+$start-list
+    $start-box
+        #TEST ENVIRONMENT
+        &data-box
+            - CPU: AAA
+            - GPU: BBB
+            - RAM: CCC
+            - API: DDD
+            - UNITY: EEE
+        &data-list
+            - other: FFF
+    $end-box
+
+    $start-box
+        #SCENE CONFIGURATION
+        &data-strip
+            - World Size: 512x512x512
+            - Chunk Size: 16x16
+            - Visible Chunks: ~1,200
+    $end-box
+
+    $start-box
+        #PERFORMANCE RESULTS
+        &data-table
+            | MODE | AVG FPS | MIN FPS | CPU (ms) | GPU (ms) | DRAW CALLS |
+            |---|---|---|---|---|---|
+            | CPU Naive | 28 | 19 | 21.4 | 12.8 | 4,200 |
+            | GPU Instanced | 74 | 61 | 7.3 | 9.6 | 420 |
+            | GPU Indirect | 142 | 121 | 2.1 | 6.4 | 3 |
+    $end-box
+$end-list
+
+$start-grid
+    $start-box
+        #CULLING BREAKDOWN
+        &data-strip
+            - Generated Faces: 18.4M
+            - Back-Face Culling: 7.2M
+            - Frustum Culling: 2.4M
+            - Distance Culling: 1.9M
+    $end-box
+
+    $start-box
+        #MEMORY USAGE
+        &data-strip
+            - Instance Buffers: 420 MB
+            - Texture Arrays: 512 MB
+            - Compute Buffers: 64 MB
+            ---
+            - TOTAL GPU MEMORY: ~1.0 GB
+    $end-box
+$end-grid
+
+$start-list
+    $start-box
+        #OBSERVATIONS & ANALYSIS
+        &data-list
+            - CPU time is almost entirely decoupled from face count after switching to indirect rendering.
+            - GPU frustum + back-face culling removes ~90% of faces before rasterization stage.
+            - Draw call count becomes constant (3) regardless of world size or complexity.
+            - Bottleneck shifts from CPU submission to GPU fill rate at extreme view distances.
+    $end-box
+$end-list
