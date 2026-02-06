@@ -86,6 +86,6 @@
 
 .gradient-box {
     padding: 25px;
-    background: linear-gradient(90deg, rgba(187, 134, 252, 0.05) 100%, transparent 0%);
+    background: linear-gradient( 90deg, rgba(187, 134, 252, 0.125) 0%, transparent 100% );
     border-radius: 10px;
 }

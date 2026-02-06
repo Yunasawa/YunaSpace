@@ -1,0 +1,139 @@
+#sub-title(> FEATURE_)
+@header-bookmark(PROJECT FEATURES|project-features)
+#header-title(PROJECT FEATURES){margin: 0 0 30px 0}
+
+$start-content-box
+
+<b>Vozel Engine</b> is a high-performance voxel authoring and rendering ecosystem consisting of a standalone world-building application and a dedicated Unity integration pipeline.
+
+@space(0|25)
+
+$start-feature-box{margin: 0 0 25px 0}
+
+
+@feature-bookmark(Terrain Editor|terrain-editor)
+#feature-title(TERRAIN EDITOR){margin: 0 0 25px 0}
+
+A flexible terrain authoring system built on layered procedural logic and spline-based control.
+
+@space(0|15)
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Spline Editor</b>: Draw and edit terrain paths for rivers, roads, and cliffs with adjustable width and falloff.){color: #ccc}
+#item[diamond-bullet](<b>Noise Stack System</b>: Supports up to 5 independent noise layers with per-layer toggle and persistence control.){color: #ccc}
+#item[diamond-bullet](<b>Custom Noise Functions</b>: Plug-in custom algorithms and combine layers using various blend modes.){color: #ccc}
+#item[diamond-bullet](<b>Height & Slope Control</b>: Advanced height clamping, masking, and slope-based terrain shaping.){color: #ccc}
+#item[diamond-bullet](<b>Live Terrain Preview</b>: Real-time visual updates during the editing process.){color: #ccc}
+$end-flex-grid
+
+
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+
+@feature-bookmark(Biome Editor|biome-editor)
+#feature-title(BIOME EDITOR){margin: 0 0 25px 0}
+
+A modular biome system allowing unique terrain logic and environment configuration per biome.
+
+@space(0|15)
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Biome-Specific Terrain Rules</b>: Independent noise stacks and height/slope behavior per biome.){color: #ccc}
+#item[diamond-bullet](<b>Terrain Blending</b>: Smooth transitions with configurable blend radius and weighting.){color: #ccc}
+#item[diamond-bullet](<b>Biome Variants</b>: Support for multiple sub-variants with randomized selection rules.){color: #ccc}
+#item[diamond-bullet](<b>Environment Settings</b>: Per-biome voxel type selection and environmental parameters.){color: #ccc}
+#item[diamond-bullet](<b>Biome Preview Mode</b>: Visualization tools for biome distribution and blending boundaries.){color: #ccc}
+$end-flex-grid
+
+
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+
+@feature-bookmark(Voxel Mesh & Texture Management|voxel-mesh-texture)
+#feature-title(VOXEL MESH & TEXTURE MANAGEMENT){margin: 0 0 25px 0}
+
+Comprehensive toolset for creating custom voxel shapes and managing high-density texture data.
+
+@space(0|15)
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Mesh Editor</b>: Define custom vertices and faces for non-cube shapes with per-face configuration.){color: #ccc}
+#item[diamond-bullet](<b>Texture Painting</b>: Direct surface painting and per-face UV editing on voxel meshes.){color: #ccc}
+#item[diamond-bullet](<b>Atlas Editor</b>: Grid-based layout management for texture atlases with real-time validation.){color: #ccc}
+#item[diamond-bullet](<b>Optimized Indexing</b>: Data structures specifically tuned for efficient voxel rendering.){color: #ccc}
+$end-flex-grid
+
+
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+
+@feature-bookmark(Voxel Data & Construction|voxel-data-construction)
+#feature-title(VOXEL DATA & CONSTRUCTION){margin: 0 0 25px 0}
+
+Tools for individual voxel configuration and complex multi-voxel assembly.
+
+@space(0|15)
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Voxel Editor</b>: Manage physical properties, metadata tags, and frame-based animated textures.){color: #ccc}
+#item[diamond-bullet](<b>Construction Editor</b>: Modular building system with snapping, alignment, and pivot controls for structures.){color: #ccc}
+#item[diamond-bullet](<b>Map Editor</b>: High-level composition including manual drawing and layered editing of structures.){color: #ccc}
+#item[diamond-bullet](<b>Asset Export</b>: Support for FBX and custom formats for cross-pipeline compatibility.){color: #ccc}
+$end-flex-grid
+
+
+
+$end-feature-box
+
+$start-feature-box{margin: 0 0 25px 0}
+
+
+@feature-bookmark(Unity Integration & Generation|unity-integration)
+#feature-title(UNITY INTEGRATION & GENERATION){margin: 0 0 25px 0}
+
+Bridges the authoring application with Unity's runtime and editor workflows.
+
+@space(0|15)
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Settings File Importer</b>: Automated pipeline for generating Unity Materials, Meshes, and Data assets.){color: #ccc}
+#item[diamond-bullet](<b>Procedural World Generator</b>: Seed-based, chunked generation with deterministic results and runtime loading.){color: #ccc}
+#item[diamond-bullet](<b>Scalable Architecture</b>: Designed to support large world sizes via biome-driven logic.){color: #ccc}
+$end-flex-grid
+
+
+
+$end-feature-box
+
+$start-feature-box
+
+
+@feature-bookmark(Rendering & Performance|rendering-performance)
+#feature-title(RENDERING & PERFORMANCE){margin: 0 0 25px 0}
+
+Engineered for high-fidelity visuals without sacrificing frame rates.
+
+@space(0|15)
+
+$start-flex-grid[column]{gap: 15px;}
+#item[diamond-bullet](<b>Optimized Mesh Generation</b>: Advanced face culling to reduce draw calls and vertex count.){color: #ccc}
+#item[diamond-bullet](<b>GPU-Friendly Layout</b>: Native support for texture arrays and instanced rendering pipelines.){color: #ccc}
+#item[diamond-bullet](<b>URP Compatibility</b>: Fully compatible with Unity's Universal Render Pipeline.){color: #ccc}
+$end-flex-grid
+
+
+
+$end-feature-box
+
+$end-content-box
+
+Would you like me to generate a technical diagram or a visual summary of how the Unity Plugin handles the file import pipeline?

@@ -49,6 +49,8 @@
 }
 
     .toc-item a {
+        overflow: hidden;
+        height: 25px;
         color: #ddd;
         text-decoration: none;
         display: block;
@@ -56,6 +58,8 @@
         font-size: 0.85rem;
         transition: all 0.2s ease;
         border-left: 2px solid transparent;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
         .toc-item a:hover {

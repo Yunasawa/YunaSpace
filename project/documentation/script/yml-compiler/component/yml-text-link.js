@@ -1,5 +1,5 @@
 export const LinkComponent = {
-    // This regex looks for @text-link[class](content|url){style} anywhere in a string
+    // This regex looks for @link[class](content|url){style} anywhere in a string
     // Matches: @text-link[extra](text|url){style}
     pattern: /@link(?:\[([^\]]+)\])?\(([^|)]+)\|([^|)]+)\)(?:\{([^}]+)\})?/g,
 

@@ -1,0 +1,12 @@
+{
+    "name": "Runtime Command",
+    "category": "Library",
+    "platform": "Editor",
+    "dimension": "2D/3D",
+    "editor": "Unity 2022.3+",
+    "genre": [ "Runtime", "Command" ],
+    "github": "",
+    "play": "",
+    "description": "A flexible in-game command system that lets you add a runtime command view for chatting, debugging, or executing custom commands while the game is running.",
+    "keywords": [ "Runtime", "Messaging", "Command System" ]
+}

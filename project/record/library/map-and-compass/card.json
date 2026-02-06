@@ -1,0 +1,12 @@
+{
+    "name": "Map & Compass",
+    "category": "Library",
+    "platform": "Editor",
+    "dimension": "2D/3D",
+    "editor": "Unity 2022.3+",
+    "genre": [ "Engine", "Map" ],
+    "github": "",
+    "play": "",
+    "description": "A game library that provides ready-to-use map and compass features to your game, helping players navigate the world clearly and intuitively.",
+    "keywords": [ "Map System", "Navigator System" ]
+}

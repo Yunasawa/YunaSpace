@@ -1,0 +1,35 @@
+#sub-title(> CHANGELOG_)
+@header-bookmark(PROJECT CHANGELOG|project-changelog)
+#header-title(PROJECT CHANGELOG){margin: 0 0 30px 0}
+
+$start-content-box
+
+$start-gradient-box{padding: 10px 20px;}
+
+@feature-bookmark(1.1.0: Enhanced visuals & added sounds|version-1-0-0)
+#text(Feb 05, 2026){color: #aaa; font-style: italic; margin: 0 0 5px 0}
+#feature-title(1.1.0 - Enhanced visuals & added sounds){margin: 0 0 10px 0}
+
+$start-flex-grid{gap: 5px; flex-direction: column;}
+#item[diamond-bullet](Replace the texture hue function on shader to make the color fresher on mobile devices.)
+#item[diamond-bullet](Added SFXs:)
+#item[dot-bullet](Pieces dragging and dropping SFX.){margin-left: 25px; color: #aaa}
+#item[dot-bullet](Pieces placing on board SFX.){margin-left: 25px; color: #aaa}
+#item[dot-bullet](Line cleared with combo SFX.){margin-left: 25px; color: #aaa}
+$end-flex-grid
+
+$end-gradient-box
+
+@space(0|15)
+
+$start-gradient-box{padding: 10px 20px;}
+
+@feature-bookmark(1.0.0: First release|version-1-0-0)
+#text(Feb 04, 2026){color: #aaa; font-style: italic; margin: 0 0 5px 0}
+#feature-title(1.0.0 - First release){margin: 0 0 10px 0}
+
+Official release on @link(Google Play Store|https://play.google.com/store/apps/details?id=com.yunaspace.blockburst).
+
+$end-gradient-box
+
+$end-content-box

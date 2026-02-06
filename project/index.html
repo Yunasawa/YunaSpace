@@ -178,11 +178,11 @@
 
                 .card:hover .card-image {
                     transform: scale(1.1);
-                    opacity: 0.6;
+                    opacity: 1;
                 }
         .card-image {
             position: absolute; inset: 0; background-image: var(--thumb);
-            background-size: cover; background-position: center; opacity: 0.4; transition: 0.25s ease-out;
+            background-size: cover; background-position: center; opacity: 0.75; transition: 0.25s ease-out;
         }
         .card-overlay {
             position: absolute;
@@ -315,8 +315,12 @@
             ['game', 'block-burst'],
             ['game', 'viral-rush'],
             ['library', 'vozel-engine'],
+            ['library', 'map-and-compass'],
+            ['library', 'runtime-command'],
+            ['library', 'simple-ai-system'],
+            ['library', 'simple-dialog-system'],
+            ['tool', 'animation-path-fixer'],
             ['tool', 'general-toolbox'],
-            ['tool', 'simple-ai-system']
         ];
 
         async function loadProjects() {

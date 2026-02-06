@@ -1,0 +1,12 @@
+{
+    "name": "Animation Path Fixer",
+    "category": "Tool",
+    "platform": "Editor",
+    "dimension": "2D/3D",
+    "editor": "Unity 2022.3+",
+    "genre": [ "Engine", "Voxel" ],
+    "github": "https://github.com/Yunasawa-Studio/YNL-General-Toolbox",
+    "play": "",
+    "description": "An editor tool that fixes broken animation paths and automatically keeps them in sync when objects are edited.",
+    "keywords": [ "Survival", "Resource Collection", "Map Expansion", "Upgrade System" ]
+}
