@@ -1,0 +1,12 @@
+{
+    "name": "Soundstreamable",
+    "category": "Library",
+    "platform": "Editor",
+    "dimension": "-",
+    "editor": "Unity 2022.3+",
+    "genre": [ "Editor", "Runtime" ],
+    "github": "",
+    "play": "",
+    "description": "A spatial audio library that dynamically anchors sound to the closest point along a 3D spline, allowing audio to flow realistically along rivers, wires, and corridors.",
+    "keywords": [ "Sound" ]
+}

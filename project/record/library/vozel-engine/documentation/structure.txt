@@ -1,0 +1,107 @@
+#sub-title(> STRUCTURE_)
+@header-bookmark(PROJECT STRUCTURE|project-structure)
+#header-title(PROJECT STRUCTURE){margin: 0 0 30px 0}
+
+$start-content-box
+
+@start-project-tree{margin: 20px 0 0 0}
+GraphWindow/
+-Definitions/
+--GraphKey.cs
+-Elements/
+--GraphConnection/
+---GraphConnection.cs
+---GraphConnection.IntersectHandler.cs
+---GraphConnection.StateHandler.cs
+---GraphConnection.VisualHandler.cs
+--GraphGrid/
+---GraphGrid.cs
+---GraphGrid.uss
+--GraphGroup/
+---GraphGroup.cs
+---GraphGroup.InputHandler.cs
+---GraphGroup.PositionHandler.cs
+---GraphGroup.StateHandler.cs
+---GraphGroup.uss
+--GraphMenu/
+---GraphMenu.cs
+---GraphMenu.uss
+---MenuBox.cs
+---MenuBox.InputHandler.cs
+---MenuBox.uss
+---MenuItem.cs
+---MenuItem.uss
+--GraphMinimap/
+---GraphMinimap.cs
+---GraphMinimap.InputHandler.cs
+---GraphMinimap.StateHandler.cs
+---GraphMinimap.uss
+---GraphMinimap.VisualHandler.cs
+--GraphNode/
+---GraphNode.cs
+---GraphNode.InputHandler.cs
+---GraphNode.InterfaceHandler.cs
+---GraphNode.PositionHandler.cs
+---GraphNode.StateHandler.cs
+---GraphNode.uss
+---GraphPort.cs
+---GraphPort.InputHandler.cs
+---GraphPort.StateHandler.cs
+---PortType.cs
+-Manipulators/
+--GraphPanManipulator.cs
+--GraphSelectionManipulator.cs
+--GraphZoomManipulator.cs
+-Samples/
+--Nodes/
+---CellularNoiseNode.cs
+---FractalNoiseNode.cs
+---InRangeNode.cs
+---MasterNode.cs
+---PerlinNoiseNode.cs
+---PositionNode.cs
+---RidgeNoiseNode.cs
+---SelectNode.cs
+---VoronoiNoiseNode.cs
+---WhiteNoiseNode.cs
+--GraphNodeDefineAttribute.cs
+-Graph Record.asset
+-GraphWindow.ConnectionHandler.cs
+-GraphWindow.cs
+-GraphWindow.GroupHandler.cs
+-GraphWindow.InputHandler.cs
+-GraphWindow.SelectionHandler.cs
+-GraphWindow.uss
+
+@end-project-tree
+
+$end-content-box
+
+@space(0|100)
+
+#sub-title(> STRUCTURE_)
+@header-bookmark(PROJECT PLUGINS|project-plugins)
+#header-title(PROJECT PLUGINS){margin: 0 0 30px 0}
+
+$start-content-box
+
+$start-gradient-box{padding: 10px; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(DOTween Pro){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://dotween.demigiant.com/pro.php" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+
+@space(0|10)
+
+$start-gradient-box{padding: 10px ; display: flex; flex-direction: row; justify-content: space-between;}
+$start-flex-grid
+#solid-icon[plug]{margin: 0 10px 0 0; width: 25px; height: 25px; align-content: center; align-self: center; box-shadow: 0 0 10px #BB86FC33; background: #BB86FC1A; border-radius: 15px;}
+#text(TextMeshPro){align-self: center;}
+$end-flex-grid
+#frame-button(<a href="https://docs.unity3d.com/Packages/com.unity.textmeshpro@3.0/manual/index.html" class="button-link" style="color: var(--accent); font-size: 0.75rem" target="_blank">See more</a>)
+$end-gradient-box
+
+
+$end-content-box
